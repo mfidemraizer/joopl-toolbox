@@ -1,0 +1,10 @@
+{
+  "name": "jOOPL Framework",
+  "description": "Object-oriented framework for the Web",
+  "version": "1.0.0",
+  "url": "http://joopl.codeplex.com",
+  "logo": "http://matiasfidemraizer.com/joopl-toolbox.png",
+  "options": {
+    "outdir": "doc"
+  }
+}

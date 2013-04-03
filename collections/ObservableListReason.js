@@ -30,7 +30,7 @@ limitations under the License.
     /**
         Represents an enumeration of possible reasons of a change in an observable list.
 
-            @class ObservableList
+            @class ObservableListReason
             @static
         */
     $global.joopl.collections.ObservableListReason = $new($def({
