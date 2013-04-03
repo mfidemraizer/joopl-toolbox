@@ -7,13 +7,23 @@
         "logo": "http://matiasfidemraizer.com/joopl-toolbox.png"
     },
     "files": {
-        "joopl.collections.js": {
-            "name": "joopl.collections.js",
+        "collections\\List.js": {
+            "name": "collections\\List.js",
             "modules": {
                 "Collections": 1
             },
             "classes": {
-                "joopl.collections.List": 1,
+                "joopl.collections.List": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl.collections": 1
+            }
+        },
+        "collections\\ObservableList.js": {
+            "name": "collections\\ObservableList.js",
+            "modules": {},
+            "classes": {
                 "joopl.collections.ObservableList": 1
             },
             "fors": {},
@@ -21,18 +31,68 @@
                 "joopl.collections": 1
             }
         },
-        "joopl.ui.binder.js": {
-            "name": "joopl.ui.binder.js",
+        "collections\\ObservableListReason.js": {
+            "name": "collections\\ObservableListReason.js",
+            "modules": {},
+            "classes": {
+                "joopl.collections.ObservableListReason": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl.collections": 1
+            }
+        },
+        "ui\\Binder.js": {
+            "name": "ui\\Binder.js",
             "modules": {
-                "Data-binding": 1
+                "User interface data-binding": 1
             },
             "classes": {
-                "joopl.ui.$binder": 1,
-                "joopl.ui.TwoWayBinder": 1,
-                "joopl.ui.EventBinder": 1,
-                "joopl.ui.PropertyBinder": 1,
-                "joopl.ui.CollectionBinder": 1,
                 "joopl.ui.Binder": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl.ui": 1
+            }
+        },
+        "ui\\CollectionBinder.js": {
+            "name": "ui\\CollectionBinder.js",
+            "modules": {},
+            "classes": {
+                "joopl.ui.CollectionBinder": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl.ui": 1
+            }
+        },
+        "ui\\EventBinder.js": {
+            "name": "ui\\EventBinder.js",
+            "modules": {},
+            "classes": {
+                "joopl.ui.EventBinder": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl.ui": 1
+            }
+        },
+        "ui\\PropertyBinder.js": {
+            "name": "ui\\PropertyBinder.js",
+            "modules": {},
+            "classes": {
+                "joopl.ui.PropertyBinder": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl.ui": 1
+            }
+        },
+        "ui\\TwoWayBinder.js": {
+            "name": "ui\\TwoWayBinder.js",
+            "modules": {},
+            "classes": {
+                "joopl.ui.TwoWayBinder": 1
             },
             "fors": {},
             "namespaces": {
@@ -46,57 +106,35 @@
             "submodules": {},
             "classes": {
                 "joopl.collections.List": 1,
-                "joopl.collections.ObservableList": 1
+                "joopl.collections.ObservableList": 1,
+                "joopl.collections.ObservableListReason": 1
             },
             "fors": {},
             "namespaces": {
                 "joopl.collections": 1
             },
             "tag": "module",
-            "file": "joopl.collections.js",
-            "line": 121
+            "file": "collections\\ObservableListReason.js",
+            "line": 30
         },
-        "User interface (UI)": {
-            "name": "User interface (UI)",
-            "submodules": {
-                "Data-binding": 1
-            },
-            "classes": {
-                "joopl.ui.$binder": 1,
-                "joopl.ui.TwoWayBinder": 1,
-                "joopl.ui.EventBinder": 1,
-                "joopl.ui.PropertyBinder": 1,
-                "joopl.ui.CollectionBinder": 1,
-                "joopl.ui.Binder": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "joopl.ui": 1
-            },
-            "file": "joopl.ui.binder.js",
-            "line": 395
-        },
-        "Data-binding": {
-            "name": "Data-binding",
+        "User interface data-binding": {
+            "name": "User interface data-binding",
             "submodules": {},
             "classes": {
-                "joopl.ui.$binder": 1,
-                "joopl.ui.TwoWayBinder": 1,
+                "joopl.ui.Binder": 1,
+                "joopl.ui.CollectionBinder": 1,
                 "joopl.ui.EventBinder": 1,
                 "joopl.ui.PropertyBinder": 1,
-                "joopl.ui.CollectionBinder": 1,
-                "joopl.ui.Binder": 1
+                "joopl.ui.TwoWayBinder": 1
             },
             "fors": {},
-            "is_submodule": 1,
             "namespaces": {
                 "joopl.ui": 1
             },
-            "module": "User interface (UI)",
-            "namespace": "",
-            "file": "joopl.ui.binder.js",
-            "line": 395,
-            "description": "Represents an HTML-to-objects/objects-to-HTML binder factory. Creates binders."
+            "tag": "module",
+            "file": "ui\\TwoWayBinder.js",
+            "line": 36,
+            "description": "# User interface data-binding"
         }
     },
     "classes": {
@@ -110,7 +148,7 @@
             "extension_for": [],
             "module": "Collections",
             "namespace": "joopl.collections",
-            "file": "joopl.collections.js",
+            "file": "collections\\List.js",
             "line": 30,
             "description": "Represents a list of objects.",
             "is_constructor": 1,
@@ -133,8 +171,8 @@
             "extension_for": [],
             "module": "Collections",
             "namespace": "joopl.collections",
-            "file": "joopl.collections.js",
-            "line": 121,
+            "file": "collections\\ObservableList.js",
+            "line": 30,
             "description": "Represents an observable list of objects. Raises events once an item is added, removed or changed.",
             "extends": "joopl.collections.List",
             "is_constructor": 1,
@@ -147,88 +185,40 @@
             ],
             "optional": 1
         },
-        "joopl.ui.$binder": {
-            "name": "joopl.ui.$binder",
-            "shortname": "$binder",
+        "joopl.collections.ObservableListReason": {
+            "name": "joopl.collections.ObservableListReason",
+            "shortname": "ObservableListReason",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui",
-            "file": "joopl.ui.binder.js",
-            "line": 34,
-            "description": "Represents an HTML-to-objects/objects-to-HTML binder factory. Creates binders.",
+            "module": "Collections",
+            "namespace": "joopl.collections",
+            "file": "collections\\ObservableListReason.js",
+            "line": 30,
+            "description": "Represents an enumeration of possible reasons of a change in an observable list.",
             "static": 1
         },
-        "joopl.ui.TwoWayBinder": {
-            "name": "joopl.ui.TwoWayBinder",
-            "shortname": "TwoWayBinder",
+        "joopl.ui.Binder": {
+            "name": "joopl.ui.Binder",
+            "shortname": "Binder",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui",
-            "file": "joopl.ui.binder.js",
-            "line": 55,
-            "description": "Represents a two-way binder. It adds the required handlers to reflect changes in the HTML bound element when\nthe bound object property changes.",
+            "file": "ui\\Binder.js",
+            "line": 53,
+            "description": "Represents the default, entry point data binder.",
             "is_constructor": 1,
             "params": [
                 {
-                    "name": "binder",
-                    "description": "The event binder.",
-                    "type": "joopl.ui.EventBinder"
-                }
-            ]
-        },
-        "joopl.ui.EventBinder": {
-            "name": "joopl.ui.EventBinder",
-            "shortname": "EventBinder",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui",
-            "file": "joopl.ui.binder.js",
-            "line": 132,
-            "description": "Represents an event binder. That is, this binder adds an event handler to the HTML element in order to sinchronize with the bound object property value.",
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "binder",
-                    "description": "The property binder.",
-                    "type": "joopl.ui.PropertyBinder"
-                }
-            ]
-        },
-        "joopl.ui.PropertyBinder": {
-            "name": "joopl.ui.PropertyBinder",
-            "shortname": "PropertyBinder",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui",
-            "file": "joopl.ui.binder.js",
-            "line": 205,
-            "description": "Represents a property binder. That is, this binder binds a property of the bound object..",
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "binder",
-                    "description": "The binder.",
-                    "type": "joopl.ui.Binder"
+                    "name": "cssSelector",
+                    "description": "A CSS selector pointing to the element(s) handled by the binder..",
+                    "type": "String"
                 }
             ]
         },
@@ -240,55 +230,97 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui",
-            "file": "joopl.ui.binder.js",
-            "line": 316,
-            "description": "Represents a collection binder. That is, this binder binds a joopl.collections.ObservableList to the bound list-style HTML element.",
+            "file": "ui\\CollectionBinder.js",
+            "line": 36,
+            "description": "Represents a collection binder. That is, this binder binds a ObservableList to the bound list-style HTML element.",
             "is_constructor": 1,
             "params": [
                 {
                     "name": "binder",
                     "description": "The binder.",
-                    "type": "joopl.ui.Binder"
+                    "type": "Binder"
                 }
             ]
         },
-        "joopl.ui.Binder": {
-            "name": "joopl.ui.Binder",
-            "shortname": "Binder",
+        "joopl.ui.EventBinder": {
+            "name": "joopl.ui.EventBinder",
+            "shortname": "EventBinder",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui",
-            "file": "joopl.ui.binder.js",
-            "line": 395,
-            "description": "Represents the default, entry point data binder.",
+            "file": "ui\\EventBinder.js",
+            "line": 36,
+            "description": "Represents an event binder. That is, this binder adds an event handler to the HTML element in order to sinchronize with the bound object property value.",
             "is_constructor": 1,
             "params": [
                 {
-                    "name": "cssSelector",
-                    "description": "A CSS selector pointing to the element(s) handled by the binder..",
-                    "type": "String"
+                    "name": "binder",
+                    "description": "The property binder.",
+                    "type": "PropertyBinder"
+                }
+            ]
+        },
+        "joopl.ui.PropertyBinder": {
+            "name": "joopl.ui.PropertyBinder",
+            "shortname": "PropertyBinder",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui",
+            "file": "ui\\PropertyBinder.js",
+            "line": 36,
+            "description": "Represents a property binder. That is, this binder binds a property of the bound object..",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "binder",
+                    "description": "The binder.",
+                    "type": "Binder"
+                }
+            ]
+        },
+        "joopl.ui.TwoWayBinder": {
+            "name": "joopl.ui.TwoWayBinder",
+            "shortname": "TwoWayBinder",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui",
+            "file": "ui\\TwoWayBinder.js",
+            "line": 36,
+            "description": "Represents a two-way binder. It adds the required handlers to reflect changes in the HTML bound element when\nthe bound object property changes.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "binder",
+                    "description": "The event binder.",
+                    "type": "EventBinder"
                 }
             ]
         }
     },
     "classitems": [
         {
-            "file": "joopl.collections.js",
+            "file": "collections\\List.js",
             "line": 25,
             "class": "joopl.collections.List",
             "module": "Collections",
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
+            "file": "collections\\List.js",
             "line": 42,
             "description": "Gets the underlying list items as an array of objects.",
             "itemtype": "property",
@@ -299,7 +331,7 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
+            "file": "collections\\List.js",
             "line": 52,
             "description": "Gets the current item count",
             "itemtype": "method",
@@ -313,7 +345,7 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
+            "file": "collections\\List.js",
             "line": 62,
             "description": "Adds an object item to the list",
             "itemtype": "method",
@@ -330,7 +362,7 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
+            "file": "collections\\List.js",
             "line": 72,
             "description": "Removes an item in the given index position.",
             "itemtype": "method",
@@ -351,30 +383,15 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
-            "line": 99,
-            "description": "An item has been added to the observable list.",
-            "itemtype": "property",
-            "name": "itemAdded",
-            "type": "Number",
+            "file": "collections\\ObservableList.js",
+            "line": 25,
             "class": "joopl.collections.ObservableList",
             "module": "Collections",
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
-            "line": 109,
-            "description": "An item has been removed in the observable list.",
-            "itemtype": "property",
-            "name": "itemRemoved",
-            "type": "Number",
-            "class": "joopl.collections.ObservableList",
-            "module": "Collections",
-            "namespace": "joopl.collections"
-        },
-        {
-            "file": "joopl.collections.js",
-            "line": 137,
+            "file": "collections\\ObservableList.js",
+            "line": 46,
             "description": "Raises all change handlers. It is intended for the framework nor direct usage by developers.",
             "itemtype": "method",
             "name": "raiseHandlers",
@@ -395,8 +412,8 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
-            "line": 150,
+            "file": "collections\\ObservableList.js",
+            "line": 59,
             "description": "Adds a change event listener.",
             "itemtype": "method",
             "name": "addChangedListener",
@@ -412,8 +429,8 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
-            "line": 160,
+            "file": "collections\\ObservableList.js",
+            "line": 69,
             "description": "Adds an object item to the list",
             "itemtype": "method",
             "name": "add",
@@ -429,8 +446,8 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.collections.js",
-            "line": 172,
+            "file": "collections\\ObservableList.js",
+            "line": 81,
             "description": "Removes an item in the given index position.",
             "itemtype": "method",
             "name": "removeAt",
@@ -450,16 +467,44 @@
             "namespace": "joopl.collections"
         },
         {
-            "file": "joopl.ui.binder.js",
-            "line": 29,
-            "class": "joopl.ui.$binder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "file": "collections\\ObservableListReason.js",
+            "line": 25,
+            "class": "joopl.collections.ObservableListReason",
+            "module": "Collections",
+            "namespace": "joopl.collections"
+        },
+        {
+            "file": "collections\\ObservableListReason.js",
+            "line": 40,
+            "description": "An item has been added to the observable list.",
+            "itemtype": "property",
+            "name": "itemAdded",
+            "type": "Number",
+            "class": "joopl.collections.ObservableListReason",
+            "module": "Collections",
+            "namespace": "joopl.collections"
+        },
+        {
+            "file": "collections\\ObservableListReason.js",
+            "line": 50,
+            "description": "An item has been removed in the observable list.",
+            "itemtype": "property",
+            "name": "itemRemoved",
+            "type": "Number",
+            "class": "joopl.collections.ObservableListReason",
+            "module": "Collections",
+            "namespace": "joopl.collections"
+        },
+        {
+            "file": "ui\\Binder.js",
+            "line": 31,
+            "class": "joopl.ui.Binder",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui"
         },
         {
-            "file": "joopl.ui.binder.js",
-            "line": 42,
+            "file": "ui\\Binder.js",
+            "line": 40,
             "description": "Creates a binder based on a given HTML CSS selector.",
             "itemtype": "method",
             "name": "for",
@@ -472,265 +517,37 @@
             ],
             "return": {
                 "description": "The binder.",
-                "type": "joopl.ui.Binder"
+                "type": "Binder"
             },
-            "class": "joopl.ui.$binder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "class": "joopl.ui.Binder",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui"
         },
         {
-            "file": "joopl.ui.binder.js",
-            "line": 69,
-            "description": "Gets the bound object",
-            "itemtype": "property",
-            "name": "boundObject",
-            "type": "Object",
-            "class": "joopl.ui.TwoWayBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 79,
-            "description": "Gets the HTML element value function predicate",
-            "itemtype": "property",
-            "name": "valueFunc",
-            "type": "Function",
-            "class": "joopl.ui.TwoWayBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 89,
-            "description": "Builds binder to support two-way binding.",
-            "itemtype": "method",
-            "name": "twoWay",
-            "return": {
-                "description": "A proxy of the bound object that is able of raise events when a property changes. **This is the object that must be used in order to change object property values**. The proxy both changes the bound HTML element and the proxied bound object properties.",
-                "type": "Object"
-            },
-            "class": "joopl.ui.TwoWayBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 147,
-            "description": "Gets the bound object",
-            "itemtype": "property",
-            "name": "boundObject",
-            "type": "Object",
-            "class": "joopl.ui.EventBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 157,
-            "description": "Gets the HTML element value function predicate",
-            "itemtype": "property",
-            "name": "valueFunc",
-            "type": "Function",
-            "class": "joopl.ui.EventBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 167,
-            "description": "Gets the bound HTML element",
-            "itemtype": "property",
-            "name": "element",
-            "type": "jQuery object",
-            "class": "joopl.ui.EventBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 178,
-            "description": "Gets the bound object property function predicate",
-            "itemtype": "property",
-            "name": "propertyPredicate",
-            "type": "Function",
-            "class": "joopl.ui.EventBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 188,
-            "description": "Binds the HTML element to the configured object property to be synchronized it on the specified event.",
-            "itemtype": "method",
-            "name": "event",
-            "params": [
-                {
-                    "name": "eventName",
-                    "description": "The compatible jQuery event name.",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "a joopl.ui.TwoWayBinder binder to configure two-way binding if needed.",
-                "type": "TwoWayBinder"
-            },
-            "class": "joopl.ui.EventBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 220,
-            "description": "Gets the bound object",
-            "itemtype": "property",
-            "name": "boundObject",
-            "type": "Object",
-            "class": "joopl.ui.PropertyBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 230,
-            "description": "Gets the bound HTML element",
-            "itemtype": "property",
-            "name": "element",
-            "type": "jQuery object",
-            "class": "joopl.ui.PropertyBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 240,
-            "description": "Gets or sets the HTML element value function predicate",
-            "itemtype": "property",
-            "name": "valueFunc",
-            "type": "Function",
-            "class": "joopl.ui.PropertyBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 254,
-            "description": "Gets or sets the property function predicate.",
-            "itemtype": "property",
-            "name": "propertyPredicate",
-            "type": "Function",
-            "class": "joopl.ui.PropertyBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 268,
-            "description": "Binds the given object property specified by the predicate. The whole predicate receives the bound object and ta value as input parameters.\nFor example:\n\n        function(boundObject, value) {\n                boundObject.text = value;\n        }",
-            "itemtype": "method",
-            "name": "property",
-            "params": [
-                {
-                    "name": "predicate",
-                    "description": "The property predicate function.",
-                    "type": "Function"
-                }
-            ],
-            "return": {
-                "description": "a joopl.ui.EventBinder binder to configure the event that trigger changes in the bindings.",
-                "type": "EventBinder"
-            },
-            "class": "joopl.ui.PropertyBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 330,
-            "description": "Gets the bound joopl.collections.ObservableList.",
-            "itemtype": "property",
-            "name": "observable",
-            "type": "joopl.collections.ObservableList",
-            "class": "joopl.ui.CollectionBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 340,
-            "description": "Gets the bound HTML element",
-            "itemtype": "property",
-            "name": "element",
-            "type": "jQuery object",
-            "class": "joopl.ui.CollectionBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 350,
-            "description": "Sets the collection item rendering template. The item template must build a jQuery object.\n\nFor example:\n\n        function(item, index) {\n                var div = $(\"<div />\");\n                div.text(item.text);\n                \n                return div;\n        }",
-            "itemtype": "method",
-            "name": "itemTemplate",
-            "params": [
-                {
-                    "name": "templateFunc",
-                    "description": "The predicate function defining the item template.",
-                    "type": "Function"
-                }
-            ],
-            "return": {
-                "description": "The same joopl.ui.CollectionBinder binder is returned;",
-                "type": "CollectionBinder"
-            },
-            "class": "joopl.ui.CollectionBinder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
-            "namespace": "joopl.ui"
-        },
-        {
-            "file": "joopl.ui.binder.js",
-            "line": 412,
+            "file": "ui\\Binder.js",
+            "line": 70,
             "description": "Gets or sets the bound object",
             "itemtype": "property",
             "name": "boundObject",
             "type": "Object",
             "class": "joopl.ui.Binder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui"
         },
         {
-            "file": "joopl.ui.binder.js",
-            "line": 426,
+            "file": "ui\\Binder.js",
+            "line": 84,
             "description": "Gets the bound HTML element",
             "itemtype": "property",
             "name": "element",
             "type": "jQuery object",
             "class": "joopl.ui.Binder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui"
         },
         {
-            "file": "joopl.ui.binder.js",
-            "line": 436,
+            "file": "ui\\Binder.js",
+            "line": 94,
             "description": "Binds a given object to the binder and returns a property binder to define which property or properties of the bound object will be synchronized with the bound HTML element.",
             "itemtype": "method",
             "name": "object",
@@ -746,13 +563,12 @@
                 "type": "PropertyBinder"
             },
             "class": "joopl.ui.Binder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui"
         },
         {
-            "file": "joopl.ui.binder.js",
-            "line": 449,
+            "file": "ui\\Binder.js",
+            "line": 107,
             "description": "Binds a given array of objects (either primitive or custom ones) and returns a collection binder.",
             "itemtype": "method",
             "name": "collection",
@@ -768,19 +584,279 @@
                 "type": "CollectionBinder"
             },
             "class": "joopl.ui.Binder",
-            "module": "User interface (UI)",
-            "submodule": "Data-binding",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\CollectionBinder.js",
+            "line": 31,
+            "class": "joopl.ui.CollectionBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\CollectionBinder.js",
+            "line": 50,
+            "description": "Gets the bound joopl.collections.ObservableList.",
+            "itemtype": "property",
+            "name": "observable",
+            "type": "joopl.collections.ObservableList",
+            "class": "joopl.ui.CollectionBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\CollectionBinder.js",
+            "line": 60,
+            "description": "Gets the bound HTML element",
+            "itemtype": "property",
+            "name": "element",
+            "type": "jQuery object",
+            "class": "joopl.ui.CollectionBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\CollectionBinder.js",
+            "line": 70,
+            "description": "Sets the collection item rendering template. The item template must build a jQuery object.\n\nFor example:\n\n        function(item, index) {\n                var div = $(\"<div />\");\n                div.text(item.text);\n                \n                return div;\n        }",
+            "itemtype": "method",
+            "name": "itemTemplate",
+            "params": [
+                {
+                    "name": "templateFunc",
+                    "description": "The predicate function defining the item template.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "The same joopl.ui.CollectionBinder binder is returned;",
+                "type": "CollectionBinder"
+            },
+            "class": "joopl.ui.CollectionBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\EventBinder.js",
+            "line": 31,
+            "class": "joopl.ui.EventBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\EventBinder.js",
+            "line": 51,
+            "description": "Gets the bound object",
+            "itemtype": "property",
+            "name": "boundObject",
+            "type": "Object",
+            "class": "joopl.ui.EventBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\EventBinder.js",
+            "line": 61,
+            "description": "Gets the HTML element value function predicate",
+            "itemtype": "property",
+            "name": "valueFunc",
+            "type": "Function",
+            "class": "joopl.ui.EventBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\EventBinder.js",
+            "line": 71,
+            "description": "Gets the bound HTML element",
+            "itemtype": "property",
+            "name": "element",
+            "type": "jQuery object",
+            "class": "joopl.ui.EventBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\EventBinder.js",
+            "line": 82,
+            "description": "Gets the bound object property function predicate",
+            "itemtype": "property",
+            "name": "propertyPredicate",
+            "type": "Function",
+            "class": "joopl.ui.EventBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\EventBinder.js",
+            "line": 92,
+            "description": "Binds the HTML element to the configured object property to be synchronized it on the specified event.",
+            "itemtype": "method",
+            "name": "event",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": "The compatible jQuery event name.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "a joopl.ui.TwoWayBinder binder to configure two-way binding if needed.",
+                "type": "TwoWayBinder"
+            },
+            "class": "joopl.ui.EventBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\PropertyBinder.js",
+            "line": 31,
+            "class": "joopl.ui.PropertyBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\PropertyBinder.js",
+            "line": 51,
+            "description": "Gets the bound object",
+            "itemtype": "property",
+            "name": "boundObject",
+            "type": "Object",
+            "class": "joopl.ui.PropertyBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\PropertyBinder.js",
+            "line": 61,
+            "description": "Gets the bound HTML element",
+            "itemtype": "property",
+            "name": "element",
+            "type": "jQuery object",
+            "class": "joopl.ui.PropertyBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\PropertyBinder.js",
+            "line": 71,
+            "description": "Gets or sets the HTML element value function predicate",
+            "itemtype": "property",
+            "name": "valueFunc",
+            "type": "Function",
+            "class": "joopl.ui.PropertyBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\PropertyBinder.js",
+            "line": 85,
+            "description": "Gets or sets the property function predicate.",
+            "itemtype": "property",
+            "name": "propertyPredicate",
+            "type": "Function",
+            "class": "joopl.ui.PropertyBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\PropertyBinder.js",
+            "line": 99,
+            "description": "Binds the given object property specified by the predicate. The whole predicate receives the bound object and ta value as input parameters.\nFor example:\n\n        function(boundObject, value) {\n                boundObject.text = value;\n        }",
+            "itemtype": "method",
+            "name": "property",
+            "params": [
+                {
+                    "name": "predicate",
+                    "description": "The property predicate function.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "a joopl.ui.EventBinder binder to configure the event that trigger changes in the bindings.",
+                "type": "EventBinder"
+            },
+            "class": "joopl.ui.PropertyBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\TwoWayBinder.js",
+            "line": 31,
+            "class": "joopl.ui.TwoWayBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\TwoWayBinder.js",
+            "line": 50,
+            "description": "Gets the bound object",
+            "itemtype": "property",
+            "name": "boundObject",
+            "type": "Object",
+            "class": "joopl.ui.TwoWayBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\TwoWayBinder.js",
+            "line": 60,
+            "description": "Gets the HTML element value function predicate",
+            "itemtype": "property",
+            "name": "valueFunc",
+            "type": "Function",
+            "class": "joopl.ui.TwoWayBinder",
+            "module": "User interface data-binding",
+            "namespace": "joopl.ui"
+        },
+        {
+            "file": "ui\\TwoWayBinder.js",
+            "line": 70,
+            "description": "Builds binder to support two-way binding.",
+            "itemtype": "method",
+            "name": "twoWay",
+            "return": {
+                "description": "A proxy of the bound object that is able of raise events when a property changes. **This is the object that must be used in order to change object property values**. The proxy both changes the bound HTML element and the proxied bound object properties.",
+                "type": "Object"
+            },
+            "class": "joopl.ui.TwoWayBinder",
+            "module": "User interface data-binding",
             "namespace": "joopl.ui"
         }
     ],
     "warnings": [
         {
             "message": "Missing item type",
-            "line": " joopl.collections.js:25"
+            "line": " collections\\List.js:25"
         },
         {
             "message": "Missing item type",
-            "line": " joopl.ui.binder.js:29"
+            "line": " collections\\ObservableList.js:25"
+        },
+        {
+            "message": "Missing item type",
+            "line": " collections\\ObservableListReason.js:25"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui\\Binder.js:31"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui\\CollectionBinder.js:31"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui\\EventBinder.js:31"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui\\PropertyBinder.js:31"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui\\TwoWayBinder.js:31"
         }
     ]
 }

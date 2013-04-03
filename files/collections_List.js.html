@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Data-binding - jOOPL Framework</title>
+    <title>collections\List.js - jOOPL Framework</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
@@ -45,7 +45,7 @@
             
                 <li><a href="..&#x2F;classes/joopl.collections.ObservableList.html">joopl.collections.ObservableList</a></li>
             
-                <li><a href="..&#x2F;classes/joopl.ui.$binder.html">joopl.ui.$binder</a></li>
+                <li><a href="..&#x2F;classes/joopl.collections.ObservableListReason.html">joopl.collections.ObservableListReason</a></li>
             
                 <li><a href="..&#x2F;classes/joopl.ui.Binder.html">joopl.ui.Binder</a></li>
             
@@ -63,9 +63,7 @@
             
                 <li><a href="..&#x2F;modules/Collections.html">Collections</a></li>
             
-                <li><a href="..&#x2F;modules/Data-binding.html">Data-binding</a></li>
-            
-                <li><a href="..&#x2F;modules/User interface (UI).html">User interface (UI)</a></li>
+                <li><a href="..&#x2F;modules/User interface data-binding.html">User interface data-binding</a></li>
             
             </ul>
         </div>
@@ -102,79 +100,98 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Data-binding Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: collections\List.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;*
+Copyright Matias Fidemraizer
+JOOPL TOOLBOX
+http:&#x2F;&#x2F;joopl.codeplex.com
+http:&#x2F;&#x2F;www.matiasfidemraizer.com
 
-    
-        <div class="foundat">
-            Defined in: <a href="..&#x2F;files&#x2F;joopl.ui.binder.js.html#l395"><code>joopl.ui.binder.js:395</code></a>
-        </div>
-    
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-    
-</div>
+http:&#x2F;&#x2F;www.apache.org&#x2F;licenses&#x2F;LICENSE-2.0
 
+    Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*&#x2F;
+(function () {
+    &quot;use strict&quot;;
+    &#x2F;**
+            @module Collections
+        *&#x2F;
 
+    &#x2F;**
+        @namespace joopl.collections
+        *&#x2F;
+    $namespace.register(&quot;joopl.collections&quot;);
 
-<div class="box intro">
-    <p>Represents an HTML-to-objects/objects-to-HTML binder factory. Creates binders.</p>
-</div>
+    &#x2F;**
+        Represents a list of objects.
+            @class List
+            @constructor
+            @param array {Array} An abitrary array of objects that will be used to initialize the list
+            @optional
+        *&#x2F;
+    $global.joopl.collections.List = $def({
+        $constructor: function (args) {
+            this.$_.array = args &amp;&amp; args.array ? args.array : [];
+        },
+        $members: {
+            &#x2F;**
+                            Gets the underlying list items as an array of objects.
 
+                            @property items 
+                            @type Array
+                            **&#x2F;
+            get_Items: function () {
+                return this.$_.array;
+            },
 
+            &#x2F;**
+                            Gets the current item count
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
+                            @method count 
+                            @return {Number} The item count
+                            **&#x2F;
+            count: function () {
+                return this.$_.array.length;
+            },
 
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="..&#x2F;classes/joopl.ui.$binder.html">
-                        joopl.ui.$binder
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="..&#x2F;classes/joopl.ui.Binder.html">
-                        joopl.ui.Binder
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="..&#x2F;classes/joopl.ui.CollectionBinder.html">
-                        joopl.ui.CollectionBinder
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="..&#x2F;classes/joopl.ui.EventBinder.html">
-                        joopl.ui.EventBinder
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="..&#x2F;classes/joopl.ui.PropertyBinder.html">
-                        joopl.ui.PropertyBinder
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="..&#x2F;classes/joopl.ui.TwoWayBinder.html">
-                        joopl.ui.TwoWayBinder
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
+            &#x2F;**
+                            Adds an object item to the list
 
-    <div class="yui3-u-1-2">
-        
-    </div>
+                            @method add 
+                            @param item {Object} The object to add as a new item to the list
+                            **&#x2F;
+            add: function (item) {
+                this.$_.array.push(item);
+            },
+
+            &#x2F;**
+                            Removes an item in the given index position.
+
+                            @method removeAt 
+                            @param index {Number} The item index
+                            @return {Object} The removed object item
+                            **&#x2F;
+            removeAt: function (index) {
+                var item = this.get_Items()[index];
+                this.get_Items().splice(index, 1);
+
+                return item;
+            },
+        }
+    });
+})();
+    </pre>
 </div>
 
                     </div>

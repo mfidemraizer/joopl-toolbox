@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>joopl.collections.js - jOOPL Framework</title>
+    <title>collections\ObservableListReason.js - jOOPL Framework</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
@@ -45,7 +45,7 @@
             
                 <li><a href="..&#x2F;classes/joopl.collections.ObservableList.html">joopl.collections.ObservableList</a></li>
             
-                <li><a href="..&#x2F;classes/joopl.ui.$binder.html">joopl.ui.$binder</a></li>
+                <li><a href="..&#x2F;classes/joopl.collections.ObservableListReason.html">joopl.collections.ObservableListReason</a></li>
             
                 <li><a href="..&#x2F;classes/joopl.ui.Binder.html">joopl.ui.Binder</a></li>
             
@@ -63,9 +63,7 @@
             
                 <li><a href="..&#x2F;modules/Collections.html">Collections</a></li>
             
-                <li><a href="..&#x2F;modules/Data-binding.html">Data-binding</a></li>
-            
-                <li><a href="..&#x2F;modules/User interface (UI).html">User interface (UI)</a></li>
+                <li><a href="..&#x2F;modules/User interface data-binding.html">User interface data-binding</a></li>
             
             </ul>
         </div>
@@ -102,11 +100,11 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: joopl.collections.js</h1>
+                        <h1 class="file-heading">File: collections\ObservableListReason.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-﻿&#x2F;*
+&#x2F;*
 Copyright Matias Fidemraizer
 JOOPL FRAMEWORK
 http:&#x2F;&#x2F;joopl.codeplex.com
@@ -136,68 +134,9 @@ limitations under the License.
     $namespace.register(&quot;joopl.collections&quot;);
 
     &#x2F;**
-        Represents a list of objects.
-            @class List
-            @constructor
-            @param array {Array} An abitrary array of objects that will be used to initialize the list
-            @optional
-        *&#x2F;
-    $global.joopl.collections.List = $def({
-        $constructor: function (args) {
-            this.$_.array = args &amp;&amp; args.array ? args.array : [];
-        },
-        $members: {
-            &#x2F;**
-                            Gets the underlying list items as an array of objects.
-
-                            @property items 
-                            @type Array
-                            **&#x2F;
-            get_Items: function () {
-                return this.$_.array;
-            },
-
-            &#x2F;**
-                            Gets the current item count
-
-                            @method count 
-                            @return {Number} The item count
-                            **&#x2F;
-            count: function () {
-                return this.$_.array.length;
-            },
-
-            &#x2F;**
-                            Adds an object item to the list
-
-                            @method add 
-                            @param item {Object} The object to add as a new item to the list
-                            **&#x2F;
-            add: function (item) {
-                this.$_.array.push(item);
-            },
-
-            &#x2F;**
-                            Removes an item in the given index position.
-
-                            @method removeAt 
-                            @param index {Number} The item index
-                            @return {Object} The removed object item
-                            **&#x2F;
-            removeAt: function (index) {
-                var item = this.get_Items()[index];
-                this.get_Items().splice(index, 1);
-
-                return item;
-            },
-        }
-    });
-
-
-    &#x2F;**
         Represents an enumeration of possible reasons of a change in an observable list.
 
-            @class ObservableList
+            @class ObservableListReason
             @static
         *&#x2F;
     $global.joopl.collections.ObservableListReason = $new($def({
@@ -225,74 +164,6 @@ limitations under the License.
             }
         }
     }));
-
-    &#x2F;**
-        Represents an observable list of objects. Raises events once an item is added, removed or changed.
-
-            @class ObservableList
-            @extends joopl.collections.List
-            @constructor
-            @param array {Array} An abitrary array of objects that will be used to initialize the list
-            @optional
-        *&#x2F;
-    $global.joopl.collections.ObservableList = $def({
-        $constructor: function (args) {
-            this.$base.$ctor(args);
-
-            this.$_.changedHandlers = [];
-        },
-        $members: {
-            &#x2F;**
-                            Raises all change handlers. It is intended for the framework nor direct usage by developers.
-
-                            @method raiseHandlers 
-                            @param reason {Number} A ObservableListReasons enumeration value giving the reason of the change.
-                            @param args {Object} An object containing arguments for the handler. The content may vary depending on the reason.
-                            **&#x2F;
-            raiseHandlers: function (reason, args) {
-                for (var index in this.$_.changedHandlers) {
-                    this.$_.changedHandlers[index](reason, args);
-                }
-            },
-
-            &#x2F;**
-                            Adds a change event listener.
-
-                            @method addChangedListener 
-                            @param handler {Function} An event handler function having two input parameters: @reason and @args.
-                            **&#x2F;
-            addChangedListener: function (handler) {
-                this.$_.changedHandlers.push(handler);
-            },
-
-            &#x2F;**
-                            Adds an object item to the list
-
-                            @method add 
-                            @param item {Object} The object to add as a new item to the list
-                            **&#x2F;
-            add: function (item) {
-                this.$base.add(item);
-                this.raiseHandlers($global.joopl.collections.ObservableListReason.itemAdded, { item: item, index: this.count() - 1 });
-            },
-
-
-            &#x2F;**
-                            Removes an item in the given index position.
-
-                            @method removeAt 
-                            @param index {Number} The item index
-                            @return {Object} The removed object item
-                            **&#x2F;
-            removeAt: function (index) {
-                var item = this.$base.removeAt(index);
-                this.raiseHandlers($global.joopl.collections.ObservableListReason.itemRemoved, { item: item, index: index });
-
-                return item;
-            }
-        },
-        $extends: $global.joopl.collections.List
-    });
 })();
     </pre>
 </div>

@@ -3,7 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "joopl.collections.List",
         "joopl.collections.ObservableList",
-        "joopl.ui.$binder",
+        "joopl.collections.ObservableListReason",
         "joopl.ui.Binder",
         "joopl.ui.CollectionBinder",
         "joopl.ui.EventBinder",
@@ -12,8 +12,7 @@ YUI.add("yuidoc-meta", function(Y) {
     ],
     "modules": [
         "Collections",
-        "Data-binding",
-        "User interface (UI)"
+        "User interface data-binding"
     ],
     "allModules": [
         {
@@ -21,13 +20,9 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "Collections"
         },
         {
-            "displayName": "Data-binding",
-            "name": "Data-binding",
-            "description": "Represents an HTML-to-objects/objects-to-HTML binder factory. Creates binders."
-        },
-        {
-            "displayName": "User interface (UI)",
-            "name": "User interface (UI)"
+            "displayName": "User interface data-binding",
+            "name": "User interface data-binding",
+            "description": "# User interface data-binding"
         }
     ]
 } };
