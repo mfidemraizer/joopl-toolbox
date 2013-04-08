@@ -25,37 +25,38 @@ limitations under the License.
     /**
         @namespace joopl.collections
         */
-    $namespace.register("joopl.collections");
+    $namespace.register("joopl.collections", function () {
 
-    /**
-        Represents an enumeration of possible reasons of a change in an observable list.
+        /**
+            Represents an enumeration of possible reasons of a change in an observable list.
+    
+                @class ObservableListReason
+                @static
+            */
+        var clazz = $def({
+            $members: {
+                /**
+                                An item has been added to the observable list.
+    
+                                @property itemAdded 
+                                @type Number
+                                **/
+                get_ItemAdded: function () {
+                    return 0;
+                },
 
-            @class ObservableListReason
-            @static
-        */
-    $global.joopl.collections.ObservableListReason = $new($def({
-        $constructor: function () {
-        },
-        $members: {
-            /**
-                            An item has been added to the observable list.
-
-                            @property itemAdded 
-                            @type Number
-                            **/
-            get_ItemAdded: function () {
-                return 0;
-            },
-
-            /**
-                            An item has been removed in the observable list.
-
-                            @property itemRemoved 
-                            @type Number
-                            **/
-            get_ItemRemoved: function () {
-                return 1;
+                /**
+                                An item has been removed in the observable list.
+    
+                                @property itemRemoved 
+                                @type Number
+                                **/
+                get_ItemRemoved: function () {
+                    return 1;
+                }
             }
-        }
-    }));
+        });
+
+        this.ObservableListReason = new clazz();
+    });
 })();

@@ -25,63 +25,64 @@ limitations under the License.
     /**
         @namespace joopl.collections
         */
-    $namespace.register("joopl.collections");
+    $namespace.register("joopl.collections", function () {
 
-    /**
-        Represents a list of objects.
-            @class List
-            @constructor
-            @param array {Array} An abitrary array of objects that will be used to initialize the list
-            @optional
-        */
-    $global.joopl.collections.List = $def({
-        $constructor: function (args) {
-            this.$_.array = args && args.array ? args.array : [];
-        },
-        $members: {
-            /**
-                            Gets the underlying list items as an array of objects.
-
-                            @property items 
-                            @type Array
-                            **/
-            get_Items: function () {
-                return this.$_.array;
+        /**
+            Represents a list of objects.
+                @class List
+                @constructor
+                @param array {Array} An abitrary array of objects that will be used to initialize the list
+                @optional
+            */
+        this.List = $def({
+            $constructor: function (args) {
+                this.$_.array = args && args.array ? args.array : [];
             },
+            $members: {
+                /**
+                                Gets the underlying list items as an array of objects.
+    
+                                @property items 
+                                @type Array
+                                **/
+                get_Items: function () {
+                    return this.$_.array;
+                },
 
-            /**
-                            Gets the current item count
+                /**
+                                Gets the current item count
+    
+                                @method count 
+                                @return {Number} The item count
+                                **/
+                count: function () {
+                    return this.$_.array.length;
+                },
 
-                            @method count 
-                            @return {Number} The item count
-                            **/
-            count: function () {
-                return this.$_.array.length;
-            },
+                /**
+                                Adds an object item to the list
+    
+                                @method add 
+                                @param item {Object} The object to add as a new item to the list
+                                **/
+                add: function (item) {
+                    this.$_.array.push(item);
+                },
 
-            /**
-                            Adds an object item to the list
+                /**
+                                Removes an item in the given index position.
+    
+                                @method removeAt 
+                                @param index {Number} The item index
+                                @return {Object} The removed object item
+                                **/
+                removeAt: function (index) {
+                    var item = this.items[index];
+                    this.items.splice(index, 1);
 
-                            @method add 
-                            @param item {Object} The object to add as a new item to the list
-                            **/
-            add: function (item) {
-                this.$_.array.push(item);
-            },
-
-            /**
-                            Removes an item in the given index position.
-
-                            @method removeAt 
-                            @param index {Number} The item index
-                            @return {Object} The removed object item
-                            **/
-            removeAt: function (index) {
-                var item = this.get_Items()[index];
-                this.get_Items().splice(index, 1);
-
-                return item;
-            },
-        }
+                    return item;
+                },
+            }
+        });
     });
 })();

@@ -29,78 +29,79 @@ limitations under the License.
     /**
         @namespace joopl.ui
         */
-    $namespace.register("joopl.ui");
-
-    /**
-            Represents an event binder. That is, this binder adds an event handler to the HTML element in order to sinchronize with the bound object property value.
-
-            @class EventBinder
-            @constructor
-            @param binder {PropertyBinder} The property binder.
-        */
-    $global.joopl.ui.EventBinder = $def({
-        $constructor: function (args) {
-            this.$_.element = args.binder.element;
-            this.$_.boundObject = args.binder.boundObject;
-            this.$_.valueFunc = args.binder.valueFunc;
-            this.$_.propertyPredicate = args.binder.propertyPredicate;
-        },
-        $members: {
-            /**
-                            Gets the bound object
-
-                            @property boundObject 
-                            @type Object
-                            **/
-            get_BoundObject: function () {
-                return this.$_.boundObject;
+    $namespace.register("joopl.ui", function() {
+        var ui = this;
+        /**
+                Represents an event binder. That is, this binder adds an event handler to the HTML element in order to sinchronize with the bound object property value.
+    
+                @class EventBinder
+                @constructor
+                @param binder {PropertyBinder} The property binder.
+            */
+        this.EventBinder = $def({
+            $constructor: function (args) {
+                this.$_.element = args.binder.element;
+                this.$_.boundObject = args.binder.boundObject;
+                this.$_.valueFunc = args.binder.valueFunc;
+                this.$_.propertyPredicate = args.binder.propertyPredicate;
             },
+            $members: {
+                /**
+                                Gets the bound object
+    
+                                @property boundObject 
+                                @type Object
+                                **/
+                get_BoundObject: function () {
+                    return this.$_.boundObject;
+                },
 
-            /**
-                            Gets the HTML element value function predicate
+                /**
+                                Gets the HTML element value function predicate
+    
+                                @property valueFunc 
+                                @type Function
+                                **/
+                get_ValueFunc: function () {
+                    return this.$_.valueFunc;
+                },
 
-                            @property valueFunc 
-                            @type Function
-                            **/
-            get_ValueFunc: function () {
-                return this.$_.valueFunc;
-            },
-
-            /**
-                            Gets the bound HTML element
-
-                            @property element 
-                            @type jQuery object
-                            **/
-            get_Element: function () {
-                return this.$_.element;
-            },
+                /**
+                                Gets the bound HTML element
+    
+                                @property element 
+                                @type jQuery object
+                                **/
+                get_Element: function () {
+                    return this.$_.element;
+                },
 
 
-            /**
-                            Gets the bound object property function predicate
+                /**
+                                Gets the bound object property function predicate
+    
+                                @property propertyPredicate 
+                                @type Function
+                                **/
+                get_PropertyPredicate: function () {
+                    return this.$_.propertyPredicate;
+                },
 
-                            @property propertyPredicate 
-                            @type Function
-                            **/
-            get_PropertyPredicate: function () {
-                return this.$_.propertyPredicate;
-            },
+                /**
+                                Binds the HTML element to the configured object property to be synchronized it on the specified event.
+    
+                                @method event 
+                                @param eventName {String} The compatible jQuery event name.
+                                @return {TwoWayBinder} a joopl.ui.TwoWayBinder binder to configure two-way binding if needed.
+                                **/
+                event: function (eventName) {
+                    this.element.on(eventName, (function () {
+                        this.propertyPredicate(this.boundObject, this.valueFunc());
+                    }).bind(this));
 
-            /**
-                            Binds the HTML element to the configured object property to be synchronized it on the specified event.
-
-                            @method event 
-                            @param eventName {String} The compatible jQuery event name.
-                            @return {TwoWayBinder} a joopl.ui.TwoWayBinder binder to configure two-way binding if needed.
-                            **/
-            event: function (eventName) {
-                this.element.on(eventName, (function () {
-                    this.propertyPredicate(this.boundObject, this.valueFunc());
-                }).bind(this));
-
-                return $new($global.joopl.ui.TwoWayBinder, { binder: this });
+                    return new ui.TwoWayBinder({ binder: this });
+                }
             }
-        }
+        });
     });
 })();
