@@ -45,7 +45,7 @@ limitations under the License.
                                 @property items 
                                 @type Array
                                 **/
-                get_Items: function () {
+                get items() {
                     return this.$_.array;
                 },
 
@@ -129,7 +129,7 @@ limitations under the License.
                                 @property itemAdded 
                                 @type Number
                                 **/
-                get_ItemAdded: function () {
+                get itemAdded() {
                     return 0;
                 },
 
@@ -139,10 +139,11 @@ limitations under the License.
                                 @property itemRemoved 
                                 @type Number
                                 **/
-                get_ItemRemoved: function () {
+                get itemRemoved() {
                     return 1;
                 }
-            }
+            },
+            $inmutable: true,
         });
 
         this.ObservableListReason = new clazz();
@@ -324,11 +325,11 @@ var $binder = null;
                                 @property boundObject 
                                 @type Object
                                 **/
-                get_BoundObject: function () {
+                get boundObject() {
                     return this.$_.boundObject;
                 },
 
-                set_BoundObject: function (value) {
+                set boundObject(value) {
                     this.$_.boundObject = value;
                 },
 
@@ -338,7 +339,7 @@ var $binder = null;
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 
@@ -429,7 +430,7 @@ limitations under the License.
                                 @property boundObject 
                                 @type Object
                                 **/
-                get_BoundObject: function () {
+                get boundObject() {
                     return this.$_.boundObject;
                 },
 
@@ -439,7 +440,7 @@ limitations under the License.
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 
@@ -449,11 +450,11 @@ limitations under the License.
                                 @property valueFunc 
                                 @type Function
                                 **/
-                get_ValueFunc: function () {
+                get valueFunc() {
                     return this.$_.valueFunc;
                 },
 
-                set_ValueFunc: function (value) {
+                set valueFunc(value) {
                     this.$_.valueFunc = value;
                 },
 
@@ -463,11 +464,11 @@ limitations under the License.
                                 @property propertyPredicate 
                                 @type Function
                                 **/
-                get_PropertyPredicate: function () {
+                get propertyPredicate() {
                     return this.$_.propertyPredicate;
                 },
 
-                set_PropertyPredicate: function (value) {
+                set propertyPredicate(value) {
                     this.$_.propertyPredicate = value;
                 },
 
@@ -574,7 +575,7 @@ limitations under the License.
                                 @property boundObject 
                                 @type Object
                                 **/
-                get_BoundObject: function () {
+                get boundObject() {
                     return this.$_.boundObject;
                 },
 
@@ -584,7 +585,7 @@ limitations under the License.
                                 @property valueFunc 
                                 @type Function
                                 **/
-                get_ValueFunc: function () {
+                get valueFunc() {
                     return this.$_.valueFunc;
                 },
 
@@ -594,7 +595,7 @@ limitations under the License.
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 
@@ -605,7 +606,7 @@ limitations under the License.
                                 @property propertyPredicate 
                                 @type Function
                                 **/
-                get_PropertyPredicate: function () {
+                get propertyPredicate() {
                     return this.$_.propertyPredicate;
                 },
 
@@ -681,7 +682,7 @@ limitations under the License.
                                 @property observable 
                                 @type joopl.collections.ObservableList
                                 **/
-                get_Observable: function () {
+                get observable() {
                     return this.$_.boundObject;
                 },
 
@@ -691,7 +692,7 @@ limitations under the License.
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 
@@ -794,7 +795,7 @@ limitations under the License.
                                 @property boundObject 
                                 @type Object
                                 **/
-                get_BoundObject: function () {
+                get boundObject() {
                     return this.$_.boundObject;
                 },
 
@@ -804,7 +805,7 @@ limitations under the License.
                                 @property valueFunc 
                                 @type Function
                                 **/
-                get_ValueFunc: function () {
+                get valueFunc() {
                     return this.$_.valueFunc;
                 },
 

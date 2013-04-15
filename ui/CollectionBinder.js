@@ -52,7 +52,7 @@ limitations under the License.
                                 @property observable 
                                 @type joopl.collections.ObservableList
                                 **/
-                get_Observable: function () {
+                get observable() {
                     return this.$_.boundObject;
                 },
 
@@ -62,7 +62,7 @@ limitations under the License.
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 

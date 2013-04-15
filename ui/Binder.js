@@ -75,11 +75,11 @@ var $binder = null;
                                 @property boundObject 
                                 @type Object
                                 **/
-                get_BoundObject: function () {
+                get boundObject() {
                     return this.$_.boundObject;
                 },
 
-                set_BoundObject: function (value) {
+                set boundObject(value) {
                     this.$_.boundObject = value;
                 },
 
@@ -89,7 +89,7 @@ var $binder = null;
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 

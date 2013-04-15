@@ -52,7 +52,7 @@ limitations under the License.
                                 @property boundObject 
                                 @type Object
                                 **/
-                get_BoundObject: function () {
+                get boundObject() {
                     return this.$_.boundObject;
                 },
 
@@ -62,7 +62,7 @@ limitations under the License.
                                 @property element 
                                 @type jQuery object
                                 **/
-                get_Element: function () {
+                get element() {
                     return this.$_.element;
                 },
 
@@ -72,11 +72,11 @@ limitations under the License.
                                 @property valueFunc 
                                 @type Function
                                 **/
-                get_ValueFunc: function () {
+                get valueFunc() {
                     return this.$_.valueFunc;
                 },
 
-                set_ValueFunc: function (value) {
+                set valueFunc(value) {
                     this.$_.valueFunc = value;
                 },
 
@@ -86,11 +86,11 @@ limitations under the License.
                                 @property propertyPredicate 
                                 @type Function
                                 **/
-                get_PropertyPredicate: function () {
+                get propertyPredicate() {
                     return this.$_.propertyPredicate;
                 },
 
-                set_PropertyPredicate: function (value) {
+                set propertyPredicate(value) {
                     this.$_.propertyPredicate = value;
                 },
 

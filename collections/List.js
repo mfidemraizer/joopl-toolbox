@@ -45,7 +45,7 @@ limitations under the License.
                                 @property items 
                                 @type Array
                                 **/
-                get_Items: function () {
+                get items() {
                     return this.$_.array;
                 },
 

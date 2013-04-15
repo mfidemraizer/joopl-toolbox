@@ -41,7 +41,7 @@ limitations under the License.
                                 @property itemAdded 
                                 @type Number
                                 **/
-                get_ItemAdded: function () {
+                get itemAdded() {
                     return 0;
                 },
 
@@ -51,10 +51,11 @@ limitations under the License.
                                 @property itemRemoved 
                                 @type Number
                                 **/
-                get_ItemRemoved: function () {
+                get itemRemoved() {
                     return 1;
                 }
-            }
+            },
+            $inmutable: true,
         });
 
         this.ObservableListReason = new clazz();
