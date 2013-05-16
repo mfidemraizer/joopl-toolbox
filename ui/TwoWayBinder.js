@@ -51,7 +51,7 @@ limitations under the License.
                                 @property boundObject 
                                 @type Object
                                 **/
-                get boundObject() {
+                get_BoundObject: function () {
                     return this.$_.boundObject;
                 },
 
@@ -61,7 +61,7 @@ limitations under the License.
                                 @property valueFunc 
                                 @type Function
                                 **/
-                get valueFunc() {
+                get_ValueFunc: function () {
                     return this.$_.valueFunc;
                 },
 

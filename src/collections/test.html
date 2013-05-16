@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<script src="joopl.min.js"></script>
+	</head>
+	<body>
+		<script>
+			$namespace.register("joopl.collections", function() {
+				this.Enumerator = $def({
+					$members: {
+						moveNext: function() {
+							throw new $global.joopl.NotImplementedException();
+						},
+						hasNext: function() {
+							throw new $global.joopl.NotImplementedException();
+						}
+					}
+				});
+
+				this.Enumerable = $def({
+					$members: {
+						get enumerator() {
+							throw new $global.joopl.NotImplementedException();
+						},
+
+						forEach: function(predicateFunc) {
+							var enumerator = this.$_.$derived.enumerator;
+
+							while(enumerator.hasNext()) {
+								var item = enumerator.moveNext();
+
+								predicateFunc(item);
+							}
+
+							return this;
+						},
+
+						first: function(predicateFunc) {
+							var enumerator = this.$_.$derived.enumerator;
+							var found = false;
+
+							if(predicateFunc) {
+								while(!found && enumerator.hasNext()) {
+									var item = enumerator.moveNext();
+
+									found = predicateFunc(item);
+								}
+							} else {
+								return enumerator.moveNext();
+							}
+						},
+
+						where: function(predicateFunc) {
+							var result = new $global.joopl.collections.List();
+
+							this.forEach(function(item) {
+								if(predicateFunc(item)) {
+									result.add(item);
+								}
+							});
+
+							return result;
+						}
+					}
+				});
+
+				this.ListEnumerator = $def({
+					$constructor: function(args) {
+						this.$_.itemArray = args.itemArray;
+						this.$_.index = -1;
+					},
+					$extends: this.Enumerator,
+					$members: {
+						moveNext: function() {
+							return this.$_.itemArray[++this.$_.index];
+						},
+
+						hasNext: function() {
+							return this.$_.index + 1 < this.$_.itemArray.length;
+						}
+					}
+				});
+
+				this.List = $def({
+					$extends: this.Enumerable,
+					$constructor: function(args) {
+						this.$_.itemArray = [];
+					},
+					$members: {
+						get enumerator() {
+							return new $global.joopl.collections.ListEnumerator({ itemArray: this.$_.itemArray });
+						},
+
+						add: function(item) {
+							this.$_.itemArray.push(item);
+						}
+					}
+				});
+
+				var list = new this.List();
+				list.add("hola");
+				list.add("adios!");
+
+				list.forEach(function(item) {
+					document.body.appendChild(document.createTextNode(item));
+				});
+
+				list.where(function(item) { return item.indexOf("h") == 0; })
+					.forEach(function(item) {
+						document.body.appendChild(document.createTextNode(item));
+					});
+
+				alert(list.first());
+				
+			});
+		</script>
+	</body>
+</html>
