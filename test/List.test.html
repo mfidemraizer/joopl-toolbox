@@ -94,7 +94,20 @@
                 });
             });
 
-            test("Create list and reverse its order. Checks if the added items are in the expected order.", function () {
+            test("Test Enumerable.forEach()", function () {
+                $namespace.using("joopl.collections", function () {
+                    var list = new this.List();
+                    list.add("hello");
+                    list.add("world");
+                    list.add("!");
+
+                    list.forEach(function (item) {
+                        ok(item == "hello" || item == "world" || item == "!", "All items must be iterated");
+                    });
+                });
+            });
+
+            test("Test Enumerable.reverse()", function () {
                 $namespace.using("joopl.collections", function() {
                     var list = new this.List();
                     list.add("hello");
@@ -109,7 +122,29 @@
                 });
             });
 
-            test("Create list, add items and obtain the last item. Checks if the last item is the expected one.", function () {
+            test("Test Enumerable.first() and Enumerable.first(predicateFunc)", function () {
+                $namespace.using("joopl.collections", function () {
+                    var list = new this.List();
+                    list.add("hello");
+                    list.add("world");
+                    list.add("!");
+
+                    ok(list.first() == "hello", "The first item is the expected one");
+                    ok(list.last(function (item) { return item.indexOf("rl") == 2 }), "The selected first item is the expected one");
+
+                    throws(function () {
+                        list.first(function (item) { return item == "haha" });
+                    }, "No item must be found if the predicate function does not match with any element within the enumerable");
+
+                    var list2 = new this.List();
+                    
+                    throws(function () {
+                        list2.first();
+                    }, "It must throw an exception as the enumerable has no elements");
+                });
+            });
+
+            test("Test Enumerable.last() and Enumerable.last(predicateFunc)", function () {
                 $namespace.using("joopl.collections", function() {
                     var list = new this.List();
                     list.add("hello");

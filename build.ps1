@@ -16,6 +16,7 @@ function combineFile
 }
 
 # joopl
+combineFile InvalidOperationException.js
 combineFile Convert.js
 
 # joopl.collections

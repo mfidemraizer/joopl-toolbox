@@ -22,24 +22,68 @@
 					return this;
 				},
 
-				first: function(predicateFunc) {
-					var enumerator = this.$_.$derived.enumerator;
-					var found = false;
+				singleOrNull: function(predicateFunc) {
+				    var result = this.where(predicateFunc);
 
-					if(predicateFunc) {
-						while(!found && enumerator.hasNext()) {
-							var item = enumerator.moveNext();
+				    if (result.count() > 1) {
+				        debugger;
+				        throw new $global.joopl.InvalidOperationException({
+                            message: "Sequence contains more than one element"
+				        });
+				    }
 
-							found = predicateFunc(item);
-						}
+				    return result.firstOrNull();
+				},
 
-						if(found) {
-							return item;
-						} else {
-							return null;
-						}
+				single: function(predicateFunc) {
+				    var result = this.singleOrNull(predicateFunc);
+
+				    if (result.count() == 0) {
+				        debugger;
+				        throw new $global.joopl.InvalidOperationException({
+				            message: "Sequence contains no elements"
+				        });
+				    }
+
+				    return result;
+				},
+
+				firstOrNull: function (predicateFunc) {
+				    var enumerator = this.$_.$derived.enumerator;
+				    var found = false;
+				    var foundItem = null;
+
+				    if (predicateFunc) {
+				        while (!found && enumerator.hasNext()) {
+				            var item = enumerator.moveNext();
+
+				            found = predicateFunc(item);
+				        }
+
+				        if (found) {
+				            foundItem = item;
+				            found = true;
+				        }
+				    } else {
+				        foundItem = enumerator.moveNext();
+				        found = foundItem != undefined;
+				    }
+
+				    if (found) {
+				        return foundItem;
+				    } else {
+				        return null;
+				    }
+				},
+
+				first: function (predicateFunc) {
+				    var foundItem = this.firstOrNull(predicateFunc);
+
+					if (foundItem !== null) {
+					    return foundItem;
 					} else {
-						return enumerator.moveNext();
+					    debugger;
+					    throw new $global.joopl.InvalidOperationException({ message: "Sequence contains no elements" });
 					}
 				},
 
@@ -47,6 +91,16 @@
 					var reversed = this.$_.$derived.reverse();
 
 					return reversed.first(predicateFunc);
+				},
+
+				lastOrNull: function (predicateFunc) {
+				    var reversed = this.$_.$derived.reverse();
+
+				    return reversed.firstOrNull(predicateFunc);
+				},
+
+				count: function(predicateFunc) {
+                    // TODO
 				},
 
 				where: function(predicateFunc) {
