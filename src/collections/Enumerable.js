@@ -100,7 +100,21 @@
 				},
 
 				count: function(predicateFunc) {
-                    // TODO
+					var count = 0;
+
+					if(predicateFunc instanceof Function) {
+						this.forEach(function(item) {
+							if(predicateFunc(item)) {
+								count++;
+							}
+						});
+					} else {
+						this.forEach(function(item) {
+							count++;
+						});
+					}
+
+					return count;
 				},
 
 				where: function(predicateFunc) {

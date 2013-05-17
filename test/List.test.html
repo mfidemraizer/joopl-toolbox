@@ -151,8 +151,34 @@
                     list.add("world");
                     list.add("!");
 
+                    throws(function () {
+                        list.last(function (item) { return item == "haha" });
+                    }, "No item must be found if the predicate function does not match with any element within the enumerable");
+
                     ok(list.last() == "!", "It is the expected last item");
                     ok(list.last(function(item) { return item == "!" }) == "!", "It is the expected last item");
+
+                    var list2 = new this.List();
+                    
+                    throws(function () {
+                        list2.last();
+                    }, "It must throw an exception as the enumerable has no elements");
+                });
+            });
+
+            test("Test Enumerable.count() and Enumerable.count(predicateFunc)", function() {
+                $namespace.using("joopl.collections", function() {
+                    var list = new this.List();
+                    list.add("hello");
+                    list.add("world");
+                    list.add("man...");
+                    list.add("!");
+
+                    ok(list.count() == 4, "The count must match the number of items");
+                    ok(list.count(function(item) { return item.indexOf(".") == 3 || item == "!" }) == 2, 
+                        "The count must match the number of items for the given criteria"
+                    );
+                    ok(list.count(function(item) { return false }) == 0, "Zero count expected (false criteria)");
                 });
             });
         })(undefined);

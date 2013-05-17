@@ -77,6 +77,32 @@
 					return this;
 				},
 
+				singleOrNull: function(predicateFunc) {
+				    var result = this.where(predicateFunc);
+
+				    if (result.count() > 1) {
+				        debugger;
+				        throw new $global.joopl.InvalidOperationException({
+                            message: "Sequence contains more than one element"
+				        });
+				    }
+
+				    return result.firstOrNull();
+				},
+
+				single: function(predicateFunc) {
+				    var result = this.singleOrNull(predicateFunc);
+
+				    if (result.count() == 0) {
+				        debugger;
+				        throw new $global.joopl.InvalidOperationException({
+				            message: "Sequence contains no elements"
+				        });
+				    }
+
+				    return result;
+				},
+
 				firstOrNull: function (predicateFunc) {
 				    var enumerator = this.$_.$derived.enumerator;
 				    var found = false;
@@ -126,6 +152,24 @@
 				    var reversed = this.$_.$derived.reverse();
 
 				    return reversed.firstOrNull(predicateFunc);
+				},
+
+				count: function(predicateFunc) {
+					var count = 0;
+
+					if(predicateFunc instanceof Function) {
+						this.forEach(function(item) {
+							if(predicateFunc(item)) {
+								count++;
+							}
+						});
+					} else {
+						this.forEach(function(item) {
+							count++;
+						});
+					}
+
+					return count;
 				},
 
 				where: function(predicateFunc) {
