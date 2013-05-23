@@ -4,8 +4,8 @@
 	$namespace.register("joopl.collections", function () {
 	    var collections = this;
 
-		this.ObservableTypedList = $def({
-			$extends: this.TypedList,
+		this.ObservableList = $def({
+			$extends: this.List,
 			$constructor: function (args) {
 			    this.$base.$ctor(args);
 			},
@@ -15,12 +15,6 @@
 			    add: function (item) {
 			        this.$base.add(item);
 			        this.changed({ source: this, changeKind: collections.ObservableChange.added, item: item });
-				},
-
-				addRange: function(enumerable) {
-					enumerable.forEach((function(item) {
-						this.add(item);
-					}).bind(this));
 				},
 
 				insertAt: function (index, item) {

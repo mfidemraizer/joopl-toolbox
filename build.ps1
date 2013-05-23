@@ -26,7 +26,10 @@ combineFile ListEnumerator.js
 combineFile List.js
 combineFile TypedList.js
 combineFile ObservableChange.js
-combineFile ObservableTypedList.js
+combineFile ObservableList.js
+combineFile Index.js
+combineFile OrderedStringIndex.js
+combineFile IndexedList.js
 
 # joopl.ui
 #combineFile Binder.js

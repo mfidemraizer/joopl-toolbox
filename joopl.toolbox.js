@@ -235,6 +235,14 @@
 					return reversedList;
 				},
 
+				count: function(predicateFunc) {
+					if(predicateFunc instanceof Function) {
+						return this.$base.count(predicateFunc);
+					} else {
+						return this.$_.itemArray.length;
+					}
+				},
+
 				itemAt: function(index) {
 					return this.$_.itemArray[index];
 				},
@@ -265,7 +273,7 @@
 
 				addRange: function(enumerable) {
 					enumerable.forEach((function(item) {
-						this.add(item);
+						this.$_.$derived.add(item);
 					}).bind(this));
 				},
 
@@ -420,8 +428,8 @@
 	$namespace.register("joopl.collections", function () {
 	    var collections = this;
 
-		this.ObservableTypedList = $def({
-			$extends: this.TypedList,
+		this.ObservableList = $def({
+			$extends: this.List,
 			$constructor: function (args) {
 			    this.$base.$ctor(args);
 			},
@@ -431,12 +439,6 @@
 			    add: function (item) {
 			        this.$base.add(item);
 			        this.changed({ source: this, changeKind: collections.ObservableChange.added, item: item });
-				},
-
-				addRange: function(enumerable) {
-					enumerable.forEach((function(item) {
-						this.add(item);
-					}).bind(this));
 				},
 
 				insertAt: function (index, item) {
@@ -458,6 +460,246 @@
 				    this.$base.removeAt(index);
 				    this.changed({ source: this, changeKind: collections.ObservableChange.removed, item: this.getItemAt(index) });
 				}
+			}
+		});
+	});
+})();
+(function() {
+	"use strict";
+
+	$namespace.register("joopl.collections", function () {
+	    var collections = this;
+
+		this.Index = $def({
+			$constructor: function (args) {
+				if(typeof args != "object") {
+					if(typeof args != "object") {
+						throw new $global.joopl.ArgumentException({
+							argName: "args",
+							reason: "The constructor requires parameters"
+						});
+					}
+				}
+
+				if(typeof args.source != "object") {
+					throw new $global.joopl.ArgumentException({
+						argName: "property",
+						reason: "Indexes must be associated to a source"
+					});
+				}
+
+				if(typeof args.property != "function") {
+					throw new $global.joopl.ArgumentException({
+						argName: "property",
+						reason: "Indexes require which property must be indexed"
+					});
+				}
+
+				this.$_.source = args.source;
+				this.$_.propertySelectorFunc = args.property;
+				this.$_.unique = typeof args.unique == "boolean" ? args.unique : false;
+			},
+			$members: {
+				get source() {
+					return this.$_.source;
+				},
+				get unique() {
+					return this.$_.unique;
+				},
+
+				get propertySelectorFunc() {
+					return this.$_.propertySelectorFunc;
+				},
+
+				get propertyName() {
+					var parsed = esprima.parse(new RegExp("return (.+);").exec(this.propertySelectorFunc.toString())[1]);
+
+					return parsed.body[0].expression.property.name;
+				},
+
+				onDataChange: function(args) {
+				},
+
+				where: function(indexedSearch) {
+					throw new $global.joopl.NotImplementedException();
+				}
+			}
+		});
+	});
+})();
+(function() {
+	"use strict";
+
+	$namespace.register("joopl.collections", function() {
+		var collections = this;
+
+		this.OrderedStringIndex = $def({
+			$extends: collections.Index,
+			$constructor: function(args) {
+				this.$base.$ctor(args);
+
+				this.$_.partitions = new collections.List();
+				this.$_.vocals = "aeiou";
+				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)");
+				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|Ã§|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)");
+				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]")
+
+				this.initialize();
+			},
+
+			$members: {
+				get vocalPartitionRegEx() { 
+					return this.$_.vocalPartitionRegEx;
+				},
+
+				get consonantPartitionRegEx() {
+					return this.$_.consonantPartitionRegEx;
+				},
+
+				initialize: function() {
+					var partitions = this.$_.partitions;
+
+					var abc = "abcÃ§defghijklmnopqrstuvwxyz";
+					var vocals = "aeiou";
+					var letter = null;
+					var vocal = null;
+
+					partitions.add({ id: "other", store: new collections.List() });
+
+					for(var letterIndex in abc) {
+						letter = abc[letterIndex];
+
+						if(vocals.indexOf(letter) == 0) {
+							for(var vocalIndex in vocals) {
+								vocal = vocals[vocalIndex];
+
+								partitions.add({ id: letter + vocal, store: new collections.List() });
+							}
+						} else {
+							partitions.add({ id: letter, store: new collections.List() });
+						}
+					}
+				},
+
+				findPartition: function(item) {
+					var partitionId = null;
+
+					var isVocal = this.vocalPartitionRegEx.test(item);
+
+					if(isVocal) {
+						if(this.vocalPartitionRegEx.test(item.substring(0, 2))) {
+							partitionId = item.substring(0, 2);
+						} else {
+							partitionId = item[0];
+						}
+					} else if(this.consonantPartitionRegEx.test(item[0])) {
+						partitionId = item[0];
+					} else {
+						partitionId = "other";
+					}
+
+					return this.$_.partitions.singleOrNull(function(item) { return item.id == partitionId });
+				},
+
+				onDataChange: function(args) {
+					var indexArgs = { item: this.propertySelectorFunc(args.item) };
+
+					switch(args.changeKind) {
+						case collections.ObservableChange.added:
+							this.onAdded(indexArgs);
+							break;
+
+						case collections.ObservableChange.replaced:
+							this.onReplaced(indexArgs);
+							break;
+
+						case collections.ObservableChange.removed:
+							this.onRemoved(indexArgs);
+							break;
+					}
+				},
+
+				onAdded: function(args) {
+					var partition = this.findPartition(args.item);
+
+					if(this.unique) {
+						if(partition.store.count(function(item) { return item.value === args.item; }) == 0) {
+							partition.store.add(args.item);
+						} else {
+							throw new $global.joopl.ArgumentException({
+								argName: "item",
+								reason: "Unique index violation"
+							});
+						}
+					}
+				},
+
+				onReplaced: function(args) {
+
+				},
+
+				onRemoved: function(args) {
+
+				},
+
+				where: function(indexedSearch) {		
+					var partition = this.findPartition(indexedSearch[this.propertyName]);
+
+					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.propertyName]));
+				}
+			}
+		});
+	});
+})();
+(function() {
+	"use strict";
+
+	$namespace.register("joopl.collections", function () {
+	    var collections = this;
+
+		this.IndexedList = $def({
+			$extends: collections.ObservableList,
+			$constructor: function (args) {
+			    this.$base.$ctor(args);
+
+			    this.$_.indexes = new collections.List();
+			    this.changed = this.list_changed;
+			},
+			$members: {
+				add: function(item) {
+					this.$base.add(item);
+				},
+
+				addIndex: function(index) {
+					if(index.isTypeOf(collections.Index)) {
+						this.$_.indexes.add(index);
+					} else {
+						throw new $global.joopl.ArgumentException({
+							argName: "index",
+							reason: "Given object is not an index"
+						});
+					}
+				},
+
+				where: function(predicateFuncOrIndexedSearch) {
+					if(predicateFuncOrIndexedSearch instanceof Function) {
+						return this.$base.where(predicateFuncOrIndexedSearch);
+
+					} else if (typeof predicateFuncOrIndexedSearch == "object") {
+						var propertyName = Object.keys(predicateFuncOrIndexedSearch)[0];
+						var index = this.$_.indexes.singleOrNull(function(index) { return index.propertyName == propertyName; });
+
+						if(typeof index == "object") {
+							return index.where(predicateFuncOrIndexedSearch);
+						}
+					}
+				},
+
+			    list_changed: function(args) {
+			    	this.$_.indexes.forEach(function(index) {
+			    		index.onDataChange(args);
+			    	});
+			    }
 			}
 		});
 	});

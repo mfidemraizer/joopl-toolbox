@@ -20,7 +20,7 @@
         (function (undefined) {
             test("Create list and add items. Check that changes can be observed.", function () {
                 $namespace.using("joopl.collections", function() {
-                    var list = new this.ObservableTypedList({ T: String });
+                    var list = new this.ObservableList();
                     var collections = this;
 
                     var changeCount = 0;

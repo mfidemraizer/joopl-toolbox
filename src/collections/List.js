@@ -24,6 +24,14 @@
 					return reversedList;
 				},
 
+				count: function(predicateFunc) {
+					if(predicateFunc instanceof Function) {
+						return this.$base.count(predicateFunc);
+					} else {
+						return this.$_.itemArray.length;
+					}
+				},
+
 				itemAt: function(index) {
 					return this.$_.itemArray[index];
 				},
@@ -54,7 +62,7 @@
 
 				addRange: function(enumerable) {
 					enumerable.forEach((function(item) {
-						this.add(item);
+						this.$_.$derived.add(item);
 					}).bind(this));
 				},
 
