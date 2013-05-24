@@ -52,7 +52,7 @@
 				initialize: function() {
 					var partitions = this.$_.partitions;
 
-					var abc = "abcçdefghijklmnopqrstuvwxyz";
+					var abc = "abcdefghijklmnopqrstuvwxyz";
 					var vocals = "aeiou";
 					var letter = null;
 					var vocal = null;
@@ -63,6 +63,8 @@
 						letter = abc[letterIndex];
 
 						if(vocals.indexOf(letter) == 0) {
+							partitions.add({ id: letter, store: new collections.List() });
+							
 							for(var vocalIndex in vocals) {
 								vocal = vocals[vocalIndex];
 
@@ -132,7 +134,6 @@
 
 				onReplaced: function(args) {
 					var partition = this.findPartition(args.item);
-					var itemIndex = -1;
 
 					if(this.unique) {
 						if(partition.store.count(function(item) { return item.value == args.item }) > 0) {
@@ -143,15 +144,39 @@
 						}
 					}
 
-					partition.store.indexOf(args.item);
+					var replacedItemIndex = partition.store.indexOf(args.oldItem);
+					partition.store.replaceAt(replacedItemIndex, args.item);
 				},
 
 				onRemoved: function(args) {
+					var partition = this.findPartition(args.item);
 
+					var removedItemIndex = partition.store.indexOf(args.item);
+					partition.store.removeAt(replacedItemIndex);
 				},
 
 				single: function(indexedSearch) {
-					throw new $global.joopl.NotImplementedException();
+					var partition = this.findPartition(indexedSearch[this.property]);
+					
+					return partition.store.single(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				},
+
+				singleOrNull: function(indexedSearch) {
+					var partition = this.findPartition(indexedSearch[this.property]);
+					
+					return partition.store.singleOrNull(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				},
+
+				first: function(indexedSearch) {
+					var partition = this.findPartition(indexedSearch[this.property]);
+					
+					return partition.store.first(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				},
+
+				firstOrNull: function(indexedSearch) {
+					var partition = this.findPartition(indexedSearch[this.property]);
+					
+					return partition.store.firstOrNull(indexedSearch.predicate.bind(indexedSearch[this.property]));
 				},
 
 				where: function(indexedSearch) {		

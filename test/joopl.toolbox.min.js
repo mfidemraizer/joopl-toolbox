@@ -776,7 +776,7 @@
 				initialize: function() {
 					var partitions = this.$_.partitions;
 
-					var abc = "abcÃ§defghijklmnopqrstuvwxyz";
+					var abc = "abcdefghijklmnopqrstuvwxyz";
 					var vocals = "aeiou";
 					var letter = null;
 					var vocal = null;
@@ -787,6 +787,8 @@
 						letter = abc[letterIndex];
 
 						if(vocals.indexOf(letter) == 0) {
+							partitions.add({ id: letter, store: new collections.List() });
+							
 							for(var vocalIndex in vocals) {
 								vocal = vocals[vocalIndex];
 
