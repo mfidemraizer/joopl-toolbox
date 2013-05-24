@@ -26,6 +26,7 @@
 	    var collections = this;
 
 		this.Index = $def({
+			$extends: collections.Enumerable,
 			$constructor: function (args) {
 				if(typeof args != "object") {
 					if(typeof args != "object") {
@@ -43,7 +44,7 @@
 					});
 				}
 
-				if(typeof args.property != "function") {
+				if(typeof args.property != "string") {
 					throw new $global.joopl.ArgumentException({
 						argName: "property",
 						reason: "Indexes require which property must be indexed"
@@ -51,7 +52,7 @@
 				}
 
 				this.$_.source = args.source;
-				this.$_.propertySelectorFunc = args.property;
+				this.$_.property = args.property;
 				this.$_.unique = typeof args.unique == "boolean" ? args.unique : false;
 			},
 			$members: {
@@ -62,21 +63,11 @@
 					return this.$_.unique;
 				},
 
-				get propertySelectorFunc() {
-					return this.$_.propertySelectorFunc;
-				},
-
-				get propertyName() {
-					var parsed = esprima.parse(new RegExp("return (.+);").exec(this.propertySelectorFunc.toString())[1]);
-
-					return parsed.body[0].expression.property.name;
+				get property() {
+					return this.$_.property;
 				},
 
 				onDataChange: function(args) {
-				},
-
-				where: function(indexedSearch) {
-					throw new $global.joopl.NotImplementedException();
 				}
 			}
 		});

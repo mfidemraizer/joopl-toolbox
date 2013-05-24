@@ -54,7 +54,7 @@
 
 					} else if (typeof predicateFuncOrIndexedSearch == "object") {
 						var propertyName = Object.keys(predicateFuncOrIndexedSearch)[0];
-						var index = this.$_.indexes.singleOrNull(function(index) { return index.propertyName == propertyName; });
+						var index = this.$_.indexes.singleOrNull(function(index) { return index.property == propertyName; });
 
 						if(typeof index == "object") {
 							return index.where(predicateFuncOrIndexedSearch);

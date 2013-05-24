@@ -23,16 +23,21 @@
                 $namespace.using("joopl.collections", function() {
                     var list = new this.IndexedList();
 
-                    list.addIndex(new this.OrderedStringIndex({ source: this, unique: true, property: function(item) { return item.text; } }));
+                    list.addIndex(new this.OrderedStringIndex({ source: list, unique: true, property: "text" }));
                     list.add({ text: "hello" });
                     list.add({ text: "halo" })
                     list.add({ text: "world" });
                     list.add({ text: "!" });
 
-                    var result = list.where({ text: "hel", predicate: function(item) { return item.indexOf(this) == 0 || item == "halo"; } });
+                    var result = list.where({ 
+                        text: "hel", 
+                        predicate: function(item) { 
+                            return item.text.indexOf(this) == 0 || item.text == "halo"; 
+                        } 
+                    });
 
-                    ok(result.indexOf("hello") > -1, "Item found");
-                    ok(result.indexOf("halo") > -1, "Item found");
+                    ok(result.count(function(item) { return item.text == "hello" }) == 1, "Item found");
+                    ok(result.count(function(item) { return item.text == "halo" }) == 1, "Item found");
                 });
             });
         })(undefined);

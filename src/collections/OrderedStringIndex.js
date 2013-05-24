@@ -30,15 +30,17 @@
 				this.$base.$ctor(args);
 
 				this.$_.partitions = new collections.List();
-				this.$_.vocals = "aeiou";
-				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)");
-				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|ç|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)");
-				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]")
+				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)", "i");
+				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|ç|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)", "i");
+				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]", "i")
 
 				this.initialize();
 			},
 
 			$members: {
+				get enumerator() {
+					return this.source.enumerator;
+				},
 				get vocalPartitionRegEx() { 
 					return this.$_.vocalPartitionRegEx;
 				},
@@ -93,28 +95,29 @@
 				},
 
 				onDataChange: function(args) {
-					var indexArgs = { item: this.propertySelectorFunc(args.item) };
-
 					switch(args.changeKind) {
 						case collections.ObservableChange.added:
-							this.onAdded(indexArgs);
+							this.onAdded({ item: args.item });
 							break;
 
 						case collections.ObservableChange.replaced:
-							this.onReplaced(indexArgs);
+							this.onReplaced({ item: args.item });
 							break;
 
 						case collections.ObservableChange.removed:
-							this.onRemoved(indexArgs);
+							this.onRemoved({ item: args.item });
 							break;
 					}
 				},
 
 				onAdded: function(args) {
-					var partition = this.findPartition(args.item);
+					var propertyName = this.property;
+					var searchValue = args.item[propertyName];
+					var propertySelectorFunc = this.propertySelectorFunc;
+					var partition = this.findPartition(searchValue);
 
 					if(this.unique) {
-						if(partition.store.count(function(item) { return item.value === args.item; }) == 0) {
+						if(partition.store.count(function(storeItem) { return storeItem[propertyName] === searchValue; }) == 0) {
 							partition.store.add(args.item);
 						} else {
 							throw new $global.joopl.ArgumentException({
@@ -122,21 +125,39 @@
 								reason: "Unique index violation"
 							});
 						}
+					} else {
+						partition.store.add(args.item);
 					}
 				},
 
 				onReplaced: function(args) {
+					var partition = this.findPartition(args.item);
+					var itemIndex = -1;
 
+					if(this.unique) {
+						if(partition.store.count(function(item) { return item.value == args.item }) > 0) {
+							throw new $global.joopl.ArgumentException({
+								argName: "item",
+								reason: "Unique index violation"
+							});
+						}
+					}
+
+					partition.store.indexOf(args.item);
 				},
 
 				onRemoved: function(args) {
 
 				},
 
-				where: function(indexedSearch) {		
-					var partition = this.findPartition(indexedSearch[this.propertyName]);
+				single: function(indexedSearch) {
+					throw new $global.joopl.NotImplementedException();
+				},
 
-					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.propertyName]));
+				where: function(indexedSearch) {		
+					var partition = this.findPartition(indexedSearch[this.property]);
+
+					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.property]));
 				}
 			}
 		});

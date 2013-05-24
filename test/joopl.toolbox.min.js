@@ -1,4 +1,25 @@
-﻿(function() {
+﻿/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
+(function() {
 	"use strict";
 
 	$namespace.register("joopl.collections", function() {
@@ -10,6 +31,27 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 (function() {
 	"use strict";
 
@@ -39,6 +81,27 @@
 		}));
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 (function() {
 	$namespace.register("joopl.collections", function() {
 		this.Enumerator = $def({
@@ -53,6 +116,26 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	$namespace.register("joopl.collections", function() {
 		this.Enumerable = $def({
@@ -187,6 +270,26 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 	
@@ -209,6 +312,26 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 
@@ -300,6 +423,26 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 
@@ -409,6 +552,26 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 
@@ -422,6 +585,26 @@
 		}));
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 
@@ -464,6 +647,27 @@
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 (function() {
 	"use strict";
 
@@ -471,6 +675,7 @@
 	    var collections = this;
 
 		this.Index = $def({
+			$extends: collections.Enumerable,
 			$constructor: function (args) {
 				if(typeof args != "object") {
 					if(typeof args != "object") {
@@ -488,7 +693,7 @@
 					});
 				}
 
-				if(typeof args.property != "function") {
+				if(typeof args.property != "string") {
 					throw new $global.joopl.ArgumentException({
 						argName: "property",
 						reason: "Indexes require which property must be indexed"
@@ -496,7 +701,7 @@
 				}
 
 				this.$_.source = args.source;
-				this.$_.propertySelectorFunc = args.property;
+				this.$_.property = args.property;
 				this.$_.unique = typeof args.unique == "boolean" ? args.unique : false;
 			},
 			$members: {
@@ -507,26 +712,36 @@
 					return this.$_.unique;
 				},
 
-				get propertySelectorFunc() {
-					return this.$_.propertySelectorFunc;
-				},
-
-				get propertyName() {
-					var parsed = esprima.parse(new RegExp("return (.+);").exec(this.propertySelectorFunc.toString())[1]);
-
-					return parsed.body[0].expression.property.name;
+				get property() {
+					return this.$_.property;
 				},
 
 				onDataChange: function(args) {
-				},
-
-				where: function(indexedSearch) {
-					throw new $global.joopl.NotImplementedException();
 				}
 			}
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 
@@ -539,15 +754,17 @@
 				this.$base.$ctor(args);
 
 				this.$_.partitions = new collections.List();
-				this.$_.vocals = "aeiou";
-				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)");
-				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|Ã§|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)");
-				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]")
+				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)", "i");
+				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|Ã§|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)", "i");
+				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]", "i")
 
 				this.initialize();
 			},
 
 			$members: {
+				get enumerator() {
+					return this.source.enumerator;
+				},
 				get vocalPartitionRegEx() { 
 					return this.$_.vocalPartitionRegEx;
 				},
@@ -602,28 +819,29 @@
 				},
 
 				onDataChange: function(args) {
-					var indexArgs = { item: this.propertySelectorFunc(args.item) };
-
 					switch(args.changeKind) {
 						case collections.ObservableChange.added:
-							this.onAdded(indexArgs);
+							this.onAdded({ item: args.item });
 							break;
 
 						case collections.ObservableChange.replaced:
-							this.onReplaced(indexArgs);
+							this.onReplaced({ item: args.item });
 							break;
 
 						case collections.ObservableChange.removed:
-							this.onRemoved(indexArgs);
+							this.onRemoved({ item: args.item });
 							break;
 					}
 				},
 
 				onAdded: function(args) {
-					var partition = this.findPartition(args.item);
+					var propertyName = this.property;
+					var searchValue = args.item[propertyName];
+					var propertySelectorFunc = this.propertySelectorFunc;
+					var partition = this.findPartition(searchValue);
 
 					if(this.unique) {
-						if(partition.store.count(function(item) { return item.value === args.item; }) == 0) {
+						if(partition.store.count(function(storeItem) { return storeItem[propertyName] === searchValue; }) == 0) {
 							partition.store.add(args.item);
 						} else {
 							throw new $global.joopl.ArgumentException({
@@ -631,26 +849,64 @@
 								reason: "Unique index violation"
 							});
 						}
+					} else {
+						partition.store.add(args.item);
 					}
 				},
 
 				onReplaced: function(args) {
+					var partition = this.findPartition(args.item);
+					var itemIndex = -1;
 
+					if(this.unique) {
+						if(partition.store.count(function(item) { return item.value == args.item }) > 0) {
+							throw new $global.joopl.ArgumentException({
+								argName: "item",
+								reason: "Unique index violation"
+							});
+						}
+					}
+
+					partition.store.indexOf(args.item);
 				},
 
 				onRemoved: function(args) {
 
 				},
 
-				where: function(indexedSearch) {		
-					var partition = this.findPartition(indexedSearch[this.propertyName]);
+				single: function(indexedSearch) {
+					throw new $global.joopl.NotImplementedException();
+				},
 
-					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.propertyName]));
+				where: function(indexedSearch) {		
+					var partition = this.findPartition(indexedSearch[this.property]);
+
+					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.property]));
 				}
 			}
 		});
 	});
 })();
+/*
+ Copyright Matias Fidemraizer
+ http://matiasfidemraizer.com
+ http://www.linkedin.com/in/mfidemraizer/en
+
+ jOOPL Toolbox
+ https://github.com/mfidemraizer/joopl-toolbox
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 (function() {
 	"use strict";
 
@@ -687,7 +943,7 @@
 
 					} else if (typeof predicateFuncOrIndexedSearch == "object") {
 						var propertyName = Object.keys(predicateFuncOrIndexedSearch)[0];
-						var index = this.$_.indexes.singleOrNull(function(index) { return index.propertyName == propertyName; });
+						var index = this.$_.indexes.singleOrNull(function(index) { return index.property == propertyName; });
 
 						if(typeof index == "object") {
 							return index.where(predicateFuncOrIndexedSearch);
