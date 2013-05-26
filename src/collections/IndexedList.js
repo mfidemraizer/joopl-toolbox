@@ -48,18 +48,47 @@
 					}
 				},
 
-				where: function(predicateFuncOrIndexedSearch) {
+				decideIndexOrSequence: function(predicateFuncOrIndexedSearch, isIndexedFunc, isNonIndexedFunc) {
 					if(predicateFuncOrIndexedSearch instanceof Function) {
-						return this.$base.where(predicateFuncOrIndexedSearch);
+						return isNonIndexedFunc();
+					} else {
+						var propertySelector = {};
+						var predicateFunc = null;
 
-					} else if (typeof predicateFuncOrIndexedSearch == "object") {
-						var propertyName = Object.keys(predicateFuncOrIndexedSearch)[0];
-						var index = this.$_.indexes.singleOrNull(function(index) { return index.property == propertyName; });
+						var parameters = Object.keys(predicateFuncOrIndexedSearch);
 
-						if(typeof index == "object") {
-							return index.where(predicateFuncOrIndexedSearch);
+						if(typeof predicateFuncOrIndexedSearch[parameters[0]] != "function") {
+							propertySelector[parameters[0]] = predicateFuncOrIndexedSearch[parameters[0]];
+							predicateFunc = predicateFuncOrIndexedSearch[parameters[1]];
+						} else if (typeof predicateFuncOrIndexedSearch[parameters[1]] == "function") {
+							propertySelector = predicateFuncOrIndexedSearch[parameters[1]];
+							predicateFunc = predicateFuncOrIndexedSearch[parameters[0]];
+						} else {
+							throw new $global.joopl.ArgumentException({
+								argName: "predicateFuncOrIndexedSearch",
+								reason: "The indexed search requires a property selector"
+							});
 						}
+
+						var propertyName = parameters[0];
+						var index = this.$_.indexes.single(function(index) { return index.property == propertyName; });
+
+						return isIndexedFunc(index, propertySelector, predicateFunc);
 					}
+				},
+
+				where: function(predicateFuncOrIndexedSearch) {
+					var that = this;
+
+					return this.decideIndexOrSequence(
+						predicateFuncOrIndexedSearch,
+						function(index, propertySelector, predicateFunc) {
+							return index.where(propertySelector, predicateFunc);
+						},
+						function() {
+							return that.$base.where(predicateFuncOrIndexedSearch);
+						}
+					);
 				},
 
 			    list_changed: function(args) {

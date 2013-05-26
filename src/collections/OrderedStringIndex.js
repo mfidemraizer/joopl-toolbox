@@ -155,34 +155,60 @@
 					partition.store.removeAt(replacedItemIndex);
 				},
 
-				single: function(indexedSearch) {
-					var partition = this.findPartition(indexedSearch[this.property]);
-					
-					return partition.store.single(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				forEach: function(predicateFunc) {
+					throw new $global.joopl.NotImplementedException();
 				},
 
-				singleOrNull: function(indexedSearch) {
-					var partition = this.findPartition(indexedSearch[this.property]);
-					
-					return partition.store.singleOrNull(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				reverse: function() {
+					throw new $global.joopl.NotImplementedException();
 				},
 
-				first: function(indexedSearch) {
-					var partition = this.findPartition(indexedSearch[this.property]);
-					
-					return partition.store.first(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				single: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.single(predicateFunc.bind(propertySelector[this.property]));
 				},
 
-				firstOrNull: function(indexedSearch) {
-					var partition = this.findPartition(indexedSearch[this.property]);
-					
-					return partition.store.firstOrNull(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				singleOrNull: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.singleOrNull(predicateFunc.bind(propertySelector[this.property]));
 				},
 
-				where: function(indexedSearch) {		
-					var partition = this.findPartition(indexedSearch[this.property]);
+				first: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
 
-					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.property]));
+					return partition.store.first(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				firstOrNull: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.firstOrNull(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				last: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.last(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				lastOrNull: function (propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.lastOrNull(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				count: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.count(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				where: function(propertySelector, predicateFunc) {		
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.where(predicateFunc.bind(propertySelector[this.property]));
 				}
 			}
 		});

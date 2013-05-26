@@ -58,7 +58,7 @@
 				single: function(predicateFunc) {
 				    var result = this.singleOrNull(predicateFunc);
 
-				    if (result.count() == 0) {
+				    if (result === null) {
 				        debugger;
 				        throw new $global.joopl.InvalidOperationException({
 				            message: "Sequence contains no elements"
