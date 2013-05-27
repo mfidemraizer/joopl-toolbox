@@ -73,7 +73,18 @@
 						var propertyName = parameters[0];
 						var index = this.$_.indexes.single(function(index) { return index.property == propertyName; });
 
-						return isIndexedFunc(index, propertySelector, predicateFunc);
+						var result = new collections.List();
+
+						var tempPropertyValue = null;
+
+						for(var selectorIndex in propertySelector[index.property]) {
+							tempPropertyValue = {};
+							tempPropertyValue[index.property] = propertySelector[index.property][selectorIndex];
+
+							result.addRange(isIndexedFunc(index, tempPropertyValue, predicateFunc));
+						}
+
+						return result;
 					}
 				},
 

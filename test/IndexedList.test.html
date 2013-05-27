@@ -30,7 +30,7 @@
                     list.add({ text: "!" });
 
                     var result = list.where({ 
-                        text: "hel", 
+                        text: ["hel", "w", "!" ],
                         predicate: function(item) { 
                             return item.text.indexOf(this) == 0 || item.text == "halo"; 
                         } 
@@ -38,6 +38,8 @@
 
                     ok(result.count(function(item) { return item.text == "hello" }) == 1, "Item found");
                     ok(result.count(function(item) { return item.text == "halo" }) == 1, "Item found");
+                    ok(result.count(function(item) { return item.text == "world" }) == 1, "Item found");
+                    ok(result.count(function(item) { return item.text == "!" }) == 1, "Item found");
                 });
             });
         })(undefined);

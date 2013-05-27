@@ -176,7 +176,7 @@
 				single: function(predicateFunc) {
 				    var result = this.singleOrNull(predicateFunc);
 
-				    if (result.count() == 0) {
+				    if (result === null) {
 				        debugger;
 				        throw new $global.joopl.InvalidOperationException({
 				            message: "Sequence contains no elements"
@@ -417,7 +417,15 @@
 				},
 
 				toString: function() {
-					return this.$_.itemArray.join();
+					var textArray = [];
+
+					for(var index in this.$_.itemArray) {
+						if(this.$_.itemArray[index] !== undefined) {
+							textArray.push(this.$_.itemArray[index].toString());
+						}
+					}
+
+					return textArray.join(", ");
 				}
 			}
 		});
@@ -858,7 +866,6 @@
 
 				onReplaced: function(args) {
 					var partition = this.findPartition(args.item);
-					var itemIndex = -1;
 
 					if(this.unique) {
 						if(partition.store.count(function(item) { return item.value == args.item }) > 0) {
@@ -869,21 +876,71 @@
 						}
 					}
 
-					partition.store.indexOf(args.item);
+					var replacedItemIndex = partition.store.indexOf(args.oldItem);
+					partition.store.replaceAt(replacedItemIndex, args.item);
 				},
 
 				onRemoved: function(args) {
+					var partition = this.findPartition(args.item);
 
+					var removedItemIndex = partition.store.indexOf(args.item);
+					partition.store.removeAt(replacedItemIndex);
 				},
 
-				single: function(indexedSearch) {
+				forEach: function(predicateFunc) {
 					throw new $global.joopl.NotImplementedException();
 				},
 
-				where: function(indexedSearch) {		
-					var partition = this.findPartition(indexedSearch[this.property]);
+				reverse: function() {
+					throw new $global.joopl.NotImplementedException();
+				},
 
-					return partition.store.where(indexedSearch.predicate.bind(indexedSearch[this.property]));
+				single: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.single(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				singleOrNull: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.singleOrNull(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				first: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.first(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				firstOrNull: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.firstOrNull(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				last: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.last(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				lastOrNull: function (propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.lastOrNull(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				count: function(propertySelector, predicateFunc) {
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.count(predicateFunc.bind(propertySelector[this.property]));
+				},
+
+				where: function(propertySelector, predicateFunc) {		
+					var partition = this.findPartition(propertySelector[this.property]);
+
+					return partition.store.where(predicateFunc.bind(propertySelector[this.property]));
 				}
 			}
 		});
@@ -939,18 +996,58 @@
 					}
 				},
 
-				where: function(predicateFuncOrIndexedSearch) {
+				decideIndexOrSequence: function(predicateFuncOrIndexedSearch, isIndexedFunc, isNonIndexedFunc) {
 					if(predicateFuncOrIndexedSearch instanceof Function) {
-						return this.$base.where(predicateFuncOrIndexedSearch);
+						return isNonIndexedFunc();
+					} else {
+						var propertySelector = {};
+						var predicateFunc = null;
 
-					} else if (typeof predicateFuncOrIndexedSearch == "object") {
-						var propertyName = Object.keys(predicateFuncOrIndexedSearch)[0];
-						var index = this.$_.indexes.singleOrNull(function(index) { return index.property == propertyName; });
+						var parameters = Object.keys(predicateFuncOrIndexedSearch);
 
-						if(typeof index == "object") {
-							return index.where(predicateFuncOrIndexedSearch);
+						if(typeof predicateFuncOrIndexedSearch[parameters[0]] != "function") {
+							propertySelector[parameters[0]] = predicateFuncOrIndexedSearch[parameters[0]];
+							predicateFunc = predicateFuncOrIndexedSearch[parameters[1]];
+						} else if (typeof predicateFuncOrIndexedSearch[parameters[1]] == "function") {
+							propertySelector = predicateFuncOrIndexedSearch[parameters[1]];
+							predicateFunc = predicateFuncOrIndexedSearch[parameters[0]];
+						} else {
+							throw new $global.joopl.ArgumentException({
+								argName: "predicateFuncOrIndexedSearch",
+								reason: "The indexed search requires a property selector"
+							});
 						}
+
+						var propertyName = parameters[0];
+						var index = this.$_.indexes.single(function(index) { return index.property == propertyName; });
+
+						var result = new collections.List();
+
+						var tempPropertyValue = null;
+
+						for(var selectorIndex in propertySelector[index.property]) {
+							tempPropertyValue = {};
+							tempPropertyValue[index.property] = propertySelector[index.property][selectorIndex];
+
+							result.addRange(isIndexedFunc(index, tempPropertyValue, predicateFunc));
+						}
+
+						return result;
 					}
+				},
+
+				where: function(predicateFuncOrIndexedSearch) {
+					var that = this;
+
+					return this.decideIndexOrSequence(
+						predicateFuncOrIndexedSearch,
+						function(index, propertySelector, predicateFunc) {
+							return index.where(propertySelector, predicateFunc);
+						},
+						function() {
+							return that.$base.where(predicateFuncOrIndexedSearch);
+						}
+					);
 				},
 
 			    list_changed: function(args) {

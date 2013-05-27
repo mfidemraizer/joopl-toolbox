@@ -103,7 +103,15 @@
 				},
 
 				toString: function() {
-					return this.$_.itemArray.join();
+					var textArray = [];
+
+					for(var index in this.$_.itemArray) {
+						if(this.$_.itemArray[index] !== undefined) {
+							textArray.push(this.$_.itemArray[index].toString());
+						}
+					}
+
+					return textArray.join(", ");
 				}
 			}
 		});
