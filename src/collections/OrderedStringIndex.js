@@ -82,8 +82,13 @@
 					var isVocal = this.vocalPartitionRegEx.test(item);
 
 					if(isVocal) {
-						if(this.vocalPartitionRegEx.test(item.substring(0, 2).toLowerCase())) {
-							partitionId = item.substring(0, 2);
+						if(this.vocalPartitionRegEx.test(item.toLowerCase())) {
+							if(item.length > 1 && this.vocalPartitionRegEx.test(item.substring(1, 1).toLowerCase())) {
+								partitionId = item.substring(0, 2);
+							} else {
+								partitionId = item[0];
+							}
+
 						} else {
 							partitionId = item[0];
 						}
