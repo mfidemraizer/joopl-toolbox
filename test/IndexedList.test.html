@@ -36,6 +36,8 @@
                         } 
                     });
 
+                    var result2 = list.where(function(item) { return true; });
+
                     ok(result.count(function(item) { return item.text == "hello" }) == 1, "Item found");
                     ok(result.count(function(item) { return item.text == "halo" }) == 1, "Item found");
                     ok(result.count(function(item) { return item.text == "world" }) == 1, "Item found");

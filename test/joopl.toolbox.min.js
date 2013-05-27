@@ -762,9 +762,9 @@
 				this.$base.$ctor(args);
 
 				this.$_.partitions = new collections.List();
-				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)", "i");
-				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|Ã§|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)", "i");
-				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]", "i")
+				this.$_.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)", "gi");
+				this.$_.consonantPartitionRegEx = new RegExp("^(b|c|Ã§|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)", "gi");
+				this.$_.numericAndSymbol = new RegExp("^[A-Za-z]", "gi")
 
 				this.initialize();
 			},
@@ -814,16 +814,18 @@
 					var isVocal = this.vocalPartitionRegEx.test(item);
 
 					if(isVocal) {
-						if(this.vocalPartitionRegEx.test(item.substring(0, 2))) {
+						if(this.vocalPartitionRegEx.test(item.substring(0, 2).toLowerCase())) {
 							partitionId = item.substring(0, 2);
 						} else {
 							partitionId = item[0];
 						}
-					} else if(this.consonantPartitionRegEx.test(item[0])) {
+					} else if(this.consonantPartitionRegEx.test(item[0].toLowerCase())) {
 						partitionId = item[0];
 					} else {
 						partitionId = "other";
 					}
+
+					partitionId = partitionId.toLowerCase();
 
 					return this.$_.partitions.singleOrNull(function(item) { return item.id == partitionId });
 				},
