@@ -1,11 +1,16 @@
 {
-  "name": "joopl.toolbox",
+  "name": "joopl-toolbox",
   "filename": "joopl.toolbox.min.js",
   "version": "2.3.0",
-  "description": "Object-oriented programming for JavaScript on the Web and anywhere!",
-  "homepage": "http://mfidemraizer.github.io/joopl",
+  "description": "The object-oriented framework for the Web and anywhere!",
+  "homepage": "http://mfidemraizer.github.io/joopl-toolbox",
   "keywords": [
     "joopl",
+    "toolbox",
+    "joopltoolbox",
+    "joopl-toolbox",
+    "framework",
+    "javascript",
     "oop",
     "object-oriented"
   ],
@@ -13,7 +18,7 @@
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/mfidemraizer/joopl.git"
+      "url": "https://github.com/mfidemraizer/joopl-toolbox.git"
     }
   ],
   "devDependencies": {
