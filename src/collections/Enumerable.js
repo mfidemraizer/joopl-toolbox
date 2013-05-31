@@ -20,6 +20,8 @@
 */
 (function() {
 	$namespace.register("joopl.collections", function() {
+		var collections = this;
+
 		this.Enumerable = $def({
 			$members: {
 				get enumerator() {
@@ -138,6 +140,13 @@
 				},
 
 				where: function(predicateFunc) {
+					if(!(predicateFunc instanceof Function)) {
+						throw new $global.joopl.ArgumentException({
+							argName: "predicateFunc",
+							reason: "Given predicate function is not a function"
+						});
+					}
+
 					var result = new $global.joopl.collections.List();
 
 					this.forEach(function(item) {
@@ -147,6 +156,27 @@
 					});
 
 					return result;
+				},
+
+				select: function(predicateFunc) {
+					if(!(predicateFunc instanceof Function)) {
+						throw new $global.joopl.ArgumentException({
+							argName: "predicateFunc",
+							reason: "Given predicate function is not a function"
+						});
+					}
+
+					var result = new $global.joopl.collections.List();
+
+					this.forEach(function(item) {
+						result.add(predicateFunc(item));
+					});
+
+					return result;
+				},
+
+				asQueryable: function() {
+					return new collections.Queryable({ enumerable: this });
 				}
 			}
 		});

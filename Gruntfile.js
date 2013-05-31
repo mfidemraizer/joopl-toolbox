@@ -19,6 +19,7 @@ module.exports = function(grunt) {
             /* joopl.collections */
             "src/collections/Enumerator.js",
             "src/collections/Enumerable.js",
+            "src/collections/Queryable.js",
             "src/collections/ListEnumerator.js",
             "src/collections/List.js",
             "src/collections/TypedList.js",

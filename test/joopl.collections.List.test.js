@@ -107,6 +107,49 @@
         });
     });
 
+    test("Test Enumerable.where()", function () {
+        $namespace.using("joopl.collections", function() {
+            var list = new this.List();
+            list.add("hello");
+            list.add("world");
+            list.add("!");
+
+            var result = list.where(function(item) { return item == "!"; });
+
+            ok(result.count() == 1, "Result: 1 item");
+            ok(result.itemAt(0) == "!", "Found item is the expected one");
+        });
+    });
+
+    test("Test Enumerable.select()", function () {
+        $namespace.using("joopl.collections", function() {
+            var list = new this.List();
+            list.add("hello");
+            list.add("world");
+            list.add("!");
+
+            var result = list.select(function(item) { return { text: item }; });
+
+            ok(result.itemAt(0).text == "hello", "Projected item has the expected form");
+            ok(result.itemAt(1).text == "world", "Projected item has the expected form");
+            ok(result.itemAt(2).text == "!", "Projected item has the expected form");
+        });
+    });
+
+    test("Test Enumerable.asQueryable()", function () {
+        $namespace.using("joopl.collections", function() {
+            var list = new this.List();
+            list.add("hello");
+            list.add("world");
+            list.add("!");
+
+            var queryable = list.asQueryable().where(function(item) { return item == "hello"; }).select(function(item) { return { text: item } });
+            var result = queryable.toList();
+
+            ok(result.itemAt(0).text == "hello", "Found item is the expected one");
+        });
+    });
+
     test("Test Enumerable.first() and Enumerable.first(predicateFunc)", function () {
         $namespace.using("joopl.collections", function () {
             var list = new this.List();
