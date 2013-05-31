@@ -143,7 +143,10 @@
             list.add("world");
             list.add("!");
 
-            var queryable = list.asQueryable().where(function(item) { return item == "hello"; }).select(function(item) { return { text: item } });
+            var queryable = list.asQueryable()
+                                .where(function(item) { return item == "hello"; })
+                                .select(function(item) { return { text: item } });
+                                
             var result = queryable.toList();
 
             ok(result.itemAt(0).text == "hello", "Found item is the expected one");
