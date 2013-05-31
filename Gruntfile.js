@@ -26,7 +26,8 @@ module.exports = function(grunt) {
             "src/collections/ObservableList.js",
             "src/collections/Index.js",
             "src/collections/OrderedStringIndex.js",
-            "src/collections/IndexedList.js"
+            "src/collections/IndexedList.js",
+            "src/collections/Queue.js"
           ],
           dest: "bin/<%= pkg.name %>.js"
       }

@@ -137,6 +137,10 @@
 
 				dequeue: function(item) {
 					return this.$_.queue.dequeue();
+				},
+
+				peek: function() {
+					return this.$_.queue.peek();
 				}
 			}
 		});
