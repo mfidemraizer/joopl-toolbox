@@ -4,7 +4,7 @@
 	$namespace.register("joopl.threading", function() {
 		this.Task = $def({
 			$constructor: function(predicateFunc) {
-				if(!(predicateFunc instanceof Function) {
+				if(!(predicateFunc instanceof Function)) {
 					throw new $global.joopl.ArgumentException({
 						argName: "predicateFunc",
 						reason: "Unexpected argument: given parameter is not a function"
@@ -13,7 +13,7 @@
 
 				this.$_.predicateFunc = predicateFunc;
 			},
-			{
+            $members: {
 				get predicateFunc() {
 					return this.$_.predicateFunc;
 				},
