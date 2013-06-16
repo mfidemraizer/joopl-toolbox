@@ -1,6 +1,8 @@
-"use strict";
-
 (function (undefined) {
+    "use strict";
+
+    $manifest.file("joopl.collections.List.test.js");
+
     module("joopl.collections.List");
 
     test("Create list and add items. Checks if the added items exist in the list and if the order is the expected one", function () {

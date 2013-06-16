@@ -1,5 +1,7 @@
 (function() {
-     "use strict";
+    "use strict";
+
+    $manifest.file("joopl.collections.Queue.test.js");
 
      module("joopl.collections.Queue");
      

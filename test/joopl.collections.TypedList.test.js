@@ -1,6 +1,8 @@
-"use strict";
-
 (function (undefined) {
+    "use strict";
+
+    $manifest.file("joopl.collections.TypedList.test.js");
+
     module("joopl.collections.TypedList");
     
     test("Create list and add items of the list type and also try to add items of other types. Items of other types must be refused", function () {

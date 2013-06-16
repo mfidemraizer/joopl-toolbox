@@ -1,6 +1,8 @@
-"use strict";
-
 (function (undefined) {
+    "use strict";
+
+    $manifest.file("joopl.collections.ObservableList.test.js");
+
     module("joopl.collections.ObservableList");
     
     test("Create list and add items. Check that changes can be observed.", function () {

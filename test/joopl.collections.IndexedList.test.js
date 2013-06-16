@@ -1,6 +1,8 @@
-"use strict";
-
 (function (undefined) {
+    "use strict";
+
+    $manifest.file("joopl.collections.IndexedList.test.js");
+
     module("joopl.collections.IndexedList");
     
     test("Create list and add items. Make an indexed search and check that the result contains the expected item", function () {
