@@ -21,8 +21,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/ObservableList.js");
-
 	$namespace.register("joopl.collections", function () {
 	    var collections = this;
 

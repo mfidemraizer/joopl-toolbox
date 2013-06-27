@@ -1,8 +1,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("net/http/HttpResponseMessage.js");
-
     $namespace.register("joopl.net.http", function () {
         this.HttpResponseMessage = $def({
             $constructor: function (args) {

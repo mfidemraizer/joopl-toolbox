@@ -21,8 +21,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/Collection.js");
-
 	$namespace.register("joopl.collections", function() {
 		this.Collection = $def({
 			$extends: this.Enumerable,

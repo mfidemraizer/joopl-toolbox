@@ -22,8 +22,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/Index.js");
-
 	$namespace.register("joopl.collections", function () {
 	    var collections = this;
 

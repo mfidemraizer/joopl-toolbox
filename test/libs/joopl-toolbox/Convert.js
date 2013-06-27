@@ -22,8 +22,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("Convert.js");
-
 	$namespace.register("joopl", function() {
 	    this.Convert = $def({
 	        $members: {

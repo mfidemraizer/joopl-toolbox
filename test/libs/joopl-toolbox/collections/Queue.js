@@ -21,8 +21,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/Queue.js");
-
 	/*
 
 	Queue.js
@@ -107,11 +105,6 @@
 
 		  }
 	}
-
-	$namespace.using(["a", "b"], function() {
-		
-
-	});
 
 	$namespace.register("joopl.collections", function() {
 		this.Queue = $def({

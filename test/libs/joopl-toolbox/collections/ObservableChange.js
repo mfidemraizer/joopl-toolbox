@@ -21,8 +21,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/ObservableChange.js");
-
 	$namespace.register("joopl.collections", function() {
 	    this.ObservableChange = $enumdef({
 	        added: 1,

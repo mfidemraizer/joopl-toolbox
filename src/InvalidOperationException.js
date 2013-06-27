@@ -22,8 +22,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("InvalidOperationException.js");
-
 	$namespace.register("joopl.collections", function() {
 	    this.InvalidOperationException = $def({
 	        $extends: $global.joopl.Exception,

@@ -21,8 +21,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/ListEnumerator.js");
-	
 	$namespace.register("joopl.collections", function() {
 		this.ListEnumerator = $def({
 			$constructor: function(args) {

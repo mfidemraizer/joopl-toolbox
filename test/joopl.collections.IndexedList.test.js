@@ -1,7 +1,5 @@
-(function (undefined) {
+$manifest.file("joopl.collections.IndexedList.test.js", function () {
     "use strict";
-
-    $manifest.file("joopl.collections.IndexedList.test.js");
 
     module("joopl.collections.IndexedList");
     
@@ -27,7 +25,7 @@
             ok(result.count(function(item) { return item.text == "hello" }) == 1, "Item found");
             ok(result.count(function(item) { return item.text == "halo" }) == 1, "Item found");
             ok(result.count(function(item) { return item.text == "world" }) == 1, "Item found");
-            ok(result.count(function(item) { return item.text == "!" }) == 1, "Item found");
+            ok(result.count(function (item) { return item.text == "!" }) == 1, "Item found");
         });
     });
-})(undefined);
+});

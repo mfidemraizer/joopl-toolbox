@@ -1,8 +1,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("collections/Queryable.js");
-
 	$namespace.register("joopl.collections", function() {
 		var collections = this;
 

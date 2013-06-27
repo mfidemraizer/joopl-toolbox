@@ -21,9 +21,7 @@
 (function() {
     "use strict";
 
-    $manifest.file("TypedList.js");
-
-	$namespace.register("collections/joopl.collections", function() {
+	$namespace.register("joopl.collections", function() {
 		this.TypedList = $def({
 			$extends: this.List,
 			$constructor: function (args) {

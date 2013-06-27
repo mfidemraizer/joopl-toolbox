@@ -1,8 +1,6 @@
 (function(Worker) {
     "use strict";
 
-    $manifest.file("threading/Task.js");
-
 	$namespace.register("joopl.threading", function() {
 		this.Task = $def({
 			$constructor: function(predicateFunc) {

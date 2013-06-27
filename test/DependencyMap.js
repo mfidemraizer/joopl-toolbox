@@ -74,7 +74,8 @@ $global.__DependencyMap = [
       "libs/joopl-toolbox/collections/ObservableList.js",
       "libs/joopl-toolbox/collections/OrderedStringIndex.js",
       "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/Queue.js"
+      "libs/joopl-toolbox/collections/Queue.js",
+      "libs/joopl-toolbox/collections/TypedList.js"
     ],
     "members": [
       {
@@ -154,19 +155,10 @@ $global.__DependencyMap = [
         "namespace": "joopl.collections",
         "name": "Queue",
         "fileName": "libs/joopl-toolbox/collections/Queue.js"
-      }
-    ]
-  },
-  {
-    "kind": "namespace",
-    "name": "collections/joopl.collections",
-    "files": [
-      "libs/joopl-toolbox/collections/TypedList.js"
-    ],
-    "members": [
+      },
       {
         "kind": "member",
-        "namespace": "collections/joopl.collections",
+        "namespace": "joopl.collections",
         "name": "TypedList",
         "fileName": "libs/joopl-toolbox/collections/TypedList.js"
       }

@@ -1,12 +1,10 @@
-(function (undefined) {
+$manifest.file("joopl.collections.ObservableList.test.js", function () {
     "use strict";
 
-    $manifest.file("joopl.collections.ObservableList.test.js");
-
     module("joopl.collections.ObservableList");
-    
+
     test("Create list and add items. Check that changes can be observed.", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.ObservableList();
             var collections = this;
 
@@ -25,4 +23,4 @@
             ok(changeCount == 3, "The list must notify that it changed three times");
         });
     });
-})(undefined);
+});

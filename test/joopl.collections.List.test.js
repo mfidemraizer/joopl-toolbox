@@ -1,12 +1,10 @@
-(function (undefined) {
+$manifest.file("joopl.collections.List.test.js", function () {
     "use strict";
-
-    $manifest.file("joopl.collections.List.test.js");
 
     module("joopl.collections.List");
 
     test("Create list and add items. Checks if the added items exist in the list and if the order is the expected one", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -19,7 +17,7 @@
     });
 
     test("Create list and add multiple items at once. Checks if the added items exist in the list and if the order is the expected one", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -35,7 +33,7 @@
     });
 
     test("Create list and add items, and remove ones. Checks if the added items are removed as expected", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -62,12 +60,11 @@
             ok(list.indexOf("bleh") == -1, "Index of removed item must be -1");
             ok(list.indexOf("bloh") > -1, "Non-removed item already exists");
             ok(list.indexOf("blih") > -1, "Non-removed item already exists");
-
         });
     });
 
     test("Create list and insert items at specified positions. Checks if the added items are in the expected index and order.", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -95,7 +92,7 @@
     });
 
     test("Test Enumerable.reverse()", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -110,13 +107,13 @@
     });
 
     test("Test Enumerable.where()", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
             list.add("!");
 
-            var result = list.where(function(item) { return item == "!"; });
+            var result = list.where(function (item) { return item == "!"; });
 
             ok(result.count() == 1, "Result: 1 item");
             ok(result.itemAt(0) == "!", "Found item is the expected one");
@@ -124,13 +121,13 @@
     });
 
     test("Test Enumerable.select()", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
             list.add("!");
 
-            var result = list.select(function(item) { return { text: item }; });
+            var result = list.select(function (item) { return { text: item }; });
 
             ok(result.itemAt(0).text == "hello", "Projected item has the expected form");
             ok(result.itemAt(1).text == "world", "Projected item has the expected form");
@@ -139,16 +136,16 @@
     });
 
     test("Test Enumerable.asQueryable()", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
             list.add("!");
 
             var queryable = list.asQueryable()
-                                .where(function(item) { return item == "hello"; })
-                                .select(function(item) { return { text: item } });
-                                
+                                .where(function (item) { return item == "hello"; })
+                                .select(function (item) { return { text: item } });
+
             var result = queryable.toList();
 
             ok(result.itemAt(0).text == "hello", "Found item is the expected one");
@@ -170,7 +167,7 @@
             }, "No item must be found if the predicate function does not match with any element within the enumerable");
 
             var list2 = new this.List();
-            
+
             throws(function () {
                 list2.first();
             }, "It must throw an exception as the enumerable has no elements");
@@ -178,7 +175,7 @@
     });
 
     test("Test Enumerable.last() and Enumerable.last(predicateFunc)", function () {
-        $namespace.using("joopl.collections", function() {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -189,18 +186,18 @@
             }, "No item must be found if the predicate function does not match with any element within the enumerable");
 
             ok(list.last() == "!", "It is the expected last item");
-            ok(list.last(function(item) { return item == "!" }) == "!", "It is the expected last item");
+            ok(list.last(function (item) { return item == "!" }) == "!", "It is the expected last item");
 
             var list2 = new this.List();
-            
+
             throws(function () {
                 list2.last();
             }, "It must throw an exception as the enumerable has no elements");
         });
     });
 
-    test("Test Enumerable.count() and Enumerable.count(predicateFunc)", function() {
-        $namespace.using("joopl.collections", function() {
+    test("Test Enumerable.count() and Enumerable.count(predicateFunc)", function () {
+        $namespace.using("joopl.collections", function () {
             var list = new this.List();
             list.add("hello");
             list.add("world");
@@ -208,10 +205,10 @@
             list.add("!");
 
             ok(list.count() == 4, "The count must match the number of items");
-            ok(list.count(function(item) { return item.indexOf(".") == 3 || item == "!" }) == 2, 
+            ok(list.count(function (item) { return item.indexOf(".") == 3 || item == "!" }) == 2,
                 "The count must match the number of items for the given criteria"
             );
-            ok(list.count(function(item) { return false }) == 0, "Zero count expected (false criteria)");
+            ok(list.count(function (item) { return false }) == 0, "Zero count expected (false criteria)");
         });
     });
-})(undefined);
+});

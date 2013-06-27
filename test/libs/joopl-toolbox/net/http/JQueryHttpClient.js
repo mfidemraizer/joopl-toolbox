@@ -1,8 +1,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("net/http/JQueryHttpClient.js");
-
     $namespace.register("joopl.net.http", function () {
         this.JQueryHttpClient = $def({
             $extends: this.HttpClient,

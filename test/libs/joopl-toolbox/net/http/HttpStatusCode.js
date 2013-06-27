@@ -1,8 +1,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("net/http/HttpStatusCode.js");
-
     $namespace.register("joopl.net.http", function () {
           this.HttpStatusCode = $enumdef({
               continue: 100,

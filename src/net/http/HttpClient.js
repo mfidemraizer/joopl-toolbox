@@ -1,8 +1,6 @@
 (function() {
     "use strict";
 
-    $manifest.file("net/http/HttpClient.js");
-
     $namespace.register("joopl.net.http", function () {
         this.HttpClient = $def({
             $constructor: function (args) {
