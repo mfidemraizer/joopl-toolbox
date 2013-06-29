@@ -61,6 +61,15 @@ buildFile Queryable.js
 buildFile Queue.js
 buildFile TypedList.js
 
+#joopl.net.http
+buildFile HttpClient.js
+buildFile HttpContent.js
+buildFile HttpResponseMessage.js
+buildFile HttpStatusCode.js
+buildFile JQueryHttpClient.js
+buildFile StringContent.js
+
+
 write-host
 write-host -NoNewline "Building dependency tree..."
 write-host
