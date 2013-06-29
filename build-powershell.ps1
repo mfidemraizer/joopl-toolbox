@@ -1,46 +1,92 @@
 Clear-Host
 
+Add-Type -Path "C:\Program Files (x86)\Microsoft\Microsoft Ajax Minifier\AjaxMin.dll"
+
+$ajaxMin = New-Object Microsoft.Ajax.Utilities.Minifier
+$ajaxMinSettings = New-Object Microsoft.Ajax.Utilities.CodeSettings
+$ajaxMinSettings.StrictMode = [System.Boolean]::Parse("true")
+
+$DependencyBuilder = "tools\dependencybuilder\joopl.dependencybuilder.exe"
+$currentDir = ([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Path))
+
+Remove-Item -Recurse -Force bin -ErrorAction Continue
+
+New-Item -ItemType directory -Path bin
+
 write-host JOOPL TOOLBOX
 write-host -------------------------------------
 write-host 
-write-host Starting combination and minimization of JavaScript files.... 
+write-host Starting combination and minimization of JavaScript files...
 
-remove-item joopl.toolbox.js -ErrorAction SilentlyContinue
-remove-item joopl.toolbox.min.js -ErrorAction SilentlyContinue
+$builtFiles = @{}
 
-function combineFile
+function buildFile
 {
-    param ($fileName)
+	param($fileName)
+
+    Set-Location .\src
+
+    $fullFileName = (get-childitem -include $fileName -recurse -force).FullName
+
+    $extensionlessFileName = [System.IO.Path]::GetFileNameWithoutExtension($fileName)
+    $md5 = Get-Content $fullFileName | Get-Hash -Algorithm MD5
+    $md5 = $md5.HashString.Substring(0, 6)
+    $outputFileName = ("bin\$extensionlessFileName.$md5.js")
+
+    write-host $fullFileName
     
-    get-childitem -include $fileName -recurse -force | get-content | out-file joopl.toolbox.js -append -encoding UTF8
+    Set-Location ..
+    
+    $builtFiles.Add($fileName, [System.IO.Path]::GetFileName($outputFileName))
+
+    Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force
 }
 
 # joopl
-combineFile InvalidOperationException.js
-combineFile Convert.js
+buildFile InvalidOperationException.js
+buildFile Convert.js
 
 # joopl.collections
-combineFile Enumerator.js
-combineFile Enumerable.js
-combineFile ListEnumerator.js
-combineFile List.js
-combineFile TypedList.js
-combineFile ObservableChange.js
-combineFile ObservableList.js
-combineFile Index.js
-combineFile OrderedStringIndex.js
-combineFile IndexedList.js
+buildFile Collection.js
+buildFile Enumerator.js
+buildFile Enumerable.js
+buildFile Index.js
+buildFile IndexedList.js
+buildFile List.js
+buildFile ListEnumerator.js
+buildFile ObservableChange.js
+buildFile ObservableList.js
+buildFile OrderedStringIndex.js
+buildFile Queryable.js
+buildFile Queue.js
+buildFile TypedList.js
 
-# joopl.ui
-#combineFile Binder.js
-#combineFile PropertyBinder.js
-#combineFile EventBinder.js
-#combineFile CollectionBinder.js
-#combineFile TwoWayBinder.js
+write-host
+write-host -NoNewline "Building dependency tree..."
+write-host
 
-# MINIFY THE COMBINED FILE
-$Minifier = “C:\Program Files (x86)\Microsoft\Microsoft Ajax Minifier\AjaxMin.exe”
-&$Minifier joopl.toolbox.js -out joopl.toolbox.min.js -strict:true
+Remove-Item -Recurse -Force .\test\libs\joopl-toolbox -ErrorAction SilentlyContinue
+robocopy .\bin .\test\libs\joopl-toolbox  /NFL /NDL /NJH /NJS /nc /ns /np /e
 
-# Move the minified file to /test
-copy-item joopl.toolbox.js -destination test\joopl.toolbox.min.js
+&$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js"
+
+foreach($file in $builtFiles.Keys)
+{
+    write-host -NoNewline "Minifying $file..."
+
+    $outputFileName = $builtFiles.Get_Item($file)
+    $outputFileName = "test\libs\joopl-toolbox\$outputFileName"
+    $fileContent = Get-Content $outputFileName
+    
+    if(!$file.Contains("Queue")) 
+    {
+        $ajaxMin.MinifyJavaScript((Get-Content $outputFileName), $ajaxMinSettings) | Out-File $outputFileName -Force
+        write-host "Done!" 
+    }
+    else
+    {
+        write-host "File discarded!"
+    }
+}
+
+write-host "Build process has finished"

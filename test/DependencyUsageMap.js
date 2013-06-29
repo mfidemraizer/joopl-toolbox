@@ -9,70 +9,70 @@ $global.__DependencyUsageMap = [
   {
     "fileName": "joopl.collections.IndexedList.test.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Index.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/IndexedList.js",
-      "libs/joopl-toolbox/collections/ObservableList.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/ObservableChange.js",
-      "libs/joopl-toolbox/collections/OrderedStringIndex.js"
+      "libs/joopl-toolbox/Index.D140F1.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/IndexedList.C5838E.js",
+      "libs/joopl-toolbox/ObservableList.8BAF08.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/ObservableChange.947259.js",
+      "libs/joopl-toolbox/OrderedStringIndex.1AEA78.js"
     ]
   },
   {
     "fileName": "joopl.collections.List.test.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Enumerator.js"
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js"
     ]
   },
   {
     "fileName": "joopl.collections.ObservableList.test.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/ObservableList.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/ObservableChange.js"
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/ObservableList.8BAF08.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/ObservableChange.947259.js"
     ]
   },
   {
     "fileName": "joopl.collections.Queue.test.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Queryable.js"
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js"
     ]
   },
   {
     "fileName": "joopl.collections.TypedList.test.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/TypedList.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/Convert.js"
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/TypedList.6D8B2D.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Convert.894AC1.js"
     ]
   },
   {
@@ -82,177 +82,148 @@ $global.__DependencyUsageMap = [
     "fileName": "qunit.js"
   },
   {
-    "fileName": "libs/joopl-toolbox/Convert.js"
-  },
-  {
-    "fileName": "libs/joopl-toolbox/InvalidOperationException.js"
-  },
-  {
-    "fileName": "libs/joopl-toolbox/collections/Collection.js",
+    "fileName": "libs/joopl-toolbox/Collection.604E05.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js"
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/Enumerable.js",
+    "fileName": "libs/joopl-toolbox/Convert.894AC1.js"
+  },
+  {
+    "fileName": "libs/joopl-toolbox/Enumerable.731A85.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Enumerator.js"
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/Enumerator.js"
+    "fileName": "libs/joopl-toolbox/Enumerator.4A4182.js"
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/Index.js",
+    "fileName": "libs/joopl-toolbox/Index.D140F1.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js"
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/IndexedList.js",
+    "fileName": "libs/joopl-toolbox/IndexedList.C5838E.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/ObservableChange.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/ObservableList.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/Index.js"
+      "libs/joopl-toolbox/ObservableChange.947259.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/ObservableList.8BAF08.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/Index.D140F1.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/List.js",
+    "fileName": "libs/joopl-toolbox/InvalidOperationException.3B067D.js"
+  },
+  {
+    "fileName": "libs/joopl-toolbox/List.39847B.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js"
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/ListEnumerator.js",
+    "fileName": "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Enumerator.js"
+      "libs/joopl-toolbox/Enumerator.4A4182.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/ObservableChange.js"
+    "fileName": "libs/joopl-toolbox/ObservableChange.947259.js"
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/ObservableList.js",
+    "fileName": "libs/joopl-toolbox/ObservableList.8BAF08.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/ObservableChange.js"
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/ObservableChange.947259.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/OrderedStringIndex.js",
+    "fileName": "libs/joopl-toolbox/OrderedStringIndex.1AEA78.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Index.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/ObservableChange.js"
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Index.D140F1.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/ObservableChange.947259.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/Queryable.js",
+    "fileName": "libs/joopl-toolbox/Queryable.80A0C8.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/InvalidOperationException.js"
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/Queue.js",
+    "fileName": "libs/joopl-toolbox/Queue.6C3E78.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/InvalidOperationException.js"
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js"
     ]
   },
   {
-    "fileName": "libs/joopl-toolbox/collections/TypedList.js",
+    "fileName": "libs/joopl-toolbox/TypedList.6D8B2D.js",
     "dependsOn": [
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/Convert.js"
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/Convert.894AC1.js"
     ]
-  },
-  {
-    "fileName": "libs/joopl-toolbox/net/http/HttpClient.js"
-  },
-  {
-    "fileName": "libs/joopl-toolbox/net/http/HttpContent.js"
-  },
-  {
-    "fileName": "libs/joopl-toolbox/net/http/HttpResponseMessage.js"
-  },
-  {
-    "fileName": "libs/joopl-toolbox/net/http/HttpStatusCode.js"
-  },
-  {
-    "fileName": "libs/joopl-toolbox/net/http/JQueryHttpClient.js",
-    "dependsOn": [
-      "libs/joopl-toolbox/net/http/HttpContent.js",
-      "libs/joopl-toolbox/net/http/HttpClient.js",
-      "libs/joopl-toolbox/net/http/HttpResponseMessage.js"
-    ]
-  },
-  {
-    "fileName": "libs/joopl-toolbox/net/http/StringContent.js",
-    "dependsOn": [
-      "libs/joopl-toolbox/net/http/HttpContent.js"
-    ]
-  },
-  {
-    "fileName": "libs/joopl-toolbox/threading/Task.js"
   }
 ];

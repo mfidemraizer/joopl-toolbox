@@ -5,7 +5,7 @@ $global.__DependencyMap = [
     "name": "joopl",
     "files": [
       "joopl.min.js",
-      "libs/joopl-toolbox/Convert.js"
+      "libs/joopl-toolbox/Convert.894AC1.js"
     ],
     "members": [
       {
@@ -18,12 +18,6 @@ $global.__DependencyMap = [
         "kind": "member",
         "namespace": "joopl",
         "name": "Attribute",
-        "fileName": "joopl.min.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl",
-        "name": "EnumValue",
         "fileName": "joopl.min.js"
       },
       {
@@ -54,7 +48,7 @@ $global.__DependencyMap = [
         "kind": "member",
         "namespace": "joopl",
         "name": "Convert",
-        "fileName": "libs/joopl-toolbox/Convert.js"
+        "fileName": "libs/joopl-toolbox/Convert.894AC1.js"
       }
     ]
   },
@@ -62,170 +56,105 @@ $global.__DependencyMap = [
     "kind": "namespace",
     "name": "joopl.collections",
     "files": [
-      "libs/joopl-toolbox/InvalidOperationException.js",
-      "libs/joopl-toolbox/collections/Collection.js",
-      "libs/joopl-toolbox/collections/Enumerable.js",
-      "libs/joopl-toolbox/collections/Enumerator.js",
-      "libs/joopl-toolbox/collections/Index.js",
-      "libs/joopl-toolbox/collections/IndexedList.js",
-      "libs/joopl-toolbox/collections/List.js",
-      "libs/joopl-toolbox/collections/ListEnumerator.js",
-      "libs/joopl-toolbox/collections/ObservableChange.js",
-      "libs/joopl-toolbox/collections/ObservableList.js",
-      "libs/joopl-toolbox/collections/OrderedStringIndex.js",
-      "libs/joopl-toolbox/collections/Queryable.js",
-      "libs/joopl-toolbox/collections/Queue.js",
-      "libs/joopl-toolbox/collections/TypedList.js"
+      "libs/joopl-toolbox/Collection.604E05.js",
+      "libs/joopl-toolbox/Enumerable.731A85.js",
+      "libs/joopl-toolbox/Enumerator.4A4182.js",
+      "libs/joopl-toolbox/Index.D140F1.js",
+      "libs/joopl-toolbox/IndexedList.C5838E.js",
+      "libs/joopl-toolbox/InvalidOperationException.3B067D.js",
+      "libs/joopl-toolbox/List.39847B.js",
+      "libs/joopl-toolbox/ListEnumerator.E1A6E8.js",
+      "libs/joopl-toolbox/ObservableChange.947259.js",
+      "libs/joopl-toolbox/ObservableList.8BAF08.js",
+      "libs/joopl-toolbox/OrderedStringIndex.1AEA78.js",
+      "libs/joopl-toolbox/Queryable.80A0C8.js",
+      "libs/joopl-toolbox/Queue.6C3E78.js",
+      "libs/joopl-toolbox/TypedList.6D8B2D.js"
     ],
     "members": [
       {
         "kind": "member",
         "namespace": "joopl.collections",
-        "name": "InvalidOperationException",
-        "fileName": "libs/joopl-toolbox/InvalidOperationException.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl.collections",
         "name": "Collection",
-        "fileName": "libs/joopl-toolbox/collections/Collection.js"
+        "fileName": "libs/joopl-toolbox/Collection.604E05.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Enumerable",
-        "fileName": "libs/joopl-toolbox/collections/Enumerable.js"
+        "fileName": "libs/joopl-toolbox/Enumerable.731A85.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Enumerator",
-        "fileName": "libs/joopl-toolbox/collections/Enumerator.js"
+        "fileName": "libs/joopl-toolbox/Enumerator.4A4182.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Index",
-        "fileName": "libs/joopl-toolbox/collections/Index.js"
+        "fileName": "libs/joopl-toolbox/Index.D140F1.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "IndexedList",
-        "fileName": "libs/joopl-toolbox/collections/IndexedList.js"
+        "fileName": "libs/joopl-toolbox/IndexedList.C5838E.js"
+      },
+      {
+        "kind": "member",
+        "namespace": "joopl.collections",
+        "name": "InvalidOperationException",
+        "fileName": "libs/joopl-toolbox/InvalidOperationException.3B067D.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "List",
-        "fileName": "libs/joopl-toolbox/collections/List.js"
+        "fileName": "libs/joopl-toolbox/List.39847B.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "ListEnumerator",
-        "fileName": "libs/joopl-toolbox/collections/ListEnumerator.js"
+        "fileName": "libs/joopl-toolbox/ListEnumerator.E1A6E8.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "ObservableChange",
-        "fileName": "libs/joopl-toolbox/collections/ObservableChange.js"
+        "fileName": "libs/joopl-toolbox/ObservableChange.947259.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "ObservableList",
-        "fileName": "libs/joopl-toolbox/collections/ObservableList.js"
+        "fileName": "libs/joopl-toolbox/ObservableList.8BAF08.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "OrderedStringIndex",
-        "fileName": "libs/joopl-toolbox/collections/OrderedStringIndex.js"
+        "fileName": "libs/joopl-toolbox/OrderedStringIndex.1AEA78.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Queryable",
-        "fileName": "libs/joopl-toolbox/collections/Queryable.js"
+        "fileName": "libs/joopl-toolbox/Queryable.80A0C8.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Queue",
-        "fileName": "libs/joopl-toolbox/collections/Queue.js"
+        "fileName": "libs/joopl-toolbox/Queue.6C3E78.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "TypedList",
-        "fileName": "libs/joopl-toolbox/collections/TypedList.js"
-      }
-    ]
-  },
-  {
-    "kind": "namespace",
-    "name": "joopl.net.http",
-    "files": [
-      "libs/joopl-toolbox/net/http/HttpClient.js",
-      "libs/joopl-toolbox/net/http/HttpContent.js",
-      "libs/joopl-toolbox/net/http/HttpResponseMessage.js",
-      "libs/joopl-toolbox/net/http/HttpStatusCode.js",
-      "libs/joopl-toolbox/net/http/JQueryHttpClient.js",
-      "libs/joopl-toolbox/net/http/StringContent.js"
-    ],
-    "members": [
-      {
-        "kind": "member",
-        "namespace": "joopl.net.http",
-        "name": "HttpClient",
-        "fileName": "libs/joopl-toolbox/net/http/HttpClient.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl.net.http",
-        "name": "HttpContent",
-        "fileName": "libs/joopl-toolbox/net/http/HttpContent.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl.net.http",
-        "name": "HttpResponseMessage",
-        "fileName": "libs/joopl-toolbox/net/http/HttpResponseMessage.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl.net.http",
-        "name": "HttpStatusCode",
-        "fileName": "libs/joopl-toolbox/net/http/HttpStatusCode.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl.net.http",
-        "name": "JQueryHttpClient",
-        "fileName": "libs/joopl-toolbox/net/http/JQueryHttpClient.js"
-      },
-      {
-        "kind": "member",
-        "namespace": "joopl.net.http",
-        "name": "StringContent",
-        "fileName": "libs/joopl-toolbox/net/http/StringContent.js"
-      }
-    ]
-  },
-  {
-    "kind": "namespace",
-    "name": "joopl.threading",
-    "files": [
-      "libs/joopl-toolbox/threading/Task.js"
-    ],
-    "members": [
-      {
-        "kind": "member",
-        "namespace": "joopl.threading",
-        "name": "Task",
-        "fileName": "libs/joopl-toolbox/threading/Task.js"
+        "fileName": "libs/joopl-toolbox/TypedList.6D8B2D.js"
       }
     ]
   }
