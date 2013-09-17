@@ -157,5 +157,55 @@ $global.__DependencyMap = [
         "fileName": "libs/joopl-toolbox/TypedList.6D8B2D.js"
       }
     ]
+  },
+  {
+    "kind": "namespace",
+    "name": "joopl.net.http",
+    "files": [
+      "libs/joopl-toolbox/HttpClient.5A5770.js",
+      "libs/joopl-toolbox/HttpContent.1387F9.js",
+      "libs/joopl-toolbox/HttpResponseMessage.A5FDC7.js",
+      "libs/joopl-toolbox/HttpStatusCode.91C739.js",
+      "libs/joopl-toolbox/JQueryHttpClient.5E5DDD.js",
+      "libs/joopl-toolbox/StringContent.4F0814.js"
+    ],
+    "members": [
+      {
+        "kind": "member",
+        "namespace": "joopl.net.http",
+        "name": "HttpClient",
+        "fileName": "libs/joopl-toolbox/HttpClient.5A5770.js"
+      },
+      {
+        "kind": "member",
+        "namespace": "joopl.net.http",
+        "name": "HttpContent",
+        "fileName": "libs/joopl-toolbox/HttpContent.1387F9.js"
+      },
+      {
+        "kind": "member",
+        "namespace": "joopl.net.http",
+        "name": "HttpResponseMessage",
+        "fileName": "libs/joopl-toolbox/HttpResponseMessage.A5FDC7.js"
+      },
+      {
+        "kind": "member",
+        "namespace": "joopl.net.http",
+        "name": "HttpStatusCode",
+        "fileName": "libs/joopl-toolbox/HttpStatusCode.91C739.js"
+      },
+      {
+        "kind": "member",
+        "namespace": "joopl.net.http",
+        "name": "JQueryHttpClient",
+        "fileName": "libs/joopl-toolbox/JQueryHttpClient.5E5DDD.js"
+      },
+      {
+        "kind": "member",
+        "namespace": "joopl.net.http",
+        "name": "StringContent",
+        "fileName": "libs/joopl-toolbox/StringContent.4F0814.js"
+      }
+    ]
   }
 ];
