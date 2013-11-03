@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -31,7 +31,7 @@
 
 				this._.partitions = new collections.List();
 				this._.vocalPartitionRegEx = new RegExp("^(a|e|i|o|u|aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie|io|iu|oa|oe|oi|oo|ou|ua|ue|ui|uo|uu)", "i");
-				this._.consonantPartitionRegEx = new RegExp("^(b|c|ç|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)", "i");
+				this._.consonantPartitionRegEx = new RegExp("^(b|c|Ã§|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)", "i");
 				this._.numericAndSymbol = new RegExp("^[A-Za-z]", "i")
 
 				this.initialize();

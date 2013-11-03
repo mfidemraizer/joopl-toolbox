@@ -22,19 +22,23 @@
     "use strict";
 
 	$namespace.register("joopl.collections", function() {
-		this.ListEnumerator = $def({
-			$constructor: function(args) {
-				this.$_.itemArray = args.itemArray;
-				this.$_.index = -1;
+		this.declareClass("ListEnumerator", {
+			inherits: this.Enumerator,
+			ctor: function(args) {
+				this._.itemArray = args.itemArray;
+				this._.index = -1;
 			},
-			$extends: this.Enumerator,
-			$members: {
+			members: {
+				get itemArray() {
+					return this._.itemArray;
+				},
+
 				moveNext: function() {
-					return this.$_.itemArray[++this.$_.index];
+					return this.itemArray[++this._.index];
 				},
 
 				hasNext: function() {
-					return this.$_.index + 1 < this.$_.itemArray.length;
+					return this._.index + 1 < this.itemArray.length;
 				}
 			}
 		});

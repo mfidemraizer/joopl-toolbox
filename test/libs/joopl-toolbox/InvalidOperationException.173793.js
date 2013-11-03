@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -19,19 +19,19 @@
    limitations under the License.
 */
 
-(function () {
+(function() {
     "use strict";
 
 	$namespace.register("joopl.collections", function() {
-		this.declareClass("Enumerator", {
-			$members: {
-				moveNext: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerator.moveNext" }));
-				},
-				hasNext: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerator.hasNext" }));
-				}
-			}
+	    this.declareClass("InvalidOperationException", {
+	        imports: $global.joopl.Exception,
+	        ctor: function(args) {
+              if(args || args.message) {
+                args.message = "Operation could not be completed because an invalid state";
+              }
+
+	            this.base.ctor(args);
+	        }
 		});
 	});
 })();

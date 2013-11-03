@@ -5,7 +5,7 @@ $manifest.file("joopl.collections.List.test.js", function () {
 
     test("Create list and add items. Checks if the added items exist in the list and if the order is the expected one", function () {
         $namespace.using("joopl.collections", function () {
-            var list = new this.List();
+            var list = new this.List({ capacity: 10 });
             list.add("hello");
             list.add("world");
             list.add("!");
@@ -18,7 +18,7 @@ $manifest.file("joopl.collections.List.test.js", function () {
 
     test("Create list and add multiple items at once. Checks if the added items exist in the list and if the order is the expected one", function () {
         $namespace.using("joopl.collections", function () {
-            var list = new this.List();
+            var list = new this.List({ capacity: 10 });
             list.add("hello");
             list.add("world");
             list.add("!");

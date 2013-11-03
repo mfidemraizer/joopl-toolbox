@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
     "use strict";
 
 	$namespace.register("joopl.collections", function() {

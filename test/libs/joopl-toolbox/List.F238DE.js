@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -66,9 +66,7 @@
 					var reversedList = new collections.List();
 
 					for(var index = 0; index < reversed.length; index++) {
-						if(reversed[index] !== undefined) {
-							reversedList.add(reversed[index]);
-						}
+						reversedList.add(reversed[index]);
 					}
 
 					return reversedList;

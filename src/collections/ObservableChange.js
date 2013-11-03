@@ -22,7 +22,7 @@
     "use strict";
 
 	$namespace.register("joopl.collections", function() {
-	    this.ObservableChange = $enumdef({
+	    this.declareEnum("ObservableChange", {
 	        added: 1,
 	        replaced: 2,
 	        removed: 3

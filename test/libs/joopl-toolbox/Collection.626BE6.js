@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -18,18 +18,23 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-
-(function () {
+(function() {
     "use strict";
 
 	$namespace.register("joopl.collections", function() {
-		this.declareClass("Enumerator", {
-			$members: {
-				moveNext: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerator.moveNext" }));
+		this.declareClass("Collection", {
+			imports: this.Enumerable,
+			members: {
+			    add: function (item) {
+			        throw Error($global.joopl.NotImplementedException());
 				},
-				hasNext: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerator.hasNext" }));
+
+			    addRange: function (enumerable) {
+			        throw Error($global.joopl.NotImplementedException());
+				},
+
+			    remove: function (item) {
+			        throw Error($global.joopl.NotImplementedException());
 				}
 			}
 		});

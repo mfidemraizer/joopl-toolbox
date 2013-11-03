@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -54,7 +54,7 @@
 					@returns joopl.collections.Enumerable
 				*/
 				reverse: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerable.reverse" }));
+					throw new Error(new $global.joopl.NotImplementedException());
 				},
 
 				/**

@@ -23,10 +23,14 @@
     "use strict";
 
 	$namespace.register("joopl.collections", function() {
-	    this.InvalidOperationException = $def({
-	        $extends: $global.joopl.Exception,
-	        $constructor: function(args) {
-	            this.$base.$ctor(args);
+	    this.declareClass("InvalidOperationException", {
+	        imports: $global.joopl.Exception,
+	        ctor: function(args) {
+              if(args || args.message) {
+                args.message = "Operation could not be completed because an invalid state";
+              }
+
+	            this.base.ctor(args);
 	        }
 		});
 	});

@@ -10,11 +10,11 @@ $manifest.file("joopl.collections.ObservableList.test.js", function () {
 
             var changeCount = 0;
 
-            list.changed = function (args) {
+            list.changed.addEventListener(function (args) {
                 changeCount++;
 
                 ok(args.changeKind == collections.ObservableChange.added, "As items are added to the list, the notifier must report that an item was added");
-            };
+            });
 
             list.add("hello world");
             list.add("hey hey hey!");

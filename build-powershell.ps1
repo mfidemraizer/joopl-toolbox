@@ -39,7 +39,7 @@ function buildFile
     
     $builtFiles.Add($fileName, [System.IO.Path]::GetFileName($outputFileName))
 
-    Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force
+    Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force utf8
 }
 
 # joopl
@@ -62,12 +62,12 @@ buildFile Queue.js
 buildFile TypedList.js
 
 #joopl.net.http
-buildFile HttpClient.js
-buildFile HttpContent.js
-buildFile HttpResponseMessage.js
-buildFile HttpStatusCode.js
-buildFile JQueryHttpClient.js
-buildFile StringContent.js
+#buildFile HttpClient.js
+#buildFile HttpContent.js
+#buildFile HttpResponseMessage.js
+#buildFile HttpStatusCode.js
+#buildFile JQueryHttpClient.js
+#buildFile StringContent.js
 
 
 write-host
@@ -91,7 +91,7 @@ foreach($file in $builtFiles.Keys)
     
     if(!$file.Contains("Queue")) 
     {
-        $ajaxMin.MinifyJavaScript((Get-Content $outputFileName), $ajaxMinSettings) | Out-File $outputFileName -Force
+        #$ajaxMin.MinifyJavaScript((Get-Content $outputFileName), $ajaxMinSettings) | Out-File $outputFileName -Force
         write-host "Done!" 
     }
     else
@@ -101,3 +101,4 @@ foreach($file in $builtFiles.Keys)
 }
 
 write-host "Build process has finished"
+Start-Sleep -s 3
