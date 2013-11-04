@@ -54,7 +54,7 @@
 					@returns joopl.collections.Enumerable
 				*/
 				reverse: function() {
-					throw new Error(new $global.joopl.NotImplementedException());
+					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerable.reverse" }));
 				},
 
 				/**

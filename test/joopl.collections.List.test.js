@@ -211,4 +211,21 @@ $manifest.file("joopl.collections.List.test.js", function () {
             ok(list.count(function (item) { return false }) == 0, "Zero count expected (false criteria)");
         });
     });
+
+    test("Test Enumerable.skip()", function () {
+        $namespace.using("joopl.collections", function () {
+            var list = new this.List();
+            list.add("hello");
+            list.add("world");
+            list.add("man...");
+            list.add("!");
+
+            var skippedList = list.skip(2);
+
+            ok(list.count() == 4, "Source list was not modified");
+            ok(skippedList.count() == 2, "Skipped list has expected count");
+            ok(skippedList.itemAt(0) == "man...", "Skipped list has expected item");
+            ok(skippedList.itemAt(1) == "!", "Skipped list has expected item")
+        });
+    });
 });

@@ -69,12 +69,12 @@ $global.__DependencyMap = [
     "name": "joopl.collections",
     "files": [
       "libs/joopl-toolbox/Collection.626BE6.js",
-      "libs/joopl-toolbox/Enumerable.9698D6.js",
+      "libs/joopl-toolbox/Enumerable.2FA69A.js",
       "libs/joopl-toolbox/Enumerator.A1D922.js",
       "libs/joopl-toolbox/Index.3954C6.js",
       "libs/joopl-toolbox/IndexedList.6676B1.js",
       "libs/joopl-toolbox/InvalidOperationException.173793.js",
-      "libs/joopl-toolbox/List.F238DE.js",
+      "libs/joopl-toolbox/List.EC767A.js",
       "libs/joopl-toolbox/ListEnumerator.FA2C4E.js",
       "libs/joopl-toolbox/ObservableChange.51521B.js",
       "libs/joopl-toolbox/ObservableList.846D13.js",
@@ -94,7 +94,7 @@ $global.__DependencyMap = [
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Enumerable",
-        "fileName": "libs/joopl-toolbox/Enumerable.9698D6.js"
+        "fileName": "libs/joopl-toolbox/Enumerable.2FA69A.js"
       },
       {
         "kind": "member",
@@ -124,7 +124,7 @@ $global.__DependencyMap = [
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "List",
-        "fileName": "libs/joopl-toolbox/List.F238DE.js"
+        "fileName": "libs/joopl-toolbox/List.EC767A.js"
       },
       {
         "kind": "member",

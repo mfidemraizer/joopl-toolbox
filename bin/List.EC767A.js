@@ -66,7 +66,9 @@
 					var reversedList = new collections.List();
 
 					for(var index = 0; index < reversed.length; index++) {
-						reversedList.add(reversed[index]);
+						if(reversed[index] !== undefined) {
+							reversedList.add(reversed[index]);
+						}
 					}
 
 					return reversedList;
@@ -177,7 +179,9 @@
 						throw new Error(new $global.joopl.ArgumentException({ memberName: "numberOfItems", reason: "Out of range" }));
 					}
 
-					return new collections.List({ itemArray: this.itemArray.splice(0, numberOfItems) });
+					var itemArray = this.toArray();
+
+					return new collections.List({ itemArray: itemArray.splice(numberOfItems) });
 				}, 
 
 				toArray: function() {
@@ -186,9 +190,12 @@
 					});
 
 					var arr = [];
+					arr[result.itemArray.length - 1] = undefined;
+
+					var index = -1;
 
 					result.forEach(function(item) {
-						arr.push(item);
+						arr[++index] = item;
 					});
 
 					return arr;
