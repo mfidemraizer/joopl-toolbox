@@ -105,7 +105,7 @@
 
 						found = enumerator.moveNext() == item;
 					}
-					while(!found && enumerator.hasNext());
+					while(!found && enumerator.hasNext);
 
 					if(found) {
 						return index;

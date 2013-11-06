@@ -72,7 +72,7 @@
 					var enumerator = this._.derived.enumerator;
 					var end = false;
 
-					while(!end && enumerator.hasNext()) {
+					while(!end && enumerator.hasNext) {
 						var item = enumerator.moveNext();
 
 						end = item === undefined;
@@ -163,7 +163,7 @@
 				    var foundItem = null;
 
 				    if (predicateFunc) {
-				        while (!found && enumerator.hasNext()) {
+				        while (!found && enumerator.hasNext) {
 				            var item = enumerator.moveNext();
 
 				            found = predicateFunc(item);

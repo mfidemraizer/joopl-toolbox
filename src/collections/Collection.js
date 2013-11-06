@@ -21,20 +21,50 @@
 (function() {
     "use strict";
 
+    /**
+    	@namespace joopl.collections
+	*/
+
 	$namespace.register("joopl.collections", function() {
+
+		/**
+			Represents the base class for any collection of objects
+
+			@extends joopl.Enumerable
+			@class Collection
+		*/
 		this.declareClass("Collection", {
 			imports: this.Enumerable,
 			members: {
+
+				/**
+					In derived classes, adds an item to the collection
+
+					@method add
+					@returns {void}
+				*/
 			    add: function (item) {
-			        throw Error($global.joopl.NotImplementedException());
+			        throw new $global.joopl.NotImplementedException({ memberName: "Collection.add" });
 				},
 
+				/**
+					In derived classes, takes an implementation of `Enumerable` and adds its items to the collection
+
+					@method addRange
+					@returns {void}
+				*/
 			    addRange: function (enumerable) {
-			        throw Error($global.joopl.NotImplementedException());
+			        throw new $global.joopl.NotImplementedException({ memberName: "Collection.addRange" });
 				},
 
+				/**
+					In derived classes, removes the given item from the collection
+
+					@method remove
+					@returns {void}
+				*/
 			    remove: function (item) {
-			        throw Error($global.joopl.NotImplementedException());
+			        throw new $global.joopl.NotImplementedException({ memberName: "Collection.remove" });
 				}
 			}
 		});

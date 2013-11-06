@@ -37,7 +37,7 @@
 					return this.itemArray[++this._.index];
 				},
 
-				hasNext: function() {
+				get hasNext() {
 					return this._.index + 1 < this.itemArray.length;
 				}
 			}
