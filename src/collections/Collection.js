@@ -41,6 +41,7 @@
 					In derived classes, adds an item to the collection
 
 					@method add
+					@param {object} item The whole item to add to this collection
 					@returns {void}
 				*/
 			    add: function (item) {
@@ -51,6 +52,7 @@
 					In derived classes, takes an implementation of `Enumerable` and adds its items to the collection
 
 					@method addRange
+					@param {object} enumerable A Enumerable implementation which contains items to add to the current collection
 					@returns {void}
 				*/
 			    addRange: function (enumerable) {
@@ -61,6 +63,7 @@
 					In derived classes, removes the given item from the collection
 
 					@method remove
+					@param {object} item The whole item to remove from the collection
 					@returns {void}
 				*/
 			    remove: function (item) {

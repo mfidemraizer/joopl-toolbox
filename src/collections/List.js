@@ -21,9 +21,27 @@
 (function(undefined) {
     "use strict";
 
+    /**
+		@namespace joopl.collections
+    */
+
 	$namespace.register("joopl.collections", function() {
 		var collections = this;
 
+		/**
+			Represents an ordered collection of objects
+
+			@class List
+			@extends Enumerable
+			@param {number} capacity (optional) Initializes the list with a predefined maximum capacity and allocates memory to enforce read and write operations
+			@param {Array} itemArray (optional) Initializes the list with items from an existing array.
+			@constructor
+			@example
+				new this.List(); // Default constructor
+				new this.List({ capacity: 5 }); // Specifies list's capacity
+				new this.List({ itemArray: ["hello", "world"]}); // Gives default items to the list
+				new this.List({ capacity: 5, itemArray: ["hello", "world"] }); // Both gives default items and list's capacity
+		*/
 		this.declareClass("List", {
 			inherits: this.Enumerable,
 			ctor: function(args) {
@@ -40,22 +58,58 @@
 					return new collections.ListEnumerator({ itemArray: this._.itemArray });
 				},
 
+				/**
+					Gets list's capacity 
+					
+					@property capacity
+					@type number
+					@readonly
+				*/
 				get capacity() {
 					return this._.capacity;
 				},
 
+				/**
+					Gets underlying item array which represents in-memory list's storage
+
+					@property itemArray
+					@private
+					@type Array
+					@readOnly
+				*/
 				get itemArray() {
 					return this._.itemArray;
 				},
 
+
+				/**
+					Gets underlying item array cursor (SYSTEM USE ONLY)
+
+					@property capacityCursor
+					@private
+					@type number
+					@readOnly
+				*/
 				get capacityCursor() {
 					return this._.capacityCursor;
 				},
 
+				/**
+					Increases capacity cursor (SYSTEM USE ONLY)
+
+					@method increaseCapacityCursor
+					@private
+				*/
 				increaseCapacityCursor: function() {
 					this._.capacityCursor++;
 				},
 
+				/**
+					Increases capacity cursor (SYSTEM USE ONLY)
+
+					@method avoidOverCapacityFunc
+					@private
+				*/
 				avoidOverCapacityFunc: function(item) {
 					return item !== undefined;
 				},
@@ -90,10 +144,24 @@
 					}
 				},
 
+				/**
+					Gets an item at the given index in the list
+
+					@method itemAt
+					@param {number} index An index in the list
+					@returns {object} The obtained item in the given index
+				*/
 				itemAt: function(index) {
 					return this._.itemArray[index];
 				},
 
+				/**
+					Finds the numeric index of a given item in the list.
+
+					@method indexOf
+					@param {object} item The whole item to search for its index
+					@returns {number} Returns the found index for the given item. If it is not found, returns -1
+				*/
 				indexOf: function(item) {
 					var index = -1;
 					var found = false;
@@ -114,9 +182,15 @@
 					}
 				},
 
+				/**
+					Adds an item to the list
+
+					@method add
+					@param {object} item The whole item to add
+				*/
 				add: function(item) {
 					if(item === undefined) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "item", reason: "Undefined values are not supported" }));
+						throw new $global.joopl.ArgumentException({ memberName: "item", reason: "Undefined values are not supported" });
 					}
 
 					if(this.capacity == 0) {
@@ -125,10 +199,10 @@
 						this.itemArray[this.capacityCursor] = item;
 						this.increaseCapacityCursor();
 					} else {
-						throw new Error(new $global.joopl.ArgumentException({
+						throw new $global.joopl.ArgumentException({
 							argName: "item",
 							reason: "List capacity exceeded"
-						}));
+						});
 					}
 				},
 
@@ -140,11 +214,11 @@
 
 				insertAt: function(index, item) {
 					if(index >= this.count()) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" }));
+						throw new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" });
 					}
 
 					if(item === undefined) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "item", reason: "Undefined values are not supported" }));
+						throw new $global.joopl.ArgumentException({ memberName: "item", reason: "Undefined values are not supported" });
 					}
 
 					this.itemArray.splice(index, 0, item);
@@ -152,11 +226,11 @@
 
 				replaceAt: function(index, item) {
 					if(index >= this.count()) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" }));
+						throw new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" });
 					}
 
 					if(item === undefined) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "item", reason: "Undefined values are not supported" }));
+						throw new $global.joopl.ArgumentException({ memberName: "item", reason: "Undefined values are not supported" });
 					}
 
 					this.itemArray[index] = item;
@@ -168,7 +242,7 @@
 
 				removeAt: function(index) {
 					if(index >= this.count()) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" }));
+						throw new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" });
 					}
 
 					this.itemArray.splice(index, 1);
@@ -176,7 +250,7 @@
 
 				skip: function(numberOfItems) {
 					if(numberOfItems > this.count()) {
-						throw new Error(new $global.joopl.ArgumentException({ memberName: "numberOfItems", reason: "Out of range" }));
+						throw new $global.joopl.ArgumentException({ memberName: "numberOfItems", reason: "Out of range" });
 					}
 
 					var itemArray = this.toArray();
