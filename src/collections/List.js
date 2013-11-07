@@ -206,12 +206,25 @@
 					}
 				},
 
+				/**
+					Adds items in an Enumerable to current list
+
+					@method addRange
+					@param {Enumerable} enumerable The Enumerable to copy items from
+				*/
 				addRange: function(enumerable) {
 					enumerable.forEach((function(item) {
 						this._.derived.add(item);
 					}).bind(this));
 				},
 
+				/**
+					Inserts an item at the specified index
+
+					@method insertAt
+					@param {number} index The index in the list where the item will be inserted
+					@param {object} item The item to insert
+				*/
 				insertAt: function(index, item) {
 					if(index >= this.count()) {
 						throw new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" });
@@ -224,6 +237,13 @@
 					this.itemArray.splice(index, 0, item);
 				},
 
+				/**
+					Replaces an item at the specified index
+
+					@method replaceAt
+					@param {number} index The index in the list where the item will be replaced
+					@param {object} item The item to use as replacement to the existing one at the specified index
+				*/
 				replaceAt: function(index, item) {
 					if(index >= this.count()) {
 						throw new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" });
@@ -236,10 +256,22 @@
 					this.itemArray[index] = item;
 				},
 
+				/**
+					Removes the specified item from the list
+
+					@method remove
+					@param {object} item The item to remove from the list
+				*/
 				remove: function(item) {
 					this.removeAt(this.indexOf(item));
 				},
 
+				/**
+					Removes an item in the specified index
+
+					@method removeAt
+					@param {number} index The index of the item to be removed
+				*/
 				removeAt: function(index) {
 					if(index >= this.count()) {
 						throw new $global.joopl.ArgumentException({ memberName: "index", reason: "Index out of range" });

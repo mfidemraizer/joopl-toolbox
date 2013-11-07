@@ -351,7 +351,7 @@
 				},
 
 				skip: function(numberOfItems) {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerable.skip" }));
+					throw new $global.joopl.NotImplementedException({ memberName: "Enumerable.skip" });
 				},
 
 
@@ -379,7 +379,7 @@
 
 				*/
 				toArray: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerable.toArray" }));
+					throw new $global.joopl.NotImplementedException({ memberName: "Enumerable.toArray" });
 				}
 			}
 		});
