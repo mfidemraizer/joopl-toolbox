@@ -21,10 +21,44 @@
 (function() {
     "use strict";
 
+  /**
+      @module Collections
+    @namespace joopl.collections
+  */
 	$namespace.register("joopl.collections", function() {
+
+      /**
+        Represents an enumeration of available observable changes produced by a collection of objects
+
+        @class ObservableChange
+        @final
+      */
 	    this.declareEnum("ObservableChange", {
+          /**
+            Defines that some item has been added to the collection
+
+            @property added
+            @readOnly
+            @type number
+          */
 	        added: 1,
+
+          /**
+            Defines that some item has been replaced in the collection
+
+            @property replaced
+            @readOnly
+            @type number
+          */
 	        replaced: 2,
+
+          /**
+            Defines that some item has been removed from the collection
+
+            @property removed
+            @readOnly
+            @type number
+          */
 	        removed: 3
 	    });
 	});

@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -22,7 +22,6 @@
     "use strict";
 
     /**
-    	@module Collections
 		@namespace joopl.collections
     */
 
@@ -33,7 +32,7 @@
 			Represents an ordered collection of objects
 
 			@class List
-			@extends joopl.collections.Enumerable
+			@extends Enumerable
 			@param {number} capacity (optional) Initializes the list with a predefined maximum capacity and allocates memory to enforce read and write operations
 			@param {Array} itemArray (optional) Initializes the list with items from an existing array.
 			@constructor
@@ -64,7 +63,7 @@
 					
 					@property capacity
 					@type number
-					@readOnly
+					@readonly
 				*/
 				get capacity() {
 					return this._.capacity;
@@ -150,7 +149,7 @@
 
 					@method itemAt
 					@param {number} index An index in the list
-					@return {object} The obtained item in the given index
+					@returns {object} The obtained item in the given index
 				*/
 				itemAt: function(index) {
 					return this._.itemArray[index];
@@ -161,7 +160,7 @@
 
 					@method indexOf
 					@param {object} item The whole item to search for its index
-					@return {number} Returns the found index for the given item. If it is not found, returns -1
+					@returns {number} Returns the found index for the given item. If it is not found, returns -1
 				*/
 				indexOf: function(item) {
 					var index = -1;

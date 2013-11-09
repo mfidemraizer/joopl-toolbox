@@ -100,5 +100,7 @@ foreach($file in $builtFiles.Keys)
     }
 }
 
+yuidoc -n .
+
 write-host "Build process has finished"
 Start-Sleep -s 3

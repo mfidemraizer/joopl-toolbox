@@ -21,7 +21,21 @@
 (function() {
     "use strict";
 
+    /**
+    	@module Collections
+		@namespace joopl.collections
+    */
+
 	$namespace.register("joopl.collections", function() {
+
+		/**
+			Represents a List-based enumerator implementation
+
+			@class ListEnumerator
+			@constructor
+			@param {Array} itemArray The underlying List's array
+			@extends Enumerator
+		*/
 		this.declareClass("ListEnumerator", {
 			inherits: this.Enumerator,
 			ctor: function(args) {
@@ -29,6 +43,14 @@
 				this._.index = -1;
 			},
 			members: {
+				/**
+					Gets the underlying List's item array
+
+					@readOnly
+					@private
+					@property itemArray
+					@type Array
+				*/
 				get itemArray() {
 					return this._.itemArray;
 				},

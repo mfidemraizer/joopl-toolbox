@@ -17,7 +17,7 @@ $manifest.file("joopl.collections.IndexedList.test.js", function () {
                 text: ["hel", "w", "!" ],
                 predicate: function(item) { 
                     return item.text.indexOf(this) == 0 || item.text == "halo"; 
-                } 
+                }
             });
 
             var result2 = list.where(function(item) { return true; });

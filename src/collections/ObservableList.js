@@ -21,15 +21,39 @@
 (function() {
     "use strict";
 
+    /**
+    	@module Collections
+		@namespace joopl.collections
+    */
+
 	$namespace.register("joopl.collections", function () {
 	    var collections = this;
 
+	    /**
+			Represents a list of objects that can be observed for its changes:
+
+			- When an item is *added*
+			- When an item is *replaced*
+			- When an item is *removed*
+
+			@class ObservableList
+			@extends joopl.collections.List
+			@final
+	    */
 		this.declareClass("ObservableList", {
 			inherits: this.List,
 			ctor: function (args) {
 			    this.base.ctor(args);
 			},
 			members: {
+				/**
+					Occurs when some item changes
+
+					@event changed 
+					@param {object} source The `ObservableList` instance which fires the event
+					@param {joopl.collections.ObservableChange} changeKind The observable change kind (added, replaced and removed `ObservableChange` enumeration values`
+					@param {object} item The affected item by the whole change
+				*/
 			    events: ["changed"],
 
 			    add: function (item) {

@@ -8,20 +8,27 @@
 			inherits: this.Enumerable,
 			ctor: function(args) {
 				if(typeof args != "object") {
-					throw new Error(new $global.joopl.ArgumentException({
+					throw new $global.joopl.ArgumentException({
 						argName: "args",
 						reason: "Queryable does not have a parameterless constructor"
-					}));
+					});
 				}
 
 				this._.executionQueue = new collections.Queue();
 				this._.enumerable = args.enumerable;
 			},
 			members: {
-				get enumerator() { return this.enumerable.enumerator; },
+				get enumerator() { 
+					return this.enumerable.enumerator;
+				},
+				
+				get enumerable() { 
+					return this._.enumerable; 
+				},
 
-				get executionQueue() { return this._.executionQueue; },
-				get enumerable() { return this._.enumerable; },
+				get executionQueue() { 
+					return this._.executionQueue; 
+				},
 
 				executeQueue: function() {
 					var queuedItem = null;

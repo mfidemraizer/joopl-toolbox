@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -22,7 +22,6 @@
     "use strict";
 
     /**
-    	@module Collections
     	@namespace joopl.collections
 	*/
 

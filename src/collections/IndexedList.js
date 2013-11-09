@@ -21,9 +21,20 @@
 (function() {
     "use strict";
 
+    /**
+    	@module Collections
+		@namespace joopl.collections
+    */
 	$namespace.register("joopl.collections", function () {
 	    var collections = this;
 
+	    /**
+			Represents an indexed collection of objects. Objects are indexed by configured indexes using `addIndex` method.
+
+			@class IndexedList
+			@extends joopl.collections.ObservableList
+			@final 
+	    */
 		this.declareClass("IndexedList", {
 			inherits: collections.ObservableList,
 			ctor: function (args) {
@@ -33,18 +44,28 @@
 			    this.changed.addEventListener(this.list_changed.bind(this));
 			},
 			members: {
+				get indexes() {
+					return this._.indexes;
+				},
+
 				add: function(item) {
 					this.base.add(item);
 				},
 
+				/**
+					Adds and configures a new index to this `IndexedList`.
+
+					@method addIndex
+					@param {Index} index An implementation of `Index`.
+				*/
 				addIndex: function(index) {
 					if(index.isTypeOf(collections.Index)) {
-						this._.indexes.add(index);
+						this.indexes.add(index);
 					} else {
-						throw new Error(new $global.joopl.ArgumentException({
+						throw new $global.joopl.ArgumentException({
 							argName: "index",
 							reason: "Given object is not an index"
-						}));
+						});
 					}
 				},
 
@@ -88,6 +109,24 @@
 					}
 				},
 
+				/**
+					Returns items that conform a boolean condition.
+
+					In opposite to regular `Enumerable.where(...)`, `IndexedList.where(...)` supports an indexed search 
+					argument which specifies a property and a value to search for.
+
+					@method where
+					@return joopl.collections.Enumerable An `Enumerable` containing found items
+					@example
+		            var result = list.where({ 
+		                text: ["hel", "w", "!" ], // <-- This is the property selector: search an item with this possible values
+		                predicate: function(item) { 
+		                	// "this" keyword will be one of possible "text" property values
+		                	// so this condition says "I want an item if its "text" property is one of given possible values"
+		                    return item.text.indexOf(this) == 0 || item.text == "halo"; 
+		                } 
+		            });
+				*/
 				where: function(predicateFuncOrIndexedSearch) {
 					var that = this;
 

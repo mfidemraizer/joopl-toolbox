@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -22,7 +22,6 @@
     "use strict";
 
     /**
-    	@module Collections
 		@namespace joopl.collections
     */
 
@@ -295,7 +294,7 @@
 					Returns items that conform a boolean condition.
 
 					@method where
-					@return joopl.collections.Enumerable An `Enumerable` containing found items
+					@returns joopl.collections.Enumerable
 					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy an item
 					@example
 						var result = enumerable.where(function(item) {

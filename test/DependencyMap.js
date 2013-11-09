@@ -68,14 +68,14 @@ $global.__DependencyMap = [
     "kind": "namespace",
     "name": "joopl.collections",
     "files": [
-      "libs/joopl-toolbox/Collection.626BE6.js",
-      "libs/joopl-toolbox/Enumerable.2FA69A.js",
-      "libs/joopl-toolbox/Enumerator.A1D922.js",
+      "libs/joopl-toolbox/Collection.275F58.js",
+      "libs/joopl-toolbox/Enumerable.CEADE9.js",
+      "libs/joopl-toolbox/Enumerator.44A4C6.js",
       "libs/joopl-toolbox/Index.3954C6.js",
       "libs/joopl-toolbox/IndexedList.6676B1.js",
       "libs/joopl-toolbox/InvalidOperationException.173793.js",
-      "libs/joopl-toolbox/List.EC767A.js",
-      "libs/joopl-toolbox/ListEnumerator.FA2C4E.js",
+      "libs/joopl-toolbox/List.57B1C1.js",
+      "libs/joopl-toolbox/ListEnumerator.7E3E5B.js",
       "libs/joopl-toolbox/ObservableChange.51521B.js",
       "libs/joopl-toolbox/ObservableList.846D13.js",
       "libs/joopl-toolbox/OrderedStringIndex.13165D.js",
@@ -88,19 +88,19 @@ $global.__DependencyMap = [
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Collection",
-        "fileName": "libs/joopl-toolbox/Collection.626BE6.js"
+        "fileName": "libs/joopl-toolbox/Collection.275F58.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Enumerable",
-        "fileName": "libs/joopl-toolbox/Enumerable.2FA69A.js"
+        "fileName": "libs/joopl-toolbox/Enumerable.CEADE9.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "Enumerator",
-        "fileName": "libs/joopl-toolbox/Enumerator.A1D922.js"
+        "fileName": "libs/joopl-toolbox/Enumerator.44A4C6.js"
       },
       {
         "kind": "member",
@@ -124,13 +124,13 @@ $global.__DependencyMap = [
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "List",
-        "fileName": "libs/joopl-toolbox/List.EC767A.js"
+        "fileName": "libs/joopl-toolbox/List.57B1C1.js"
       },
       {
         "kind": "member",
         "namespace": "joopl.collections",
         "name": "ListEnumerator",
-        "fileName": "libs/joopl-toolbox/ListEnumerator.FA2C4E.js"
+        "fileName": "libs/joopl-toolbox/ListEnumerator.7E3E5B.js"
       },
       {
         "kind": "member",
