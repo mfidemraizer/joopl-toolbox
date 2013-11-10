@@ -21,9 +21,19 @@
 (function() {
     "use strict";
 
+    /**
+		@namespace joopl.collections
+    */
+
 	$namespace.register("joopl.collections", function() {
 		var collections = this;
 
+		/**
+			Represents an index which orders items by a string property in partitions based on their initial letters.
+
+			@class OrderedStringIndex
+			@final
+		*/
 		this.declareClass("OrderedStringIndex", {
 			inherits: collections.Index,
 			ctor: function(args) {
@@ -42,18 +52,48 @@
 					return this.source.enumerator;
 				},
 
+				/**
+					Gets the regular expression to determine which partition to choose if the word starts with vocals
+
+					@property vocalPartitionRegEx
+					@type RegExp
+					@readOnly
+					@private
+				*/
 				get vocalPartitionRegEx() { 
 					return this._.vocalPartitionRegEx;
 				},
 
+				/**
+					Gets the regular expression to determine which partition to choose if the word starts with consonants
+
+					@property consonantPartitionRegEx
+					@type RegExp
+					@readOnly
+					@private
+				*/
 				get consonantPartitionRegEx() {
 					return this._.consonantPartitionRegEx;
 				},
 
+				/**
+					Gets the list of partitions
+
+					@property partitions
+					@type joopl.collections.List
+					@readOnly
+					@private
+				*/
 				get partitions() {
 					return this._.partitions;
 				},
 
+				/**
+					Initializes the index
+
+					@method initialize
+					@private
+				*/
 				initialize: function() {
 					var abc = "abcdefghijklmnopqrstuvwxyz";
 					var vocals = "aeiou";
@@ -79,6 +119,13 @@
 					}
 				},
 
+				/**
+					Finds the partition where some item is stored or it should be stored in
+
+					@method findProperty
+					@param {object} item The item whose value will be used to find the whole partition
+					@private
+				*/
 				findPartition: function(item) {
 					var partitionId = null;
 

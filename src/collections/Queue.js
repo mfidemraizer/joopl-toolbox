@@ -106,7 +106,19 @@
 		  }
 	}
 
+	/**
+		@namespace joopl.collections
+	*/
+
 	$namespace.register("joopl.collections", function() {
+
+		/**
+			Represents a FIFO (First-In, First-Out) collection of objects
+
+			@class Queue
+			@extends joopl.collections.Enumerable
+			@final
+		*/
 		this.declareClass("Queue", {
 			inherits: this.Enumerable,
 			ctor: function(args) {
@@ -114,7 +126,7 @@
 			},
 			members: {
 				get enumerator() {
-					return new Error($global.joopl.collections.ListEnumerator({ itemArray: this.$_.queue.underlyingQueue }));
+					return new $global.joopl.collections.ListEnumerator({ itemArray: this._.queue.underlyingQueue }));
 				},
 
 				get queue() {
@@ -129,6 +141,13 @@
 					}
 				},
 
+				/**
+					Enqueues a new item
+
+					@method enqueue
+					@param {object} item The whole item to enqueue
+					@return void This method returns `void`
+				*/
 				enqueue: function(item) {
 					this.queue.enqueue(item);
 				},
@@ -139,10 +158,22 @@
 					}).bind(this));
 				},
 
-				dequeue: function(item) {
+				/**
+					Dequeues an item from the queue
+
+					@method dequeue
+					@return object The dequeued item
+				*/
+				dequeue: function() {
 					return this._.queue.dequeue();
 				},
 
+				/**
+					Gets next item to dequeue without dequeueing it
+
+					@method peek
+					@return object The next item in the queue
+				*/
 				peek: function() {
 					return this._.queue.peek();
 				}

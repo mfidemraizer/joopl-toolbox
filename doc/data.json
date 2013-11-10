@@ -1,0 +1,86 @@
+{
+    "project": {
+        "name": "jOOPL Framework",
+        "description": "Object-oriented framework for the Web",
+        "version": "1.0.0",
+        "url": "http://joopl.codeplex.com",
+        "logo": "./assets/img/wonderboxjs-logo.png"
+    },
+    "files": {
+        "src\\Convert.js": {
+            "name": "src\\Convert.js",
+            "modules": {
+                "System": 1
+            },
+            "classes": {
+                "joopl.Convert": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl": 1
+            }
+        }
+    },
+    "modules": {
+        "System": {
+            "name": "System",
+            "submodules": {},
+            "classes": {
+                "joopl.Convert": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "joopl": 1
+            },
+            "tag": "module",
+            "file": "src\\Convert.js",
+            "line": 31
+        }
+    },
+    "classes": {
+        "joopl.Convert": {
+            "name": "joopl.Convert",
+            "shortname": "Convert",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "System",
+            "namespace": "joopl",
+            "file": "src\\Convert.js",
+            "line": 31,
+            "description": "Represents a set of object conversion operations",
+            "final": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src\\Convert.js",
+            "line": 39,
+            "description": "Converts a primitive value to a boxed object",
+            "itemtype": "method",
+            "name": "toObject",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The whole value to convert to a boxed object",
+                    "type": "Number|string|boolean"
+                },
+                {
+                    "name": "throwOnNotSupported",
+                    "description": "If this parameter is given with a `true` boolean value, if the given value argument is not supported, throws an `ArgumentException`",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "The boxed value as object",
+                "type": "Number|String|Boolean"
+            },
+            "class": "joopl.Convert",
+            "module": "System",
+            "namespace": "joopl"
+        }
+    ],
+    "warnings": []
+}

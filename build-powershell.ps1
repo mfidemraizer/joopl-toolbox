@@ -40,6 +40,7 @@ function buildFile
     $builtFiles.Add($fileName, [System.IO.Path]::GetFileName($outputFileName))
 
     Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force utf8
+    Get-Content $fullFileName | Out-File .\wonderbox.min.js -Force -encoding utf8 -Append
 }
 
 # joopl
@@ -47,7 +48,6 @@ buildFile InvalidOperationException.js
 buildFile Convert.js
 
 # joopl.collections
-buildFile Collection.js
 buildFile Enumerator.js
 buildFile Enumerable.js
 buildFile Index.js
@@ -59,7 +59,6 @@ buildFile ObservableList.js
 buildFile OrderedStringIndex.js
 buildFile Queryable.js
 buildFile Queue.js
-buildFile TypedList.js
 
 #joopl.net.http
 #buildFile HttpClient.js
@@ -77,7 +76,7 @@ write-host
 Remove-Item -Recurse -Force .\test\libs\joopl-toolbox -ErrorAction SilentlyContinue
 robocopy .\bin .\test\libs\joopl-toolbox  /NFL /NDL /NJH /NJS /nc /ns /np /e
 
-&$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js"
+<# &$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js"
 
 $ajaxMin.MinifyJavaScript((Get-Content .\test\DependencyUsageMap.js), $ajaxMinSettings) | Out-File .\test\DependencyUsageMap.js -Force
 
@@ -99,8 +98,9 @@ foreach($file in $builtFiles.Keys)
         write-host "File discarded!"
     }
 }
+#>
 
-yuidoc -n .
+yuidoc -n ./src --themedir ./yuidoc/themes/default
 
 write-host "Build process has finished"
 Start-Sleep -s 3

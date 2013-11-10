@@ -22,9 +22,28 @@
 (function() {
     "use strict";
 
+    /**
+		@module System
+		@namespace joopl
+    */
 	$namespace.register("joopl", function() {
+
+		/**
+			Represents a set of object conversion operations
+
+			@class Convert
+			@final
+		*/
 	    this.declareClass("Convert", {
 	        members: {
+	        	/**
+					Converts a primitive value to a boxed object
+
+					@method toObject
+					@param {number|string|boolean} value The whole value to convert to a boxed object
+					@param {boolean} throwOnNotSupported If this parameter is given with a `true` boolean value, if the given value argument is not supported, throws an `ArgumentException`
+					@return {Number|String|Boolean} The boxed value as object
+	        	*/
 	            toObject: function(value, throwOnNotSupported) {
 	                switch(typeof value) {
 	                    case "number":
@@ -40,7 +59,7 @@
 	                                reason: "Primitive type not supported"
 	                            });
 	                        } else {
-	                            return value;
+	                            return null;
 	                        }
 	                }
 	            } 

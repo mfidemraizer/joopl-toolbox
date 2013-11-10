@@ -1,9 +1,22 @@
 (function() {
     "use strict";
 
+    /**
+		@namespace joopl.collections
+    */
+
 	$namespace.register("joopl.collections", function() {
 		var collections = this;
 
+		/**
+			Represents an enumerable which defers certain operations until the enumerable is iterated.
+
+			@class Queryable
+			@extends joopl.collections.Enumerable
+			@final
+			@constructor
+			@param {joopl.collections.Enumerable} enumerable The enumerable to manage and defer some operations
+		*/
 		this.declareClass("Queryable", {
 			inherits: this.Enumerable,
 			ctor: function(args) {
@@ -26,10 +39,25 @@
 					return this._.enumerable; 
 				},
 
+				/**
+					Gets execution queue. This is used by the `Queryable` in order to enqueue defered operations.
+
+					@property executionQueue
+					@private
+					@readOnly
+					@type joopl.collections.Queue
+				*/
 				get executionQueue() { 
 					return this._.executionQueue; 
 				},
 
+				/**
+					Executes enqueued defered operations and returns the result of chained execution
+
+					@method executeQueue
+					@private
+					@return {object|null} Returns the result of executing the defered operations if the execution of the whole queue returns something
+				*/
 				executeQueue: function() {
 					var queuedItem = null;
 					var queuedMethod = null;
@@ -124,7 +152,7 @@
 					var list = new collections.List();
 
 					if(this.executionQueue.count() == 0) {
-						list.addRange(this.enumerable);
+						list.addRange(this);
 					} else {
 						list.addRange(this.executeQueue());
 					}

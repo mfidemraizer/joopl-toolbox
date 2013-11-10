@@ -23,7 +23,6 @@
     "use strict";
 
     /**
-    	@module Collections
 		@namespace joopl.collections
     */
 

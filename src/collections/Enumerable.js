@@ -22,7 +22,6 @@
     "use strict";
 
     /**
-    	@module Collections
 		@namespace joopl.collections
     */
 
@@ -381,6 +380,19 @@
 				*/
 				toArray: function() {
 					throw new $global.joopl.NotImplementedException({ memberName: "Enumerable.toArray" });
+				},
+
+				/**
+					Adds items in the enumerable to a `List` and returns it.
+
+					@method toList
+					@return {joopl.collections.List} A `List` containing current enumerable's items.
+				*/
+				toList: function() {
+					var list = new collections.List();
+					list.addRange(this);
+
+					return list;
 				}
 			}
 		});
