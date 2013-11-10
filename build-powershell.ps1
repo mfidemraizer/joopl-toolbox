@@ -40,7 +40,7 @@ function buildFile
     $builtFiles.Add($fileName, [System.IO.Path]::GetFileName($outputFileName))
 
     Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force utf8
-    Get-Content $fullFileName | Out-File .\wonderbox.min.js -Force -encoding utf8 -Append
+    Get-Content $fullFileName | Out-File .\joopl-toolbox.min.js -Force -encoding utf8 -Append
 }
 
 # joopl

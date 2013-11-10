@@ -126,7 +126,7 @@
 			},
 			members: {
 				get enumerator() {
-					return new $global.joopl.collections.ListEnumerator({ itemArray: this._.queue.underlyingQueue }));
+					return new $global.joopl.collections.ListEnumerator({ itemArray: this._.queue.underlyingQueue });
 				},
 
 				get queue() {
