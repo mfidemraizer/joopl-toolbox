@@ -1,10 +1,10 @@
 Clear-Host
 
-Add-Type -Path "C:\Program Files (x86)\Microsoft\Microsoft Ajax Minifier\AjaxMin.dll"
+Import-Module "C:\Program Files (x86)\Microsoft\Microsoft Ajax Minifier\AjaxMin.dll"
 
 $ajaxMin = New-Object Microsoft.Ajax.Utilities.Minifier
 $ajaxMinSettings = New-Object Microsoft.Ajax.Utilities.CodeSettings
-$ajaxMinSettings.StrictMode = [System.Boolean]::Parse("true")
+$ajaxMinSettings.StrictMode = $true
 
 $DependencyBuilder = "tools\dependencybuilder\joopl.dependencybuilder.exe"
 $currentDir = ([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Path))
@@ -40,7 +40,6 @@ function buildFile
     $builtFiles.Add($fileName, [System.IO.Path]::GetFileName($outputFileName))
 
     Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force utf8
-    Get-Content $fullFileName | Out-File .\joopl-toolbox.min.js -Force -encoding utf8 -Append
 }
 
 # joopl
@@ -50,15 +49,15 @@ buildFile Convert.js
 # joopl.collections
 buildFile Enumerator.js
 buildFile Enumerable.js
-buildFile Index.js
-buildFile IndexedList.js
 buildFile List.js
 buildFile ListEnumerator.js
 buildFile ObservableChange.js
 buildFile ObservableList.js
-buildFile OrderedStringIndex.js
 buildFile Queryable.js
 buildFile Queue.js
+buildFile Index.js
+buildFile OrderedStringIndex.js
+buildFile IndexedList.js
 
 #joopl.net.http
 #buildFile HttpClient.js
@@ -76,7 +75,7 @@ write-host
 Remove-Item -Recurse -Force .\test\libs\joopl-toolbox -ErrorAction SilentlyContinue
 robocopy .\bin .\test\libs\joopl-toolbox  /NFL /NDL /NJH /NJS /nc /ns /np /e
 
-<# &$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js"
+&$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js"
 
 $ajaxMin.MinifyJavaScript((Get-Content .\test\DependencyUsageMap.js), $ajaxMinSettings) | Out-File .\test\DependencyUsageMap.js -Force
 
@@ -90,7 +89,7 @@ foreach($file in $builtFiles.Keys)
     
     if(!$file.Contains("Queue")) 
     {
-        #$ajaxMin.MinifyJavaScript((Get-Content $outputFileName), $ajaxMinSettings) | Out-File $outputFileName -Force
+        $ajaxMin.MinifyJavaScript((Get-Content $outputFileName), $ajaxMinSettings) | Out-File $outputFileName -Force -encoding utf8
         write-host "Done!" 
     }
     else
@@ -98,9 +97,8 @@ foreach($file in $builtFiles.Keys)
         write-host "File discarded!"
     }
 }
-#>
 
-yuidoc -n ./src --themedir ./yuidoc/themes/default
+yuidoc ./src --themedir ./yuidoc/themes/default --no-code
 
 write-host "Build process has finished"
 Start-Sleep -s 3
