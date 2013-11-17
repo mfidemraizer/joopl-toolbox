@@ -1,0 +1,1 @@
+﻿"use strict";(function(){$namespace.register("joopl.collections",function(){this.declareClass("Enumerator",{members:{moveNext:function(){throw new $global.joopl.NotImplementedException({memberName:"Enumerator.moveNext"});},get hasNext(){throw new $global.joopl.NotImplementedException({memberName:"Enumerator.hasNext"});}}})})})()

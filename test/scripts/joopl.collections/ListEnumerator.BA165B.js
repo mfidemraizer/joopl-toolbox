@@ -1,0 +1,1 @@
+﻿"use strict";(function(){$namespace.register("joopl.collections",function(){this.declareClass("ListEnumerator",{inherits:this.Enumerator,ctor:function(n){this._.itemArray=n.itemArray;this._.index=-1},members:{get itemArray(){return this._.itemArray},moveNext:function(){return this.itemArray[++this._.index]},get hasNext(){return this._.index+1<this.itemArray.length}}})})})()

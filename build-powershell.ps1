@@ -42,22 +42,29 @@ function buildFile
     Get-Content $fullFileName | Out-File ($currentDir + "\" + $outputFileName) -Force utf8
 }
 
+Foreach($file in (Get-ChildItem -Recurse -Path .\src -Filter *.js))
+{
+    if($file.Name -ne "DependencyMap.js" -and $file.Name -ne "DependencyUsageMap.js") {
+        buildFile $file.Name
+    }
+}
+
 # joopl
-buildFile InvalidOperationException.js
-buildFile Convert.js
+#buildFile InvalidOperationException.js
+#buildFile Convert.js
 
 # joopl.collections
-buildFile Enumerator.js
-buildFile Enumerable.js
-buildFile List.js
-buildFile ListEnumerator.js
-buildFile ObservableChange.js
-buildFile ObservableList.js
-buildFile Queryable.js
-buildFile Queue.js
-buildFile Index.js
-buildFile OrderedStringIndex.js
-buildFile IndexedList.js
+#buildFile Enumerator.js
+#buildFile Enumerable.js
+#buildFile List.js
+#buildFile ListEnumerator.js
+#buildFile ObservableChange.js
+#buildFile ObservableList.js
+#buildFile Queryable.js
+#buildFile Queue.js
+#buildFile Index.js
+#buildFile OrderedStringIndex.js
+#buildFile IndexedList.js
 
 #joopl.net.http
 #buildFile HttpClient.js
@@ -75,9 +82,9 @@ write-host
 Remove-Item -Recurse -Force .\test\libs\joopl-toolbox -ErrorAction SilentlyContinue
 robocopy .\bin .\test\libs\joopl-toolbox  /NFL /NDL /NJH /NJS /nc /ns /np /e
 
-&$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js"
+&$DependencyBuilder -directories "$currentDir\test\scripts\joopl.collections" -outputdir "$currentDir\test\scripts\joopl.collections" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js;qunit.js" -moduleFiles "joopl.collections.js"
 
-$ajaxMin.MinifyJavaScript((Get-Content .\test\DependencyUsageMap.js), $ajaxMinSettings) | Out-File .\test\DependencyUsageMap.js -Force
+#$ajaxMin.MinifyJavaScript((Get-Content .\test\DependencyUsageMap.js), $ajaxMinSettings) | Out-File .\test\DependencyUsageMap.js -Force
 
 foreach($file in $builtFiles.Keys)
 {

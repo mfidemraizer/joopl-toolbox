@@ -1,4 +1,4 @@
-$manifest.file("joopl.collections.IndexedList.test.js", function () {
+$import.modules(["joopl.collections"], function () {
     "use strict";
 
     module("joopl.collections.IndexedList");

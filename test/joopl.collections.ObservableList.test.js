@@ -1,4 +1,4 @@
-$manifest.file("joopl.collections.ObservableList.test.js", function () {
+$import.modules(["joopl.collections"], function () {
     "use strict";
 
     module("joopl.collections.ObservableList");
