@@ -1,0 +1,213 @@
+"use strict";
+$import.map(
+	"joopl.collections.IndexedList.test",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableList.869224.js",
+  "scripts/joopl.collections/IndexedList.43B014.js",
+  "scripts/joopl.collections/Index.EDC5E9.js",
+  "scripts/joopl.collections/OrderedStringIndex.1DD98B.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/Queryable.05F786.js"
+]);
+"use strict";
+$import.map(
+	"joopl.collections",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableList.869224.js",
+  "scripts/joopl.collections/IndexedList.43B014.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/Index.EDC5E9.js",
+  "scripts/joopl.collections/OrderedStringIndex.1DD98B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js"
+]);
+"use strict";
+$import.map(
+	"joopl.collections.List.test",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js"
+]);
+"use strict";
+$import.map(
+	"joopl.collections.ObservableList.test",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableList.869224.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js"
+]);
+"use strict";
+$import.map(
+	"joopl.collections.Queue.test",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js"
+]);
+"use strict";
+$import.map(
+	"Enumerable.31F916",
+	[
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js"
+]);
+"use strict";
+$import.map(
+	"Index.EDC5E9",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js"
+]);
+"use strict";
+$import.map(
+	"IndexedList.43B014",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableList.869224.js",
+  "scripts/joopl.collections/Index.EDC5E9.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/Queryable.05F786.js"
+]);
+"use strict";
+$import.map(
+	"joopl.collections.FF3958",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableList.869224.js",
+  "scripts/joopl.collections/IndexedList.43B014.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/Index.EDC5E9.js"
+]);
+"use strict";
+$import.map(
+	"joopl.collections",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableList.869224.js",
+  "scripts/joopl.collections/IndexedList.43B014.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/Index.EDC5E9.js",
+  "scripts/joopl.collections/OrderedStringIndex.1DD98B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js"
+]);
+"use strict";
+$import.map(
+	"List.3C97C5",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js"
+]);
+"use strict";
+$import.map(
+	"ListEnumerator.BA165B",
+	[
+  "scripts/joopl.collections/Enumerator.44A4C6.js"
+]);
+"use strict";
+$import.map(
+	"ObservableList.869224",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/Queryable.05F786.js"
+]);
+"use strict";
+$import.map(
+	"OrderedStringIndex.1DD98B",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/Index.EDC5E9.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/ObservableChange.1A622D.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js"
+]);
+"use strict";
+$import.map(
+	"Queryable.05F786",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js"
+]);
+"use strict";
+$import.map(
+	"Queue.BDDC0D",
+	[
+  "scripts/joopl.collections/Enumerable.31F916.js",
+  "scripts/joopl.collections/Enumerator.44A4C6.js",
+  "scripts/joopl.collections/ListEnumerator.BA165B.js",
+  "scripts/joopl.collections/Queryable.05F786.js",
+  "scripts/joopl.collections/InvalidOperationException.173793.js",
+  "scripts/joopl.collections/List.3C97C5.js",
+  "scripts/joopl.collections/Queue.BDDC0D.js"
+]);

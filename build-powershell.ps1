@@ -82,13 +82,15 @@ write-host
 Remove-Item -Recurse -Force .\test\libs\joopl-toolbox -ErrorAction SilentlyContinue
 robocopy .\bin .\test\libs\joopl-toolbox  /NFL /NDL /NJH /NJS /nc /ns /np /e
 
-&$DependencyBuilder -directories "$currentDir\test\scripts\joopl.collections" -outputdir "$currentDir\test\scripts\joopl.collections" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js;qunit.js" -moduleFiles "joopl.collections.js"
+&$DependencyBuilder -directories "$currentDir\test" -outputdir "$currentDir\test" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js;qunit.js"
+#&$DependencyBuilder -directories "$currentDir\test\scripts\joopl.collections" -outputdir "$currentDir\test\scripts\joopl.collections" -excludefiles "joopl.toolbox.min.js;esprima.js;benchmark.js;qunit.min.js;qunit.js" -moduleFiles "joopl.collections.js"
 
 #$ajaxMin.MinifyJavaScript((Get-Content .\test\DependencyUsageMap.js), $ajaxMinSettings) | Out-File .\test\DependencyUsageMap.js -Force
 
 foreach($file in $builtFiles.Keys)
 {
-    write-host -NoNewline "Minifying $file..."
+    write-host -NoNewline "Mini
+    fying $file..."
 
     $outputFileName = $builtFiles.Get_Item($file)
     $outputFileName = "test\libs\joopl-toolbox\$outputFileName"
