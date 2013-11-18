@@ -1,8 +1,8 @@
-$namespace.register("joopl.collections", function() {
+$namespace.register("joopl.collections", function () {
     new this.ObservableList();
     new this.IndexedList();
-	new this.Enumerable();
-	new this.Enumerator();
+    new this.Enumerable();
+    new this.Enumerator();
     new this.List();
     new this.OrderedStringIndex();
     new this.Index();

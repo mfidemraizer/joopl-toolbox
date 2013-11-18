@@ -1,4 +1,4 @@
-﻿/*
+/*
  Copyright Matias Fidemraizer
  http://matiasfidemraizer.com
  http://www.linkedin.com/in/mfidemraizer/en
@@ -18,41 +18,48 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-
-(function () {
+(function() {
     "use strict";
 
     /**
-    	@namespace joopl.collections
-	*/
+		@namespace joopl.collections
+    */
+
 	$namespace.register("joopl.collections", function() {
 
 		/**
-			Represents the base class for an iterator to enumerate some sequence.
+			Represents a List-based enumerator implementation
 
-			@class Enumerator
+			@class ListEnumerator
+			@constructor
+			@param {Array} itemArray The underlying List's array
+			@extends Enumerator
 		*/
-		this.declareClass("Enumerator", {
+		this.declareClass("ListEnumerator", {
+			inherits: this.Enumerator,
+			ctor: function(args) {
+				this._.itemArray = args.itemArray;
+				this._.index = -1;
+			},
 			members: {
 				/**
-					In derived classes, moves the sequence to the next element and returns it.
+					Gets the underlying List's item array
 
-					@method moveNext
-					@returns {object} The next item.
+					@readOnly
+					@private
+					@property itemArray
+					@type Array
 				*/
-				moveNext: function() {
-					throw new $global.joopl.NotImplementedException({ memberName: "Enumerator.moveNext" });
+				get itemArray() {
+					return this._.itemArray;
 				},
 
-				/**
-					In derived classes, determines if the sequence has a next item.
+				moveNext: function() {
+					return this.itemArray[++this._.index];
+				},
 
-					@property hasNext
-					@type boolean
-					@readonly
-				*/
 				get hasNext() {
-					throw new $global.joopl.NotImplementedException({ memberName: "Enumerator.hasNext" });
+					return this._.index + 1 < this.itemArray.length;
 				}
 			}
 		});

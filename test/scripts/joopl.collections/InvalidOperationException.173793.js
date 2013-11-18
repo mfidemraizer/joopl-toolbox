@@ -1,1 +1,0 @@
-﻿"use strict";(function(){$namespace.register("joopl.collections",function(){this.declareClass("InvalidOperationException",{imports:$global.joopl.Exception,ctor:function(n){(n||n.message)&&(n.message="Operation could not be completed because an invalid state");this.base.ctor(n)}})})})()

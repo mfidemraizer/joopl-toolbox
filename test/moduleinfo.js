@@ -2,212 +2,179 @@
 $import.map(
 	"joopl.collections.IndexedList.test",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableList.869224.js",
-  "scripts/joopl.collections/IndexedList.43B014.js",
-  "scripts/joopl.collections/Index.EDC5E9.js",
-  "scripts/joopl.collections/OrderedStringIndex.1DD98B.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/Queryable.05F786.js"
-]);
-"use strict";
-$import.map(
-	"joopl.collections",
-	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableList.869224.js",
-  "scripts/joopl.collections/IndexedList.43B014.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/Index.EDC5E9.js",
-  "scripts/joopl.collections/OrderedStringIndex.1DD98B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ObservableList.js",
+  "scripts/joopl-toolbox/collections/IndexedList.js",
+  "scripts/joopl-toolbox/collections/Index.js",
+  "scripts/joopl-toolbox/collections/OrderedStringIndex.js",
+  "scripts/joopl-toolbox/collections/ObservableChange.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/Queryable.js"
 ]);
 "use strict";
 $import.map(
 	"joopl.collections.List.test",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/Queue.js"
 ]);
 "use strict";
 $import.map(
 	"joopl.collections.ObservableList.test",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableList.869224.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ObservableList.js",
+  "scripts/joopl-toolbox/collections/ObservableChange.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/Queue.js"
 ]);
 "use strict";
 $import.map(
 	"joopl.collections.Queue.test",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js"
 ]);
 "use strict";
 $import.map(
-	"Enumerable.31F916",
+	"Enumerable",
 	[
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js"
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js"
 ]);
 "use strict";
 $import.map(
-	"Index.EDC5E9",
+	"Index",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/Queue.js"
 ]);
 "use strict";
 $import.map(
-	"IndexedList.43B014",
+	"IndexedList",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableList.869224.js",
-  "scripts/joopl.collections/Index.EDC5E9.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/Queryable.05F786.js"
-]);
-"use strict";
-$import.map(
-	"joopl.collections.FF3958",
-	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableList.869224.js",
-  "scripts/joopl.collections/IndexedList.43B014.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/Index.EDC5E9.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ObservableList.js",
+  "scripts/joopl-toolbox/collections/Index.js",
+  "scripts/joopl-toolbox/collections/ObservableChange.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/Queryable.js"
 ]);
 "use strict";
 $import.map(
 	"joopl.collections",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableList.869224.js",
-  "scripts/joopl.collections/IndexedList.43B014.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/Index.EDC5E9.js",
-  "scripts/joopl.collections/OrderedStringIndex.1DD98B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ObservableList.js",
+  "scripts/joopl-toolbox/collections/IndexedList.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/Index.js",
+  "scripts/joopl-toolbox/collections/OrderedStringIndex.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/ObservableChange.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js"
 ]);
 "use strict";
 $import.map(
-	"List.3C97C5",
+	"List",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/Queue.js"
 ]);
 "use strict";
 $import.map(
-	"ListEnumerator.BA165B",
+	"ListEnumerator",
 	[
-  "scripts/joopl.collections/Enumerator.44A4C6.js"
+  "scripts/joopl-toolbox/collections/Enumerator.js"
 ]);
 "use strict";
 $import.map(
-	"ObservableList.869224",
+	"ObservableList",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/Queryable.05F786.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ObservableChange.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/Queryable.js"
 ]);
 "use strict";
 $import.map(
-	"OrderedStringIndex.1DD98B",
+	"OrderedStringIndex",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/Index.EDC5E9.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/ObservableChange.1A622D.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/Index.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/ObservableChange.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/Queue.js"
 ]);
 "use strict";
 $import.map(
-	"Queryable.05F786",
+	"Queryable",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/Queue.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js"
 ]);
 "use strict";
 $import.map(
-	"Queue.BDDC0D",
+	"Queue",
 	[
-  "scripts/joopl.collections/Enumerable.31F916.js",
-  "scripts/joopl.collections/Enumerator.44A4C6.js",
-  "scripts/joopl.collections/ListEnumerator.BA165B.js",
-  "scripts/joopl.collections/Queryable.05F786.js",
-  "scripts/joopl.collections/InvalidOperationException.173793.js",
-  "scripts/joopl.collections/List.3C97C5.js",
-  "scripts/joopl.collections/Queue.BDDC0D.js"
+  "scripts/joopl-toolbox/collections/Enumerable.js",
+  "scripts/joopl-toolbox/collections/Enumerator.js",
+  "scripts/joopl-toolbox/collections/ListEnumerator.js",
+  "scripts/joopl-toolbox/collections/Queryable.js",
+  "scripts/joopl-toolbox/InvalidOperationException.js",
+  "scripts/joopl-toolbox/collections/List.js",
+  "scripts/joopl-toolbox/collections/Queue.js"
 ]);
