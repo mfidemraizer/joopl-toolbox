@@ -10,4 +10,8 @@ $namespace.register("joopl.collections", function () {
     new this.Queryable();
     new this.ListEnumerator();
     new this.ObservableChange();
+
+    $namespace.using("joopl.xxx", function() {
+        new this.B();
+    });
 });
