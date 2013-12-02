@@ -111,6 +111,7 @@
 	*/
 
 	$namespace.register("joopl.collections", function() {
+		var collections = this;
 
 		/**
 			Represents a FIFO (First-In, First-Out) collection of objects
@@ -126,7 +127,7 @@
 			},
 			members: {
 				get enumerator() {
-					return new $global.joopl.collections.ListEnumerator({ itemArray: this._.queue.underlyingQueue });
+					return new collections.ListEnumerator({ itemArray: this._.queue.underlyingQueue });
 				},
 
 				get queue() {

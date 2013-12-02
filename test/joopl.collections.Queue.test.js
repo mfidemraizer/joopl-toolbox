@@ -1,32 +1,48 @@
 $import.modules(["joopl.collections"], function () {
     "use strict";
 
-    module("joopl.collections.Queue");
+    $namespace.register("joopl.collections", function() {
+        var collections = this;
 
-    test("Create a queue, enqueue items and check that an item is dequeued in the expected order", function () {
-        $namespace.using("joopl.collections", function () {
-            var queue = new this.Queue();
+        this.declareClass("QueueTest", {
+            ctor: function() {
+                module("joopl.collections.Queue");
+                
+                test
+                (
+                    "Create a queue, enqueue items and check that an item is dequeued in the expected order", 
+                    this.enqueue_enqueueSomeItemsAndDequeueOne_dequeuedItemWasTheExpectedOne
+                );
+            },
 
-            queue.enqueue("hello");
-            queue.enqueue("world");
-            queue.enqueue("man");
-            queue.enqueue("!");
+            members: {
+                enqueue_enqueueSomeItemsAndDequeueOne_dequeuedItemWasTheExpectedOne: function() {
+                    var queue = new collections.Queue();
 
-            var item = queue.dequeue();
+                    queue.enqueue("hello");
+                    queue.enqueue("world");
+                    queue.enqueue("man");
+                    queue.enqueue("!");
 
-            ok(item == "hello", "Dequeued item must be the first added one");
+                    var item = queue.dequeue();
 
-            item = queue.dequeue();
+                    ok(item == "hello", "Dequeued item must be the first added one");
 
-            ok(item == "world", "Dequeued item must be the second added one");
+                    item = queue.dequeue();
 
-            item = queue.dequeue();
+                    ok(item == "world", "Dequeued item must be the second added one");
 
-            ok(item == "man", "Dequeued item must be the third added one");
+                    item = queue.dequeue();
 
-            item = queue.dequeue();
+                    ok(item == "man", "Dequeued item must be the third added one");
 
-            ok(item == "!", "Dequeued item must be the fourth added one");
+                    item = queue.dequeue();
+
+                    ok(item == "!", "Dequeued item must be the fourth added one");
+                }
+            }
         });
+
+        new collections.QueueTest();
     });
 });

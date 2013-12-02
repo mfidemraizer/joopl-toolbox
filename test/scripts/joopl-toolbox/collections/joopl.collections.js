@@ -1,8 +1,6 @@
 $namespace.register("joopl.collections", function () {
     new this.ObservableList();
     new this.IndexedList();
-    new this.Enumerable();
-    new this.Enumerator();
     new this.List();
     new this.OrderedStringIndex();
     new this.Index();
@@ -10,8 +8,4 @@ $namespace.register("joopl.collections", function () {
     new this.Queryable();
     new this.ListEnumerator();
     new this.ObservableChange();
-
-    $namespace.using("joopl.xxx", function() {
-        new this.B();
-    });
 });

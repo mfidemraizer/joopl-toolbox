@@ -24,7 +24,7 @@
 
 	$namespace.register("joopl.collections", function() {
 	    this.declareClass("InvalidOperationException", {
-	        imports: $global.joopl.Exception,
+	        inherits: $global.joopl.Exception,
 	        ctor: function(args) {
               if(args || args.message) {
                 args.message = "Operation could not be completed because an invalid state";

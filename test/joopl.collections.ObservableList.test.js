@@ -1,26 +1,40 @@
 $import.modules(["joopl.collections"], function () {
     "use strict";
 
-    module("joopl.collections.ObservableList");
+    $namespace.register("joopl.collections", function() {
+        var collections = this;
 
-    test("Create list and add items. Check that changes can be observed.", function () {
-        $namespace.using("joopl.collections", function () {
-            var list = new this.ObservableList();
-            var collections = this;
+        this.declareClass("ObservableListTest", {
+            ctor: function() {
+                module("joopl.collections.ObservableList");
 
-            var changeCount = 0;
+                test
+                (
+                    "Create list and add items. Check that changes can be observed", 
+                    this.changed_checkChangeEventIsRaisedWhenSomeChangeIsProduced_changeEventWasFired
+                );
+            },
 
-            list.changed.addEventListener(function (args) {
-                changeCount++;
+            members: {
+                changed_checkChangeEventIsRaisedWhenSomeChangeIsProduced_changeEventWasFired: function() {
+                    var list = new collections.ObservableList();
+                    var changeCount = 0;
 
-                ok(args.changeKind == collections.ObservableChange.added, "As items are added to the list, the notifier must report that an item was added");
-            });
+                    list.changed.addEventListener(function (args) {
+                        changeCount++;
 
-            list.add("hello world");
-            list.add("hey hey hey!");
-            list.add("Yeah!!!!!!");
+                        ok(args.changeKind == collections.ObservableChange.added, "As items are added to the list, the notifier must report that an item was added");
+                    });
 
-            ok(changeCount == 3, "The list must notify that it changed three times");
+                    list.add("hello world");
+                    list.add("hey hey hey!");
+                    list.add("Yeah!!!!!!");
+
+                    ok(changeCount == 3, "The list must notify that it changed three times");
+                }
+            }
         });
+
+        new collections.ObservableListTest();
     });
 });
