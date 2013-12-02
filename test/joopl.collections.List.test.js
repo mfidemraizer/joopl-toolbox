@@ -1,4 +1,4 @@
-$import.modules(["joopl.collections.List.test"], function () {
+$import.modules(["joopl.collections"], function () {
     "use strict";
 
     $namespace.register("joopl.collections", function () {
@@ -76,6 +76,7 @@ $import.modules(["joopl.collections.List.test"], function () {
 
             members: {
                 add_createListAndAddSomeItemsAndCheckIfTheyWereAdded_itemsAddedSuccessfully: function () {
+                    
                     var list = new collections.List({
                         capacity: 10
                     });
