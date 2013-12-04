@@ -43,7 +43,7 @@
 				new this.List({ capacity: 5, itemArray: ["hello", "world"] }); // Both gives default items and list's capacity
 		*/
 		this.declareClass("List", {
-			inherits: this.Enumerable,
+			inherits: collections.Enumerable,
 			ctor: function(args) {
 				this._.capacity = args ? (typeof args.capacity == "number" ? args.capacity : 0) : 0;
 				this._.itemArray = args ? (args.itemArray instanceof Array ? args.itemArray : []) : [];
