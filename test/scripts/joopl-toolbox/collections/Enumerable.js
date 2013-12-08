@@ -69,7 +69,7 @@
 						});
 				*/
 				forEach: function(predicateFunc) {
-					var enumerator = this._.derived.enumerator;
+					var enumerator = this.derived.enumerator;
 					var end = false;
 
 					while(!end && enumerator.hasNext) {
@@ -158,7 +158,7 @@
 						var result = enumerable.firstOrNull();
 				*/
 				firstOrNull: function (predicateFunc) {
-				    var enumerator = this._.derived.enumerator;
+				    var enumerator = this.derived.enumerator;
 				    var found = false;
 				    var foundItem = null;
 
@@ -228,7 +228,7 @@
 						var result = enumerable.lastOrNull();
 				*/
 				lastOrNull: function (predicateFunc) {
-				    var reversed = this._.derived.reverse();
+				    var reversed = this.derived.reverse();
 
 				    return reversed.firstOrNull(predicateFunc);
 				},
@@ -250,7 +250,7 @@
 						var result = enumerable.last();
 				*/
 				last: function(predicateFunc) {
-					var reversed = this._.derived.reverse();
+					var reversed = this.derived.reverse();
 
 					return reversed.first(predicateFunc);
 				},

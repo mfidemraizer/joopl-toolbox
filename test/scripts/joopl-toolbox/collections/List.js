@@ -214,7 +214,7 @@
 				*/
 				addRange: function(enumerable) {
 					enumerable.forEach((function(item) {
-						this._.derived.add(item);
+						this.derived.add(item);
 					}).bind(this));
 				},
 
