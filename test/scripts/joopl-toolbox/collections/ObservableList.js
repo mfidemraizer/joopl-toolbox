@@ -25,8 +25,7 @@
 		@namespace joopl.collections
     */
 
-	$namespace.register("joopl.collections", function () {
-	    var collections = this;
+	$namespace.register("joopl.collections", function (collections) {
 
 	    /**
 			Represents a list of objects that can be observed for its changes:
@@ -40,7 +39,7 @@
 			@final
 	    */
 		this.declareClass("ObservableList", {
-			inherits: this.List,
+			inherits: collections.List,
 			ctor: function (args) {
 			    this.base.ctor(args);
 			},
