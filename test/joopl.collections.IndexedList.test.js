@@ -1,10 +1,8 @@
-$import.modules(["joopl.collections"], function () {
+$import.modules("joopl.collections", function () {
     "use strict";
 
-    $namespace.register("joopl.collections", function() {
-        var collections = this;
-
-        this.declareClass("IndexedListTest", {
+    $namespace.using("joopl.collections", function(collections) {
+        collections.declareClass("IndexedListTest", {
             ctor: function () {
                 module("joopl.collections.IndexedList");
                 
@@ -17,9 +15,10 @@ $import.modules(["joopl.collections"], function () {
 
             members: {
                 addItems_doIndexedSearch_itemsWereFound: function() {
-                    var list = new collections.IndexedList();
+                    var list;
+                    var index = new collections.OrderedStringIndex({ source: (list = new collections.IndexedList()), unique: true, property: "text" });
 
-                    list.addIndex(new collections.OrderedStringIndex({ source: list, unique: true, property: "text" }));
+                    list.addIndex(index);
                     list.add({ text: "hello" });
                     list.add({ text: "halo" })
                     list.add({ text: "world" });

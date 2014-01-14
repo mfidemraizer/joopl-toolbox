@@ -12,11 +12,18 @@
     <link rel="stylesheet" type="text/css" href="qunit.css" />
 
     <script src="qunit.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
-    <script src="joopl.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/joopl/2.5.2/joopl.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
     <script src="moduleinfo.js"></script>
     <script>
-        $import.modules(["joopl.collections.List.test", "joopl.collections.Queue.test", "joopl.collections.ObservableList.test", "joopl.collections.IndexedList.test"]);
+        $import.modules(
+            "joopl.collections.ListTest", 
+            "joopl.collections.Queue.test",
+            "joopl.collections.ObservableListTest", 
+            "joopl.collections.IndexedListTest", function() {
+
+            }
+        );
     </script>
 </body>
 </html>

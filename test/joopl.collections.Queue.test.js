@@ -1,10 +1,8 @@
-$import.modules(["joopl.collections"], function () {
+$import.modules("joopl.collections", function () {
     "use strict";
 
-    $namespace.register("joopl.collections", function() {
-        var collections = this;
-
-        this.declareClass("QueueTest", {
+    $namespace.using("joopl.collections", function(collections) {
+        collections.declareClass("QueueTest", {
             ctor: function() {
                 module("joopl.collections.Queue");
                 

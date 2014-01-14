@@ -18,383 +18,377 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-(function () {
-    "use strict";
-
     /**
 		@namespace joopl.collections
     */
 
-	$namespace.register("joopl.collections", function() {
-		var collections = this;
+$namespace.using("joopl", "joopl.collections", function(joopl, collections) {
+	/** 
+		Represents an abstract object that is able of being enumerated using supported iterators.
+		
+		@class Enumerable
+	*/
+	collections.declareClass("Enumerable", {
+		members: {
+			/**
+				Inherited classes return an instance of enumerable-specific enumerator.
 
-		/** 
-			Represents an abstract object that is able of being enumerated using supported iterators.
-			
-			@class Enumerable
-		*/
-		this.declareClass("Enumerable", {
-			members: {
-				/**
-					Inherited classes return an instance of enumerable-specific enumerator.
+				@property enumerator
+				@type joopl.collections.Enumerator
+				@readonly
+			*/
+			get enumerator() {
+				throw new joopl.NotImplementedException({ memberName: "enumerator" });
+			},
 
-					@property enumerator
-					@type joopl.collections.Enumerator
-					@readonly
-				*/
-				get enumerator() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "enumerator" }));
-				},
+			/**
+				Inherited classes return an enumerable holding same items in the sequence as current
+				one but in the reversed order.
 
-				/**
-					Inherited classes return an enumerable holding same items in the sequence as current
-					one but in the reversed order.
+				@method reverse
+				@returns joopl.collections.Enumerable
+			*/
+			reverse: function() {
+				throw new joopl.NotImplementedException({ memberName: "Enumerable.reverse" });
+			},
 
-					@method reverse
-					@returns joopl.collections.Enumerable
-				*/
-				reverse: function() {
-					throw new Error(new $global.joopl.NotImplementedException({ memberName: "Enumerable.reverse" }));
-				},
+			/**
+				Executes an action defined by a predicate function for each item in the enumerable sequence.
 
-				/**
-					Executes an action defined by a predicate function for each item in the enumerable sequence.
+				@method forEach
+				@param {Function} predicateFunc An action to perform for each item in the enumerable sequence
+				@returns void
+				@example
+					enumerable.forEach(function(item) {
+						// Do stuff here
+					});
+			*/
+			forEach: function(predicateFunc) {
+				var enumerator = this.derived.enumerator;
+				var end = false;
 
-					@method forEach
-					@param {Function} predicateFunc An action to perform for each item in the enumerable sequence
-					@returns void
-					@example
-						enumerable.forEach(function(item) {
-							// Do stuff here
-						});
-				*/
-				forEach: function(predicateFunc) {
-					var enumerator = this.derived.enumerator;
-					var end = false;
+				while(!end && enumerator.hasNext) {
+					var item = enumerator.moveNext();
 
-					while(!end && enumerator.hasNext) {
-						var item = enumerator.moveNext();
+					end = item === undefined;
 
-						end = item === undefined;
-
-						if(!end) {
-							predicateFunc(item);
-						}
+					if(!end) {
+						predicateFunc(item);
 					}
+				}
 
-					return this;
-				},
+				return this;
+			},
 
-				/**
-					Retrieves an unique item in the sequence. If there are no elements, returns `null`,
+			/**
+				Retrieves an unique item in the sequence. If there are no elements, returns `null`,
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to
-					specify how to determine the singleness of the searched item.
+				Optionally, it can take a predicate function as argument returning a boolean in order to
+				specify how to determine the singleness of the searched item.
 
-					@method singleOrNull 
-					@returns object
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
-					@example
-						var result = enumerable.singleOrNull(function(item) {
-							return item == "hello world";
-						});
+				@method singleOrNull 
+				@returns object
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
+				@example
+					var result = enumerable.singleOrNull(function(item) {
+						return item == "hello world";
+					});
 
-						var result2 = enumerable.singleOrNull();
-				*/
-				singleOrNull: function(predicateFunc) {
-				    var result = this.where(predicateFunc);
+					var result2 = enumerable.singleOrNull();
+			*/
+			singleOrNull: function(predicateFunc) {
+			    var result = this.where(predicateFunc);
 
-				    if (result.count() > 1) {
-				        throw new Error(new $global.joopl.InvalidOperationException({
-                            message: "Sequence contains more than one element"
-				        }));
-				    }
+			    if (result.count() > 1) {
+			        throw new joopl.InvalidOperationException({
+                        message: "Sequence contains more than one element"
+			        });
+			    }
 
-				    return result.firstOrNull();
-				},
+			    return result.firstOrNull();
+			},
 
-				/**
-					Retrieves an unique item in the sequence. If there are no elements, throws an `InvalidOperationException`,
+			/**
+				Retrieves an unique item in the sequence. If there are no elements, throws an `InvalidOperationException`,
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to
-					specify how to determine the singleness of the searched item.
+				Optionally, it can take a predicate function as argument returning a boolean in order to
+				specify how to determine the singleness of the searched item.
 
-					@method singleOrNull 
-					@returns object
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
-					@example
-						var result = enumerable.single(function(item) {
-							return item == "hello world";
-						});
+				@method singleOrNull 
+				@returns object
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
+				@example
+					var result = enumerable.single(function(item) {
+						return item == "hello world";
+					});
 
-						var result = enumerable.single();
-				*/
-				single: function(predicateFunc) {
-				    var result = this.singleOrNull(predicateFunc);
+					var result = enumerable.single();
+			*/
+			single: function(predicateFunc) {
+			    var result = this.singleOrNull(predicateFunc);
 
-				    if (result === null) {
-				        throw new Error(new $global.joopl.InvalidOperationException({
-				            message: "Sequence contains no elements"
-				        }));
-				    }
+			    if (result === null) {
+			        throw new joopl.InvalidOperationException({
+			            message: "Sequence contains no elements"
+			        });
+			    }
 
-				    return result;
-				},
+			    return result;
+			},
 
-				/**
-					Retrieves first item in the sequence. If there are no elements, returns null,
+			/**
+				Retrieves first item in the sequence. If there are no elements, returns null,
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to
-					specify what criteria should conform first item in the sequence.
+				Optionally, it can take a predicate function as argument returning a boolean in order to
+				specify what criteria should conform first item in the sequence.
 
-					@method firstOrNull 
-					@returns object
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
-					@example
-						var result = enumerable.firstOrNull(function(item) {
-							return item == "hello world";
-						});
+				@method firstOrNull 
+				@returns object
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
+				@example
+					var result = enumerable.firstOrNull(function(item) {
+						return item == "hello world";
+					});
 
-						var result = enumerable.firstOrNull();
-				*/
-				firstOrNull: function (predicateFunc) {
-				    var enumerator = this.derived.enumerator;
-				    var found = false;
-				    var foundItem = null;
+					var result = enumerable.firstOrNull();
+			*/
+			firstOrNull: function (predicateFunc) {
+			    var enumerator = this.derived.enumerator;
+			    var found = false;
+			    var foundItem = null;
 
-				    if (predicateFunc) {
-				        while (!found && enumerator.hasNext) {
-				            var item = enumerator.moveNext();
+			    if (predicateFunc) {
+			        while (!found && enumerator.hasNext) {
+			            var item = enumerator.moveNext();
 
-				            found = predicateFunc(item);
-				        }
+			            found = predicateFunc(item);
+			        }
 
-				        if (found) {
-				            foundItem = item;
-				            found = true;
-				        }
-				    } else {
-				        foundItem = enumerator.moveNext();
-				        found = foundItem != undefined;
-				    }
+			        if (found) {
+			            foundItem = item;
+			            found = true;
+			        }
+			    } else {
+			        foundItem = enumerator.moveNext();
+			        found = foundItem != undefined;
+			    }
 
-				    if (found) {
-				        return foundItem;
-				    } else {
-				        return null;
-				    }
-				},
+			    if (found) {
+			        return foundItem;
+			    } else {
+			        return null;
+			    }
+			},
 
-				/**
-					Retrieves first item in the sequence. If there are no elements, throws an `InvalidOperationException`,
+			/**
+				Retrieves first item in the sequence. If there are no elements, throws an `InvalidOperationException`,
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to
-					specify what criteria should conform first item in the sequence.
+				Optionally, it can take a predicate function as argument returning a boolean in order to
+				specify what criteria should conform first item in the sequence.
 
-					@method first
-					@returns object
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
-					@example
-						var result = enumerable.first(function(item) {
-							return item == "hello world";
-						});
+				@method first
+				@returns object
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the single item
+				@example
+					var result = enumerable.first(function(item) {
+						return item == "hello world";
+					});
 
-						var result = enumerable.first();
-				*/
-				first: function (predicateFunc) {
-				    var foundItem = this.firstOrNull(predicateFunc);
+					var result = enumerable.first();
+			*/
+			first: function (predicateFunc) {
+			    var foundItem = this.firstOrNull(predicateFunc);
 
-					if (foundItem !== null) {
-					    return foundItem;
-					} else {
-					    throw new Error(new $global.joopl.InvalidOperationException({ message: "Sequence contains no elements" }));
-					}
-				},
+				if (foundItem !== null) {
+				    return foundItem;
+				} else {
+				    throw new joopl.InvalidOperationException({ message: "Sequence contains no elements" });
+				}
+			},
 
-				/**
-					Retrieves last item in the sequence. If there are no elements, returns null,
+			/**
+				Retrieves last item in the sequence. If there are no elements, returns null,
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to
-					specify what criteria should conform last item in the sequence.
+				Optionally, it can take a predicate function as argument returning a boolean in order to
+				specify what criteria should conform last item in the sequence.
 
-					@method last 
-					@returns object
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the last item search
-					@example
-						var result = enumerable.lastOrNull(function(item) {
-							return item == "hello world";
-						});
+				@method last 
+				@returns object
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the last item search
+				@example
+					var result = enumerable.lastOrNull(function(item) {
+						return item == "hello world";
+					});
 
-						var result = enumerable.lastOrNull();
-				*/
-				lastOrNull: function (predicateFunc) {
-				    var reversed = this.derived.reverse();
+					var result = enumerable.lastOrNull();
+			*/
+			lastOrNull: function (predicateFunc) {
+			    var reversed = this.derived.reverse();
 
-				    return reversed.firstOrNull(predicateFunc);
-				},
+			    return reversed.firstOrNull(predicateFunc);
+			},
 
-				/**
-					Retrieves last item in the sequence. If there are no elements, throws an `InvalidOperationException`,
+			/**
+				Retrieves last item in the sequence. If there are no elements, throws an `InvalidOperationException`,
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to
-					specify what criteria should conform last item in the sequence.
+				Optionally, it can take a predicate function as argument returning a boolean in order to
+				specify what criteria should conform last item in the sequence.
 
-					@method lastOrNull
-					@returns object
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the last item search
-					@example
-						var result = enumerable.last(function(item) {
-							return item == "hello world";
-						});
+				@method lastOrNull
+				@returns object
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the last item search
+				@example
+					var result = enumerable.last(function(item) {
+						return item == "hello world";
+					});
 
-						var result = enumerable.last();
-				*/
-				last: function(predicateFunc) {
-					var reversed = this.derived.reverse();
+					var result = enumerable.last();
+			*/
+			last: function(predicateFunc) {
+				var reversed = this.derived.reverse();
 
-					return reversed.first(predicateFunc);
-				},
+				return reversed.first(predicateFunc);
+			},
 
-				/**
-					Counts items in the sequence.
+			/**
+				Counts items in the sequence.
 
-					Optionally, it can take a predicate function as argument returning a boolean in order to specify what criteria should conform 
-					each item to be counted in the sequence.
+				Optionally, it can take a predicate function as argument returning a boolean in order to specify what criteria should conform 
+				each item to be counted in the sequence.
 
-					@method count
-					@returns number
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the last item search
-					@example
-						var result = enumerable.count(function(item) {
-							return item == "hello world";
-						});
+				@method count
+				@returns number
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy the last item search
+				@example
+					var result = enumerable.count(function(item) {
+						return item == "hello world";
+					});
 
-						var result = enumerable.count();
+					var result = enumerable.count();
 
-				*/
-				count: function(predicateFunc) {
-					var count = 0;
+			*/
+			count: function(predicateFunc) {
+				var count = 0;
 
-					if(predicateFunc instanceof Function) {
-						this.forEach(function(item) {
-							if(predicateFunc(item)) {
-								count++;
-							}
-						});
-					} else {
-						this.forEach(function(item) {
-							count++;
-						});
-					}
-
-					return count;
-				},
-
-				/**
-					Returns items that conform a boolean condition.
-
-					@method where
-					@return joopl.collections.Enumerable An `Enumerable` containing found items
-					@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy an item
-					@example
-						var result = enumerable.where(function(item) {
-							return item == "hello world";
-						});
-
-				*/
-				where: function(predicateFunc) {
-					if(!(predicateFunc instanceof Function)) {
-						throw new Error(new $global.joopl.ArgumentException({
-							argName: "predicateFunc",
-							reason: "Given predicate function is not a function"
-						}));
-					}
-
-					var result = new $global.joopl.collections.List();
-
+				if(predicateFunc instanceof Function) {
 					this.forEach(function(item) {
 						if(predicateFunc(item)) {
-							result.add(item);
+							count++;
 						}
 					});
-
-					return result;
-				},
-
-				/**
-					Projects each item in the sequence. Item projection is defined by a predicate function.
-
-					@method select
-					@returns joopl.collections.Enumerable
-					@param {Function} predicateFunc A predicate function which provides how to project each item
-					@example
-						var result = enumerable.select(function(item) {
-							return { text: item };
-						});
-
-				*/
-				select: function(predicateFunc) {
-					if(!(predicateFunc instanceof Function)) {
-						throw new Error(new $global.joopl.ArgumentException({
-							argName: "predicateFunc",
-							reason: "Given predicate function is not a function"
-						}));
-					}
-
-					var result = new $global.joopl.collections.List();
-
+				} else {
 					this.forEach(function(item) {
-						result.add(predicateFunc(item));
+						count++;
+					});
+				}
+
+				return count;
+			},
+
+			/**
+				Returns items that conform a boolean condition.
+
+				@method where
+				@return joopl.collections.Enumerable An `Enumerable` containing found items
+				@param {Function} predicateFunc A predicate function which provides a boolean condition that must satisfy an item
+				@example
+					var result = enumerable.where(function(item) {
+						return item == "hello world";
 					});
 
-					return result;
-				},
-
-				skip: function(numberOfItems) {
-					throw new $global.joopl.NotImplementedException({ memberName: "Enumerable.skip" });
-				},
-
-
-				/**
-					Returns a queryable object for the sequence.
-
-					@method asQueryable
-					@returns joopl.collections.Enumerable
-					@param {Function} predicateFunc A predicate function which provides how to project each item
-					@example
-						var queryable = enumerable.asQueryable();
-
-				*/
-				asQueryable: function() {
-					return new collections.Queryable({ enumerable: this });
-				},
-
-				/**
-					Inherited classes returns items of this sequence as a standard JavaScript array object.
-
-					@method toArray
-					@returns Array
-					@example
-						var result = enumerable.toArray();
-
-				*/
-				toArray: function() {
-					throw new $global.joopl.NotImplementedException({ memberName: "Enumerable.toArray" });
-				},
-
-				/**
-					Adds items in the enumerable to a `List` and returns it.
-
-					@method toList
-					@return {joopl.collections.List} A `List` containing current enumerable's items.
-				*/
-				toList: function() {
-					var list = new collections.List();
-					list.addRange(this);
-
-					return list;
+			*/
+			where: function(predicateFunc) {
+				if(!(predicateFunc instanceof Function)) {
+					throw new joopl.ArgumentException({
+						argName: "predicateFunc",
+						reason: "Given predicate function is not a function"
+					});
 				}
+
+				var result = new collections.List();
+
+				this.forEach(function(item) {
+					if(predicateFunc(item)) {
+						result.add(item);
+					}
+				});
+
+				return result;
+			},
+
+			/**
+				Projects each item in the sequence. Item projection is defined by a predicate function.
+
+				@method select
+				@returns joopl.collections.Enumerable
+				@param {Function} predicateFunc A predicate function which provides how to project each item
+				@example
+					var result = enumerable.select(function(item) {
+						return { text: item };
+					});
+
+			*/
+			select: function(predicateFunc) {
+				if(!(predicateFunc instanceof Function)) {
+					throw new joopl.ArgumentException({
+						argName: "predicateFunc",
+						reason: "Given predicate function is not a function"
+					});
+				}
+
+				var result = new $global.joopl.collections.List();
+
+				this.forEach(function(item) {
+					result.add(predicateFunc(item));
+				});
+
+				return result;
+			},
+
+			skip: function(numberOfItems) {
+				throw new joopl.NotImplementedException({ memberName: "Enumerable.skip" });
+			},
+
+
+			/**
+				Returns a queryable object for the sequence.
+
+				@method asQueryable
+				@returns joopl.collections.Enumerable
+				@param {Function} predicateFunc A predicate function which provides how to project each item
+				@example
+					var queryable = enumerable.asQueryable();
+
+			*/
+			asQueryable: function() {
+				return new collections.Queryable({ enumerable: this });
+			},
+
+			/**
+				Inherited classes returns items of this sequence as a standard JavaScript array object.
+
+				@method toArray
+				@returns Array
+				@example
+					var result = enumerable.toArray();
+
+			*/
+			toArray: function() {
+				throw new joopl.NotImplementedException({ memberName: "Enumerable.toArray" });
+			},
+
+			/**
+				Adds items in the enumerable to a `List` and returns it.
+
+				@method toList
+				@return {joopl.collections.List} A `List` containing current enumerable's items.
+			*/
+			toList: function() {
+				var list = new collections.List();
+				list.addRange(this);
+
+				return list;
 			}
-		});
+		}
 	});
-})();
+});

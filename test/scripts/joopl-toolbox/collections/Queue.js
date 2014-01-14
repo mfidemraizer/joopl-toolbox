@@ -118,8 +118,8 @@
 			@extends joopl.collections.Enumerable
 			@final
 		*/
-		this.declareClass("Queue", {
-			inherits: this.Enumerable,
+		collections.declareClass("Queue", {
+			inherits: collections.Enumerable,
 			ctor: function(args) {
 				this._.queue = new Queue();
 			},
