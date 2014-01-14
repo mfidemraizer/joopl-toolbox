@@ -18,47 +18,43 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-(function() {
-    "use strict";
+/**
+    @namespace joopl.collections
+*/
+$namespace.using("joopl.collections", function(collections) {
 
-  /**
-      @namespace joopl.collections
-  */
-	$namespace.register("joopl.collections", function() {
+    /**
+      Represents an enumeration of available observable changes produced by a collection of objects
 
-      /**
-        Represents an enumeration of available observable changes produced by a collection of objects
+      @class ObservableChange
+      @final
+    */
+    collections.declareEnum("ObservableChange", {
+        /**
+          Defines that some item has been added to the collection
 
-        @class ObservableChange
-        @final
-      */
-	    this.declareEnum("ObservableChange", {
-          /**
-            Defines that some item has been added to the collection
+          @property added
+          @readOnly
+          @type number
+        */
+        added: 1,
 
-            @property added
-            @readOnly
-            @type number
-          */
-	        added: 1,
+        /**
+          Defines that some item has been replaced in the collection
 
-          /**
-            Defines that some item has been replaced in the collection
+          @property replaced
+          @readOnly
+          @type number
+        */
+        replaced: 2,
 
-            @property replaced
-            @readOnly
-            @type number
-          */
-	        replaced: 2,
+        /**
+          Defines that some item has been removed from the collection
 
-          /**
-            Defines that some item has been removed from the collection
-
-            @property removed
-            @readOnly
-            @type number
-          */
-	        removed: 3
-	    });
-	});
-})();
+          @property removed
+          @readOnly
+          @type number
+        */
+        removed: 3
+    });
+});

@@ -19,42 +19,38 @@
    limitations under the License.
 */
 
-(function () {
-    "use strict";
+/**
+	@namespace joopl.collections
+*/
+$namespace.using("joopl", "joopl.collections", function(joopl, collections) {
 
-    /**
-    	@namespace joopl.collections
+	/**
+		Represents the base class for an iterator to enumerate some sequence.
+
+		@class Enumerator
 	*/
-	$namespace.register("joopl.collections", function() {
+	collections.declareClass("Enumerator", {
+		members: {
+			/**
+				In derived classes, moves the sequence to the next element and returns it.
 
-		/**
-			Represents the base class for an iterator to enumerate some sequence.
+				@method moveNext
+				@returns {object} The next item.
+			*/
+			moveNext: function() {
+				throw new joopl.NotImplementedException({ memberName: "Enumerator.moveNext" });
+			},
 
-			@class Enumerator
-		*/
-		this.declareClass("Enumerator", {
-			members: {
-				/**
-					In derived classes, moves the sequence to the next element and returns it.
+			/**
+				In derived classes, determines if the sequence has a next item.
 
-					@method moveNext
-					@returns {object} The next item.
-				*/
-				moveNext: function() {
-					throw new $global.joopl.NotImplementedException({ memberName: "Enumerator.moveNext" });
-				},
-
-				/**
-					In derived classes, determines if the sequence has a next item.
-
-					@property hasNext
-					@type boolean
-					@readonly
-				*/
-				get hasNext() {
-					throw new $global.joopl.NotImplementedException({ memberName: "Enumerator.hasNext" });
-				}
+				@property hasNext
+				@type boolean
+				@readonly
+			*/
+			get hasNext() {
+				throw new joopl.NotImplementedException({ memberName: "Enumerator.hasNext" });
 			}
-		});
+		}
 	});
-})();
+});

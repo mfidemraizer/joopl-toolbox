@@ -110,9 +110,7 @@
 		@namespace joopl.collections
 	*/
 
-	$namespace.register("joopl.collections", function() {
-		var collections = this;
-
+	$namespace.using("joopl.collections", function(collections) {
 		/**
 			Represents a FIFO (First-In, First-Out) collection of objects
 

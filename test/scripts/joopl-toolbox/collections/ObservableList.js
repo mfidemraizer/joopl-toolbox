@@ -18,67 +18,59 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-(function() {
-    "use strict";
+$namespace.using("joopl.collections", function (collections) {
 
     /**
-		@namespace joopl.collections
+		Represents a list of objects that can be observed for its changes:
+
+		- When an item is *added*
+		- When an item is *replaced*
+		- When an item is *removed*
+
+		@class ObservableList
+		@extends joopl.collections.List
+		@final
     */
+	collections.declareClass("ObservableList", {
+		inherits: collections.List,
+		ctor: function (args) {
+		    this.base.ctor(args);
+		},
+		members: {
+			/**
+				Occurs when some item changes
 
-	$namespace.register("joopl.collections", function (collections) {
+				@event changed 
+				@param {object} source The `ObservableList` instance which fires the event
+				@param {joopl.collections.ObservableChange} changeKind The observable change kind (added, replaced and removed `ObservableChange` enumeration values`
+				@param {object} item The affected item by the whole change
+			*/
+		    events: ["changed"],
 
-	    /**
-			Represents a list of objects that can be observed for its changes:
-
-			- When an item is *added*
-			- When an item is *replaced*
-			- When an item is *removed*
-
-			@class ObservableList
-			@extends joopl.collections.List
-			@final
-	    */
-		this.declareClass("ObservableList", {
-			inherits: collections.List,
-			ctor: function (args) {
-			    this.base.ctor(args);
+		    add: function (item) {
+		        this.base.add(item);
+		        this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.added, item: item } });
 			},
-			members: {
-				/**
-					Occurs when some item changes
 
-					@event changed 
-					@param {object} source The `ObservableList` instance which fires the event
-					@param {joopl.collections.ObservableChange} changeKind The observable change kind (added, replaced and removed `ObservableChange` enumeration values`
-					@param {object} item The affected item by the whole change
-				*/
-			    events: ["changed"],
+			insertAt: function (index, item) {
+			    this.base.insertAt(index, item);
+			    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.added, item: item } });
+			},
 
-			    add: function (item) {
-			        this.base.add(item);
-			        this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.added, item: item } });
-				},
+			replaceAt: function (index, item) {
+			    this.base.replaceAt(index, item);
+			    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.replaced, oldItem: this.getItemAt(index), item: item } });
+			},
 
-				insertAt: function (index, item) {
-				    this.base.insertAt(index, item);
-				    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.added, item: item } });
-				},
+			remove: function (item) {
+			    this.base.remove(item);
+			    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.removed, item: item } });
+			},
 
-				replaceAt: function (index, item) {
-				    this.base.replaceAt(index, item);
-				    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.replaced, oldItem: this.getItemAt(index), item: item } });
-				},
-
-				remove: function (item) {
-				    this.base.remove(item);
-				    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.removed, item: item } });
-				},
-
-				removeAt: function (index) {
-				    this.base.removeAt(index);
-				    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.removed, item: this.getItemAt(index) } });
-				}
+			removeAt: function (index) {
+			    this.base.removeAt(index);
+			    this.changed.raise({ args: { source: this, changeKind: collections.ObservableChange.removed, item: this.getItemAt(index) } });
 			}
-		});
+		}
 	});
-})();
+});

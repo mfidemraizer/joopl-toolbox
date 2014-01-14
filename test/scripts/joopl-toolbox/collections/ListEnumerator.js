@@ -18,50 +18,46 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-(function() {
-    "use strict";
+/**
+	@namespace joopl.collections
+*/
 
-    /**
-		@namespace joopl.collections
-    */
+$namespace.using("joopl.collections", function(collections) {
 
-	$namespace.register("joopl.collections", function() {
+	/**
+		Represents a List-based enumerator implementation
 
-		/**
-			Represents a List-based enumerator implementation
+		@class ListEnumerator
+		@constructor
+		@param {Array} itemArray The underlying List's array
+		@extends Enumerator
+	*/
+	collections.declareClass("ListEnumerator", {
+		inherits: collections.Enumerator,
+		ctor: function(args) {
+			this._.itemArray = args.itemArray;
+			this._.index = -1;
+		},
+		members: {
+			/**
+				Gets the underlying List's item array
 
-			@class ListEnumerator
-			@constructor
-			@param {Array} itemArray The underlying List's array
-			@extends Enumerator
-		*/
-		this.declareClass("ListEnumerator", {
-			inherits: this.Enumerator,
-			ctor: function(args) {
-				this._.itemArray = args.itemArray;
-				this._.index = -1;
+				@readOnly
+				@private
+				@property itemArray
+				@type Array
+			*/
+			get itemArray() {
+				return this._.itemArray;
 			},
-			members: {
-				/**
-					Gets the underlying List's item array
 
-					@readOnly
-					@private
-					@property itemArray
-					@type Array
-				*/
-				get itemArray() {
-					return this._.itemArray;
-				},
+			moveNext: function() {
+				return this.itemArray[++this._.index];
+			},
 
-				moveNext: function() {
-					return this.itemArray[++this._.index];
-				},
-
-				get hasNext() {
-					return this._.index + 1 < this.itemArray.length;
-				}
+			get hasNext() {
+				return this._.index + 1 < this.itemArray.length;
 			}
-		});
+		}
 	});
-})();
+});
