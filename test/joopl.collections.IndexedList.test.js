@@ -15,7 +15,7 @@ $import.modules("joopl.collections", function () {
 
             members: {
                 addItems_doIndexedSearch_itemsWereFound: function() {
-                    var list;
+                    var list = new collections.IndexedList();
                     var index = new collections.OrderedStringIndex({ source: (list = new collections.IndexedList()), unique: true, property: "text" });
 
                     list.addIndex(index);

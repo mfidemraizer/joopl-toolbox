@@ -170,7 +170,7 @@ $namespace.using("joopl", "joopl.collections", function(joopl, collections) {
 			        }
 			    } else {
 			        foundItem = enumerator.moveNext();
-			        found = foundItem != undefined;
+			        found = typeof foundItem != "undefined";
 			    }
 
 			    if (found) {
